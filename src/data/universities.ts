@@ -1,59 +1,232 @@
-export interface University {
-  id: number;
-  name: string;
-  country: string;
-  researchFocus: string;
-  researchImpact: number;
-  studentSatisfaction: number;
-  infrastructureScore: number;
-  overallScore: number;
-  trend: number[]; // last 6 months ranking positions
+/**
+ * Universe Analytics — Smart Algorithm Engine
+ * =============================================
+ * Implements the QS 2026 World University Rankings methodology.
+ *
+ * The Overall Score (0–100) is a weighted average of 8 pillars:
+ *
+ *   1. Academic Reputation        — 30%  (peer review surveys)
+ *   2. Citations per Faculty       — 20%  (research impact normalised by faculty size)
+ *   3. Employer Reputation         — 15%  (graduate employability surveys)
+ *   4. Faculty-to-Student Ratio    — 10%  (teaching capacity indicator)
+ *   5. International Research Net  —  5%  (breadth of global collaboration)
+ *   6. Employment Outcomes         —  5%  (graduate employment rate)
+ *   7. Sustainability              —  5%  (ESG / SDG commitment score)
+ *   8. Intl Student & Faculty %    — 10%  (combined internationalisation measure)
+ *
+ * Each pillar score is on a 0–100 scale. The final score is:
+ *   overall = Σ (pillar_i × weight_i)
+ */
+
+// ─── Pillar weights (must sum to 1.0) ───────────────────────────────────────
+export const PILLAR_WEIGHTS = {
+  academicReputation: 0.30,
+  citationsPerFaculty: 0.20,
+  employerReputation: 0.15,
+  facultyStudentRatio: 0.10,
+  internationalResearchNetwork: 0.05,
+  employmentOutcomes: 0.05,
+  sustainability: 0.05,
+  internationalDiversity: 0.10,
+} as const;
+
+export type PillarKey = keyof typeof PILLAR_WEIGHTS;
+
+export const PILLAR_LABELS: Record<PillarKey, string> = {
+  academicReputation: "Academic Reputation",
+  citationsPerFaculty: "Citations / Faculty",
+  employerReputation: "Employer Reputation",
+  facultyStudentRatio: "Faculty–Student Ratio",
+  internationalResearchNetwork: "Intl Research Network",
+  employmentOutcomes: "Employment Outcomes",
+  sustainability: "Sustainability",
+  internationalDiversity: "Intl Diversity",
+};
+
+export type PillarScores = Record<PillarKey, number>;
+
+/**
+ * Calculate the weighted overall score.
+ * Clamps each pillar to [0, 100] before weighting.
+ */
+export function calculateOverallScore(pillars: PillarScores): number {
+  let total = 0;
+  for (const key of Object.keys(PILLAR_WEIGHTS) as PillarKey[]) {
+    const clamped = Math.max(0, Math.min(100, pillars[key]));
+    total += clamped * PILLAR_WEIGHTS[key];
+  }
+  return Math.round(total * 10) / 10;
 }
 
-const calcOverall = (r: number, s: number, i: number) =>
-  Math.round((r * 0.4 + s * 0.3 + i * 0.3) * 10) / 10;
+/**
+ * Simulate score growth by a growth factor (0-100 slider value).
+ * Factor 50 = no change, <50 = decline, >50 = improvement.
+ */
+export function projectScores(pillars: PillarScores, growthFactor: number): PillarScores {
+  const multiplier = 1 + (growthFactor - 50) / 500; // ±10% range
+  const result = { ...pillars };
+  for (const key of Object.keys(result) as PillarKey[]) {
+    result[key] = Math.round(Math.min(100, Math.max(0, result[key] * multiplier)) * 10) / 10;
+  }
+  return result;
+}
 
-const BASE_DATA: Omit<University, "overallScore">[] = [
-  { id: 1, name: "Massachusetts Institute of Technology", country: "USA", researchFocus: "Engineering", researchImpact: 98.2, studentSatisfaction: 94.1, infrastructureScore: 97.5, trend: [1, 1, 2, 1, 1, 1] },
-  { id: 2, name: "University of Oxford", country: "UK", researchFocus: "Humanities", researchImpact: 96.8, studentSatisfaction: 93.5, infrastructureScore: 95.2, trend: [3, 2, 2, 2, 2, 2] },
-  { id: 3, name: "Stanford University", country: "USA", researchFocus: "Technology", researchImpact: 97.1, studentSatisfaction: 92.8, infrastructureScore: 96.0, trend: [2, 3, 1, 3, 3, 3] },
-  { id: 4, name: "University of Cambridge", country: "UK", researchFocus: "Sciences", researchImpact: 95.5, studentSatisfaction: 91.7, infrastructureScore: 94.8, trend: [4, 4, 4, 4, 4, 4] },
-  { id: 5, name: "ETH Zurich", country: "Switzerland", researchFocus: "Engineering", researchImpact: 94.2, studentSatisfaction: 90.5, infrastructureScore: 96.3, trend: [5, 5, 5, 5, 5, 5] },
-  { id: 6, name: "University of Tokyo", country: "Japan", researchFocus: "Sciences", researchImpact: 91.8, studentSatisfaction: 88.2, infrastructureScore: 93.5, trend: [7, 6, 6, 6, 6, 6] },
-  { id: 7, name: "National University of Singapore", country: "Singapore", researchFocus: "Technology", researchImpact: 90.5, studentSatisfaction: 89.7, infrastructureScore: 94.1, trend: [6, 7, 7, 7, 7, 7] },
-  { id: 8, name: "University of Melbourne", country: "Australia", researchFocus: "Medicine", researchImpact: 89.3, studentSatisfaction: 87.5, infrastructureScore: 91.2, trend: [8, 8, 9, 8, 8, 8] },
-  { id: 9, name: "University of Toronto", country: "Canada", researchFocus: "Humanities", researchImpact: 88.7, studentSatisfaction: 86.9, infrastructureScore: 90.8, trend: [9, 9, 8, 9, 9, 9] },
-  { id: 10, name: "Tsinghua University", country: "China", researchFocus: "Engineering", researchImpact: 92.1, studentSatisfaction: 85.3, infrastructureScore: 93.8, trend: [10, 10, 10, 10, 10, 10] },
-  { id: 11, name: "Ludwig Maximilian University", country: "Germany", researchFocus: "Sciences", researchImpact: 87.4, studentSatisfaction: 84.6, infrastructureScore: 89.5, trend: [11, 12, 11, 11, 11, 11] },
-  { id: 12, name: "Seoul National University", country: "South Korea", researchFocus: "Technology", researchImpact: 86.9, studentSatisfaction: 85.1, infrastructureScore: 90.2, trend: [12, 11, 12, 12, 12, 12] },
-  { id: 13, name: "University of São Paulo", country: "Brazil", researchFocus: "Medicine", researchImpact: 83.5, studentSatisfaction: 82.1, infrastructureScore: 85.7, trend: [14, 13, 13, 14, 13, 13] },
-  { id: 14, name: "Indian Institute of Technology Bombay", country: "India", researchFocus: "Engineering", researchImpact: 85.2, studentSatisfaction: 81.8, infrastructureScore: 84.3, trend: [13, 14, 14, 13, 14, 14] },
-  { id: 15, name: "University of Cape Town", country: "South Africa", researchFocus: "Humanities", researchImpact: 80.1, studentSatisfaction: 79.5, infrastructureScore: 82.6, trend: [15, 15, 15, 15, 15, 15] },
+// ─── University interface ───────────────────────────────────────────────────
+export interface University {
+  id: string;
+  name: string;
+  country: string;
+  city: string;
+  founded: number;
+  students: number;
+  researchFocus: string;
+  logo: string; // emoji placeholder
+  pillars: PillarScores;
+  overallScore: number;
+  rank: number;
+  trend: number[]; // rank positions for last 6 months
+  highlights: string[];
+}
+
+// ─── Seed data ──────────────────────────────────────────────────────────────
+const RAW: Omit<University, "overallScore" | "rank">[] = [
+  {
+    id: "mit", name: "Massachusetts Institute of Technology", country: "USA", city: "Cambridge, MA", founded: 1861, students: 11520, researchFocus: "Engineering & Technology", logo: "🏛️",
+    pillars: { academicReputation: 100, citationsPerFaculty: 99.5, employerReputation: 100, facultyStudentRatio: 98.2, internationalResearchNetwork: 96.1, employmentOutcomes: 99.0, sustainability: 91.3, internationalDiversity: 94.7 },
+    trend: [1, 1, 1, 1, 1, 1], highlights: ["$2.1B annual research expenditure", "97 Nobel laureates affiliated", "Top AI & Robotics lab globally"],
+  },
+  {
+    id: "oxford", name: "University of Oxford", country: "UK", city: "Oxford", founded: 1096, students: 26015, researchFocus: "Humanities & Sciences", logo: "🎓",
+    pillars: { academicReputation: 99.5, citationsPerFaculty: 92.4, employerReputation: 99.8, facultyStudentRatio: 97.5, internationalResearchNetwork: 98.7, employmentOutcomes: 97.6, sustainability: 95.8, internationalDiversity: 97.2 },
+    trend: [3, 2, 2, 3, 2, 2], highlights: ["Oldest English-speaking university", "Leading in vaccine research", "Rhodes Scholarship host"],
+  },
+  {
+    id: "stanford", name: "Stanford University", country: "USA", city: "Stanford, CA", founded: 1885, students: 17249, researchFocus: "Technology & Business", logo: "🌲",
+    pillars: { academicReputation: 98.7, citationsPerFaculty: 98.1, employerReputation: 99.5, facultyStudentRatio: 96.8, internationalResearchNetwork: 93.2, employmentOutcomes: 99.5, sustainability: 89.7, internationalDiversity: 91.4 },
+    trend: [2, 3, 3, 2, 3, 3], highlights: ["Silicon Valley innovation hub", "$37.8B endowment", "85+ startups per year"],
+  },
+  {
+    id: "cambridge", name: "University of Cambridge", country: "UK", city: "Cambridge", founded: 1209, students: 24450, researchFocus: "Sciences & Mathematics", logo: "📚",
+    pillars: { academicReputation: 99.2, citationsPerFaculty: 91.8, employerReputation: 98.9, facultyStudentRatio: 96.3, internationalResearchNetwork: 97.5, employmentOutcomes: 96.2, sustainability: 94.1, internationalDiversity: 96.5 },
+    trend: [4, 4, 4, 4, 4, 4], highlights: ["121 Nobel Prize winners", "Cavendish Laboratory breakthroughs", "Cambridge University Press since 1534"],
+  },
+  {
+    id: "eth", name: "ETH Zurich", country: "Switzerland", city: "Zurich", founded: 1855, students: 23500, researchFocus: "Engineering & Natural Sciences", logo: "⚙️",
+    pillars: { academicReputation: 96.5, citationsPerFaculty: 97.3, employerReputation: 90.2, facultyStudentRatio: 91.5, internationalResearchNetwork: 99.1, employmentOutcomes: 88.4, sustainability: 97.5, internationalDiversity: 98.3 },
+    trend: [5, 5, 5, 5, 5, 5], highlights: ["21 Nobel Prize winners including Einstein", "Top European engineering school", "World-class quantum computing research"],
+  },
+  {
+    id: "nus", name: "National University of Singapore", country: "Singapore", city: "Singapore", founded: 1905, students: 43000, researchFocus: "Technology & Medicine", logo: "🦁",
+    pillars: { academicReputation: 89.7, citationsPerFaculty: 85.3, employerReputation: 95.8, facultyStudentRatio: 82.6, internationalResearchNetwork: 88.1, employmentOutcomes: 93.2, sustainability: 90.4, internationalDiversity: 92.7 },
+    trend: [7, 6, 6, 6, 6, 6], highlights: ["Asia's leading research university", "Deep tech startup ecosystem", "Global health innovation center"],
+  },
+  {
+    id: "utokyo", name: "University of Tokyo", country: "Japan", city: "Tokyo", founded: 1877, students: 28171, researchFocus: "Sciences & Engineering", logo: "🗾",
+    pillars: { academicReputation: 95.2, citationsPerFaculty: 78.4, employerReputation: 92.7, facultyStudentRatio: 88.3, internationalResearchNetwork: 81.5, employmentOutcomes: 90.1, sustainability: 87.6, internationalDiversity: 68.2 },
+    trend: [6, 7, 7, 7, 7, 7], highlights: ["11 Nobel Prize laureates", "Japan's premier research institution", "Leading robotics & materials science"],
+  },
+  {
+    id: "tsinghua", name: "Tsinghua University", country: "China", city: "Beijing", founded: 1911, students: 53302, researchFocus: "Engineering & Computer Science", logo: "🏯",
+    pillars: { academicReputation: 92.1, citationsPerFaculty: 93.6, employerReputation: 88.3, facultyStudentRatio: 79.5, internationalResearchNetwork: 82.4, employmentOutcomes: 91.8, sustainability: 85.2, internationalDiversity: 61.3 },
+    trend: [10, 9, 9, 8, 8, 8], highlights: ["China's top engineering school", "Major AI research publications", "Leading chip design research"],
+  },
+  {
+    id: "melbourne", name: "University of Melbourne", country: "Australia", city: "Melbourne", founded: 1853, students: 52000, researchFocus: "Medicine & Life Sciences", logo: "🦘",
+    pillars: { academicReputation: 88.5, citationsPerFaculty: 80.2, employerReputation: 87.6, facultyStudentRatio: 75.8, internationalResearchNetwork: 89.3, employmentOutcomes: 82.1, sustainability: 92.7, internationalDiversity: 95.4 },
+    trend: [8, 8, 8, 9, 9, 9], highlights: ["#1 in Australia consistently", "Biomedical research powerhouse", "Pioneering cochlear implant research"],
+  },
+  {
+    id: "toronto", name: "University of Toronto", country: "Canada", city: "Toronto", founded: 1827, students: 97000, researchFocus: "AI & Health Sciences", logo: "🍁",
+    pillars: { academicReputation: 90.1, citationsPerFaculty: 82.7, employerReputation: 85.4, facultyStudentRatio: 72.3, internationalResearchNetwork: 87.6, employmentOutcomes: 84.5, sustainability: 89.3, internationalDiversity: 90.8 },
+    trend: [9, 10, 10, 10, 10, 10], highlights: ["Birthplace of deep learning", "Vector Institute for AI partnership", "Largest university in Canada"],
+  },
+  {
+    id: "seoul", name: "Seoul National University", country: "South Korea", city: "Seoul", founded: 1946, students: 28378, researchFocus: "Technology & Engineering", logo: "🇰🇷",
+    pillars: { academicReputation: 85.3, citationsPerFaculty: 76.1, employerReputation: 88.9, facultyStudentRatio: 80.7, internationalResearchNetwork: 74.5, employmentOutcomes: 87.3, sustainability: 82.1, internationalDiversity: 65.8 },
+    trend: [11, 11, 12, 11, 11, 11], highlights: ["Korea's flagship university", "Semiconductor research leader", "Strong Samsung/SK partnerships"],
+  },
+  {
+    id: "lmu", name: "Ludwig Maximilian University", country: "Germany", city: "Munich", founded: 1472, students: 52425, researchFocus: "Natural Sciences & Medicine", logo: "🇩🇪",
+    pillars: { academicReputation: 86.8, citationsPerFaculty: 74.5, employerReputation: 82.3, facultyStudentRatio: 71.2, internationalResearchNetwork: 85.4, employmentOutcomes: 80.6, sustainability: 88.7, internationalDiversity: 78.9 },
+    trend: [12, 12, 11, 12, 12, 12], highlights: ["Max Planck Society partner", "42 Nobel Prize connections", "Elite German Excellence University"],
+  },
+  {
+    id: "iitb", name: "Indian Institute of Technology Bombay", country: "India", city: "Mumbai", founded: 1958, students: 12000, researchFocus: "Engineering & CS", logo: "🇮🇳",
+    pillars: { academicReputation: 72.5, citationsPerFaculty: 81.3, employerReputation: 84.7, facultyStudentRatio: 85.2, internationalResearchNetwork: 62.1, employmentOutcomes: 88.9, sustainability: 71.4, internationalDiversity: 42.8 },
+    trend: [14, 13, 13, 13, 13, 13], highlights: ["India's premier tech institute", "Highest employer demand in Asia", "Strong Silicon Valley alumni network"],
+  },
+  {
+    id: "usp", name: "University of São Paulo", country: "Brazil", city: "São Paulo", founded: 1934, students: 95000, researchFocus: "Medicine & Agriculture", logo: "🇧🇷",
+    pillars: { academicReputation: 80.2, citationsPerFaculty: 59.8, employerReputation: 78.5, facultyStudentRatio: 65.3, internationalResearchNetwork: 71.4, employmentOutcomes: 72.1, sustainability: 83.5, internationalDiversity: 45.2 },
+    trend: [13, 14, 14, 14, 14, 14], highlights: ["Latin America's #1 research output", "Tropical disease research leader", "15 campus locations across São Paulo state"],
+  },
+  {
+    id: "uct", name: "University of Cape Town", country: "South Africa", city: "Cape Town", founded: 1829, students: 29000, researchFocus: "Health & Development", logo: "🇿🇦",
+    pillars: { academicReputation: 68.4, citationsPerFaculty: 55.7, employerReputation: 65.8, facultyStudentRatio: 62.1, internationalResearchNetwork: 72.8, employmentOutcomes: 61.3, sustainability: 78.9, internationalDiversity: 70.5 },
+    trend: [15, 15, 15, 15, 15, 15], highlights: ["Africa's leading university", "Heart transplant pioneering institution", "HIV/AIDS research center of excellence"],
+  },
 ];
 
-export const generateUniversities = (): University[] =>
-  BASE_DATA.map((u) => ({
+// Build the final dataset with computed scores and ranks
+export function generateUniversities(): University[] {
+  const withScores = RAW.map((u) => ({
     ...u,
-    overallScore: calcOverall(u.researchImpact, u.studentSatisfaction, u.infrastructureScore),
-  })).sort((a, b) => b.overallScore - a.overallScore);
+    overallScore: calculateOverallScore(u.pillars),
+    rank: 0,
+  }));
+  withScores.sort((a, b) => b.overallScore - a.overallScore);
+  withScores.forEach((u, i) => (u.rank = i + 1));
+  return withScores;
+}
 
-export const refreshScores = (unis: University[]): University[] =>
-  unis
-    .map((u) => {
-      const jitter = () => Math.round((Math.random() * 4 - 2) * 10) / 10;
-      const clamp = (v: number) => Math.min(100, Math.max(0, v));
-      const ri = clamp(u.researchImpact + jitter());
-      const ss = clamp(u.studentSatisfaction + jitter());
-      const is_ = clamp(u.infrastructureScore + jitter());
-      return {
-        ...u,
-        researchImpact: ri,
-        studentSatisfaction: ss,
-        infrastructureScore: is_,
-        overallScore: calcOverall(ri, ss, is_),
-      };
-    })
-    .sort((a, b) => b.overallScore - a.overallScore);
+/**
+ * Simulate a real-time refresh: jitter every pillar by ±2 points,
+ * then recalculate scores and re-sort.
+ */
+export function refreshScores(unis: University[]): University[] {
+  const jitter = () => Math.round((Math.random() * 4 - 2) * 10) / 10;
+  const clamp = (v: number) => Math.min(100, Math.max(0, v));
 
-export const COUNTRIES = [...new Set(BASE_DATA.map((u) => u.country))].sort();
-export const RESEARCH_FOCUSES = [...new Set(BASE_DATA.map((u) => u.researchFocus))].sort();
+  const updated = unis.map((u) => {
+    const newPillars = { ...u.pillars };
+    for (const key of Object.keys(newPillars) as PillarKey[]) {
+      newPillars[key] = clamp(newPillars[key] + jitter());
+    }
+    return { ...u, pillars: newPillars, overallScore: calculateOverallScore(newPillars) };
+  });
+
+  updated.sort((a, b) => b.overallScore - a.overallScore);
+  updated.forEach((u, i) => (u.rank = i + 1));
+  return updated;
+}
+
+// ─── Filter constants ───────────────────────────────────────────────────────
+export const COUNTRIES = [...new Set(RAW.map((u) => u.country))].sort();
+export const RESEARCH_FOCUSES = [...new Set(RAW.map((u) => u.researchFocus))].sort();
+export const SUBJECTS = ["Engineering", "Computer Science", "Medicine", "Business", "Arts & Humanities", "Natural Sciences"];
+
+// ─── Activity feed simulation ───────────────────────────────────────────────
+export interface ActivityItem {
+  id: number;
+  text: string;
+  time: string;
+  type: "update" | "new" | "alert";
+}
+
+export function generateActivityFeed(): ActivityItem[] {
+  const names = RAW.map((r) => r.name);
+  const actions = [
+    { prefix: "Updated: Citations data for", type: "update" as const },
+    { prefix: "New: Employer survey results for", type: "new" as const },
+    { prefix: "Updated: Sustainability index for", type: "update" as const },
+    { prefix: "Alert: Rank change detected for", type: "alert" as const },
+    { prefix: "New: International partnership for", type: "new" as const },
+    { prefix: "Updated: Student satisfaction for", type: "update" as const },
+  ];
+  const mins = [1, 3, 7, 12, 18, 25, 34, 45];
+  return Array.from({ length: 8 }, (_, i) => {
+    const action = actions[i % actions.length];
+    const name = names[Math.floor(Math.random() * names.length)];
+    return { id: i, text: `${action.prefix} ${name}`, time: `${mins[i]}m ago`, type: action.type };
+  });
+}
