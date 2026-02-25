@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Rankings from "./pages/Rankings";
 import UniversityProfile from "./pages/UniversityProfile";
 import Methodology from "./pages/Methodology";
+import FindMyMatch from "./pages/FindMyMatch";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Home />} />
           <Route path="/rankings" element={<Rankings />} />
           <Route path="/university/:id" element={<UniversityProfile />} />
+          <Route path="/find-my-match" element={<FindMyMatch />} />
           <Route path="/methodology" element={<Methodology />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
