@@ -81,6 +81,7 @@ export interface University {
   students: number;
   researchFocus: string;
   logo: string; // emoji placeholder
+  domain: string; // official website domain for Logo.dev
   pillars: PillarScores;
   overallScore: number;
   rank: number;
@@ -91,77 +92,77 @@ export interface University {
 // ─── Seed data ──────────────────────────────────────────────────────────────
 const RAW: Omit<University, "overallScore" | "rank">[] = [
   {
-    id: "mit", name: "Massachusetts Institute of Technology", country: "USA", city: "Cambridge, MA", founded: 1861, students: 11520, researchFocus: "Engineering & Technology", logo: "🏛️",
+    id: "mit", name: "Massachusetts Institute of Technology", country: "USA", city: "Cambridge, MA", founded: 1861, students: 11520, researchFocus: "Engineering & Technology", logo: "🏛️", domain: "mit.edu",
     pillars: { academicReputation: 100, citationsPerFaculty: 99.5, employerReputation: 100, facultyStudentRatio: 98.2, internationalResearchNetwork: 96.1, employmentOutcomes: 99.0, sustainability: 91.3, internationalDiversity: 94.7 },
     trend: [1, 1, 1, 1, 1, 1], highlights: ["$2.1B annual research expenditure", "97 Nobel laureates affiliated", "Top AI & Robotics lab globally"],
   },
   {
-    id: "oxford", name: "University of Oxford", country: "UK", city: "Oxford", founded: 1096, students: 26015, researchFocus: "Humanities & Sciences", logo: "🎓",
+    id: "oxford", name: "University of Oxford", country: "UK", city: "Oxford", founded: 1096, students: 26015, researchFocus: "Humanities & Sciences", logo: "🎓", domain: "ox.ac.uk",
     pillars: { academicReputation: 99.5, citationsPerFaculty: 92.4, employerReputation: 99.8, facultyStudentRatio: 97.5, internationalResearchNetwork: 98.7, employmentOutcomes: 97.6, sustainability: 95.8, internationalDiversity: 97.2 },
     trend: [3, 2, 2, 3, 2, 2], highlights: ["Oldest English-speaking university", "Leading in vaccine research", "Rhodes Scholarship host"],
   },
   {
-    id: "stanford", name: "Stanford University", country: "USA", city: "Stanford, CA", founded: 1885, students: 17249, researchFocus: "Technology & Business", logo: "🌲",
+    id: "stanford", name: "Stanford University", country: "USA", city: "Stanford, CA", founded: 1885, students: 17249, researchFocus: "Technology & Business", logo: "🌲", domain: "stanford.edu",
     pillars: { academicReputation: 98.7, citationsPerFaculty: 98.1, employerReputation: 99.5, facultyStudentRatio: 96.8, internationalResearchNetwork: 93.2, employmentOutcomes: 99.5, sustainability: 89.7, internationalDiversity: 91.4 },
     trend: [2, 3, 3, 2, 3, 3], highlights: ["Silicon Valley innovation hub", "$37.8B endowment", "85+ startups per year"],
   },
   {
-    id: "cambridge", name: "University of Cambridge", country: "UK", city: "Cambridge", founded: 1209, students: 24450, researchFocus: "Sciences & Mathematics", logo: "📚",
+    id: "cambridge", name: "University of Cambridge", country: "UK", city: "Cambridge", founded: 1209, students: 24450, researchFocus: "Sciences & Mathematics", logo: "📚", domain: "cam.ac.uk",
     pillars: { academicReputation: 99.2, citationsPerFaculty: 91.8, employerReputation: 98.9, facultyStudentRatio: 96.3, internationalResearchNetwork: 97.5, employmentOutcomes: 96.2, sustainability: 94.1, internationalDiversity: 96.5 },
     trend: [4, 4, 4, 4, 4, 4], highlights: ["121 Nobel Prize winners", "Cavendish Laboratory breakthroughs", "Cambridge University Press since 1534"],
   },
   {
-    id: "eth", name: "ETH Zurich", country: "Switzerland", city: "Zurich", founded: 1855, students: 23500, researchFocus: "Engineering & Natural Sciences", logo: "⚙️",
+    id: "eth", name: "ETH Zurich", country: "Switzerland", city: "Zurich", founded: 1855, students: 23500, researchFocus: "Engineering & Natural Sciences", logo: "⚙️", domain: "ethz.ch",
     pillars: { academicReputation: 96.5, citationsPerFaculty: 97.3, employerReputation: 90.2, facultyStudentRatio: 91.5, internationalResearchNetwork: 99.1, employmentOutcomes: 88.4, sustainability: 97.5, internationalDiversity: 98.3 },
     trend: [5, 5, 5, 5, 5, 5], highlights: ["21 Nobel Prize winners including Einstein", "Top European engineering school", "World-class quantum computing research"],
   },
   {
-    id: "nus", name: "National University of Singapore", country: "Singapore", city: "Singapore", founded: 1905, students: 43000, researchFocus: "Technology & Medicine", logo: "🦁",
+    id: "nus", name: "National University of Singapore", country: "Singapore", city: "Singapore", founded: 1905, students: 43000, researchFocus: "Technology & Medicine", logo: "🦁", domain: "nus.edu.sg",
     pillars: { academicReputation: 89.7, citationsPerFaculty: 85.3, employerReputation: 95.8, facultyStudentRatio: 82.6, internationalResearchNetwork: 88.1, employmentOutcomes: 93.2, sustainability: 90.4, internationalDiversity: 92.7 },
     trend: [7, 6, 6, 6, 6, 6], highlights: ["Asia's leading research university", "Deep tech startup ecosystem", "Global health innovation center"],
   },
   {
-    id: "utokyo", name: "University of Tokyo", country: "Japan", city: "Tokyo", founded: 1877, students: 28171, researchFocus: "Sciences & Engineering", logo: "🗾",
+    id: "utokyo", name: "University of Tokyo", country: "Japan", city: "Tokyo", founded: 1877, students: 28171, researchFocus: "Sciences & Engineering", logo: "🗾", domain: "u-tokyo.ac.jp",
     pillars: { academicReputation: 95.2, citationsPerFaculty: 78.4, employerReputation: 92.7, facultyStudentRatio: 88.3, internationalResearchNetwork: 81.5, employmentOutcomes: 90.1, sustainability: 87.6, internationalDiversity: 68.2 },
     trend: [6, 7, 7, 7, 7, 7], highlights: ["11 Nobel Prize laureates", "Japan's premier research institution", "Leading robotics & materials science"],
   },
   {
-    id: "tsinghua", name: "Tsinghua University", country: "China", city: "Beijing", founded: 1911, students: 53302, researchFocus: "Engineering & Computer Science", logo: "🏯",
+    id: "tsinghua", name: "Tsinghua University", country: "China", city: "Beijing", founded: 1911, students: 53302, researchFocus: "Engineering & Computer Science", logo: "🏯", domain: "tsinghua.edu.cn",
     pillars: { academicReputation: 92.1, citationsPerFaculty: 93.6, employerReputation: 88.3, facultyStudentRatio: 79.5, internationalResearchNetwork: 82.4, employmentOutcomes: 91.8, sustainability: 85.2, internationalDiversity: 61.3 },
     trend: [10, 9, 9, 8, 8, 8], highlights: ["China's top engineering school", "Major AI research publications", "Leading chip design research"],
   },
   {
-    id: "melbourne", name: "University of Melbourne", country: "Australia", city: "Melbourne", founded: 1853, students: 52000, researchFocus: "Medicine & Life Sciences", logo: "🦘",
+    id: "melbourne", name: "University of Melbourne", country: "Australia", city: "Melbourne", founded: 1853, students: 52000, researchFocus: "Medicine & Life Sciences", logo: "🦘", domain: "unimelb.edu.au",
     pillars: { academicReputation: 88.5, citationsPerFaculty: 80.2, employerReputation: 87.6, facultyStudentRatio: 75.8, internationalResearchNetwork: 89.3, employmentOutcomes: 82.1, sustainability: 92.7, internationalDiversity: 95.4 },
     trend: [8, 8, 8, 9, 9, 9], highlights: ["#1 in Australia consistently", "Biomedical research powerhouse", "Pioneering cochlear implant research"],
   },
   {
-    id: "toronto", name: "University of Toronto", country: "Canada", city: "Toronto", founded: 1827, students: 97000, researchFocus: "AI & Health Sciences", logo: "🍁",
+    id: "toronto", name: "University of Toronto", country: "Canada", city: "Toronto", founded: 1827, students: 97000, researchFocus: "AI & Health Sciences", logo: "🍁", domain: "utoronto.ca",
     pillars: { academicReputation: 90.1, citationsPerFaculty: 82.7, employerReputation: 85.4, facultyStudentRatio: 72.3, internationalResearchNetwork: 87.6, employmentOutcomes: 84.5, sustainability: 89.3, internationalDiversity: 90.8 },
     trend: [9, 10, 10, 10, 10, 10], highlights: ["Birthplace of deep learning", "Vector Institute for AI partnership", "Largest university in Canada"],
   },
   {
-    id: "seoul", name: "Seoul National University", country: "South Korea", city: "Seoul", founded: 1946, students: 28378, researchFocus: "Technology & Engineering", logo: "🇰🇷",
+    id: "seoul", name: "Seoul National University", country: "South Korea", city: "Seoul", founded: 1946, students: 28378, researchFocus: "Technology & Engineering", logo: "🇰🇷", domain: "snu.ac.kr",
     pillars: { academicReputation: 85.3, citationsPerFaculty: 76.1, employerReputation: 88.9, facultyStudentRatio: 80.7, internationalResearchNetwork: 74.5, employmentOutcomes: 87.3, sustainability: 82.1, internationalDiversity: 65.8 },
     trend: [11, 11, 12, 11, 11, 11], highlights: ["Korea's flagship university", "Semiconductor research leader", "Strong Samsung/SK partnerships"],
   },
   {
-    id: "lmu", name: "Ludwig Maximilian University", country: "Germany", city: "Munich", founded: 1472, students: 52425, researchFocus: "Natural Sciences & Medicine", logo: "🇩🇪",
+    id: "lmu", name: "Ludwig Maximilian University", country: "Germany", city: "Munich", founded: 1472, students: 52425, researchFocus: "Natural Sciences & Medicine", logo: "🇩🇪", domain: "lmu.de",
     pillars: { academicReputation: 86.8, citationsPerFaculty: 74.5, employerReputation: 82.3, facultyStudentRatio: 71.2, internationalResearchNetwork: 85.4, employmentOutcomes: 80.6, sustainability: 88.7, internationalDiversity: 78.9 },
     trend: [12, 12, 11, 12, 12, 12], highlights: ["Max Planck Society partner", "42 Nobel Prize connections", "Elite German Excellence University"],
   },
   {
-    id: "iitb", name: "Indian Institute of Technology Bombay", country: "India", city: "Mumbai", founded: 1958, students: 12000, researchFocus: "Engineering & CS", logo: "🇮🇳",
+    id: "iitb", name: "Indian Institute of Technology Bombay", country: "India", city: "Mumbai", founded: 1958, students: 12000, researchFocus: "Engineering & CS", logo: "🇮🇳", domain: "iitb.ac.in",
     pillars: { academicReputation: 72.5, citationsPerFaculty: 81.3, employerReputation: 84.7, facultyStudentRatio: 85.2, internationalResearchNetwork: 62.1, employmentOutcomes: 88.9, sustainability: 71.4, internationalDiversity: 42.8 },
     trend: [14, 13, 13, 13, 13, 13], highlights: ["India's premier tech institute", "Highest employer demand in Asia", "Strong Silicon Valley alumni network"],
   },
   {
-    id: "usp", name: "University of São Paulo", country: "Brazil", city: "São Paulo", founded: 1934, students: 95000, researchFocus: "Medicine & Agriculture", logo: "🇧🇷",
+    id: "usp", name: "University of São Paulo", country: "Brazil", city: "São Paulo", founded: 1934, students: 95000, researchFocus: "Medicine & Agriculture", logo: "🇧🇷", domain: "usp.br",
     pillars: { academicReputation: 80.2, citationsPerFaculty: 59.8, employerReputation: 78.5, facultyStudentRatio: 65.3, internationalResearchNetwork: 71.4, employmentOutcomes: 72.1, sustainability: 83.5, internationalDiversity: 45.2 },
     trend: [13, 14, 14, 14, 14, 14], highlights: ["Latin America's #1 research output", "Tropical disease research leader", "15 campus locations across São Paulo state"],
   },
   {
-    id: "uct", name: "University of Cape Town", country: "South Africa", city: "Cape Town", founded: 1829, students: 29000, researchFocus: "Health & Development", logo: "🇿🇦",
+    id: "uct", name: "University of Cape Town", country: "South Africa", city: "Cape Town", founded: 1829, students: 29000, researchFocus: "Health & Development", logo: "🇿🇦", domain: "uct.ac.za",
     pillars: { academicReputation: 68.4, citationsPerFaculty: 55.7, employerReputation: 65.8, facultyStudentRatio: 62.1, internationalResearchNetwork: 72.8, employmentOutcomes: 61.3, sustainability: 78.9, internationalDiversity: 70.5 },
     trend: [15, 15, 15, 15, 15, 15], highlights: ["Africa's leading university", "Heart transplant pioneering institution", "HIV/AIDS research center of excellence"],
   },

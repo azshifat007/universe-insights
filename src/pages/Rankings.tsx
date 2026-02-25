@@ -7,6 +7,7 @@ import FilterSidebar from "@/components/FilterSidebar";
 import RankingTable from "@/components/RankingTable";
 import AnalyticsCharts from "@/components/AnalyticsCharts";
 import ComparisonModal from "@/components/ComparisonModal";
+import UniversityLogo from "@/components/UniversityLogo";
 
 const Rankings = () => {
   const [universities, setUniversities] = useState(generateUniversities);
@@ -84,8 +85,9 @@ const Rankings = () => {
                   <div key={u.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/50">
                     <div className="flex items-center gap-3">
                       <span className="font-display font-bold text-primary w-8">{i + 1}</span>
+                      <UniversityLogo domain={u.domain} name={u.name} />
                       <div>
-                        <p className="text-sm font-medium">{u.logo} {u.name}</p>
+                        <p className="text-sm font-medium">{u.name}</p>
                         <p className="text-xs text-muted-foreground">{u.country}</p>
                       </div>
                     </div>
