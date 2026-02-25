@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import UniversityLogo from "@/components/UniversityLogo";
 import type { University } from "@/data/universities";
 
 interface RankingTableProps {
@@ -86,9 +87,12 @@ const RankingTable = ({ universities, onRefresh, isRefreshing }: RankingTablePro
                 <TableRow key={u.id} className="table-row-enter hover:bg-muted/30 transition-colors" style={{ animationDelay: `${i * 30}ms` }}>
                   <TableCell className="font-display font-bold text-primary">{i + 1}</TableCell>
                   <TableCell>
-                    <Link to={`/university/${u.id}`} className="group">
-                      <div className="font-medium text-sm group-hover:text-secondary transition-colors">{u.logo} {u.name}</div>
-                      <div className="text-xs text-muted-foreground">{u.country} · {u.researchFocus}</div>
+                    <Link to={`/university/${u.id}`} className="group flex items-center gap-3">
+                      <UniversityLogo domain={u.domain} name={u.name} />
+                      <div>
+                        <div className="font-medium text-sm group-hover:text-secondary transition-colors">{u.name}</div>
+                        <div className="text-xs text-muted-foreground">{u.country} · {u.researchFocus}</div>
+                      </div>
                     </Link>
                   </TableCell>
                   <TableCell className="font-mono text-sm">{u.pillars.academicReputation.toFixed(1)}</TableCell>
