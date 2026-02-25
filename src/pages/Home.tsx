@@ -39,7 +39,7 @@ const Home = () => {
             <span className="text-secondary">Rankings & Analytics</span>
           </h1>
           <p className="mt-4 text-primary-foreground/70 text-lg max-w-xl mx-auto">
-            Explore data-driven insights on 15+ global universities across 8 performance pillars.
+            Explore data-driven insights on 20+ global universities across 8 performance pillars.
           </p>
 
           {/* Search */}

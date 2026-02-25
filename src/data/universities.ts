@@ -166,6 +166,37 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 68.4, citationsPerFaculty: 55.7, employerReputation: 65.8, facultyStudentRatio: 62.1, internationalResearchNetwork: 72.8, employmentOutcomes: 61.3, sustainability: 78.9, internationalDiversity: 70.5 },
     trend: [15, 15, 15, 15, 15, 15], highlights: ["Africa's leading university", "Heart transplant pioneering institution", "HIV/AIDS research center of excellence"],
   },
+  // ─── Bangladesh — Top Private Universities ─────────────────────────────────
+  {
+    id: "nsu", name: "North South University", country: "Bangladesh", city: "Dhaka", founded: 1992, students: 27000, researchFocus: "Business & Technology", logo: "🇧🇩", domain: "northsouth.edu",
+    pillars: { academicReputation: 52.3, citationsPerFaculty: 48.1, employerReputation: 58.7, facultyStudentRatio: 55.4, internationalResearchNetwork: 38.2, employmentOutcomes: 62.5, sustainability: 45.8, internationalDiversity: 35.1 },
+    trend: [18, 17, 17, 16, 16, 16], highlights: ["First private university in Bangladesh", "Strong business school reputation", "AACSB-aspiring MBA program"],
+  },
+  {
+    id: "bracu", name: "BRAC University", country: "Bangladesh", city: "Dhaka", founded: 2001, students: 10000, researchFocus: "Development & CS", logo: "🇧🇩", domain: "bracu.ac.bd",
+    pillars: { academicReputation: 50.1, citationsPerFaculty: 52.4, employerReputation: 55.2, facultyStudentRatio: 58.3, internationalResearchNetwork: 42.7, employmentOutcomes: 59.1, sustainability: 54.6, internationalDiversity: 30.5 },
+    trend: [19, 18, 18, 17, 17, 17], highlights: ["Backed by BRAC — world's largest NGO", "Strong CS & EEE programs", "Active research in development studies"],
+  },
+  {
+    id: "iub", name: "Independent University, Bangladesh", country: "Bangladesh", city: "Dhaka", founded: 1993, students: 8500, researchFocus: "Liberal Arts & Business", logo: "🇧🇩", domain: "iub.edu.bd",
+    pillars: { academicReputation: 47.8, citationsPerFaculty: 44.2, employerReputation: 52.6, facultyStudentRatio: 56.1, internationalResearchNetwork: 35.8, employmentOutcomes: 55.3, sustainability: 42.1, internationalDiversity: 28.7 },
+    trend: [20, 19, 19, 18, 18, 18], highlights: ["Pioneer in liberal arts education in BD", "Strong media & journalism program", "International faculty exchange programs"],
+  },
+  {
+    id: "ewu", name: "East West University", country: "Bangladesh", city: "Dhaka", founded: 1996, students: 9200, researchFocus: "Engineering & Pharmacy", logo: "🇧🇩", domain: "ewubd.edu",
+    pillars: { academicReputation: 45.5, citationsPerFaculty: 42.8, employerReputation: 50.1, facultyStudentRatio: 53.7, internationalResearchNetwork: 33.4, employmentOutcomes: 53.8, sustainability: 40.5, internationalDiversity: 26.2 },
+    trend: [21, 20, 20, 19, 19, 19], highlights: ["Leading pharmacy research in Bangladesh", "Strong industry partnerships", "Modern campus in heart of Dhaka"],
+  },
+  {
+    id: "aiub", name: "American International University-Bangladesh", country: "Bangladesh", city: "Dhaka", founded: 1994, students: 12000, researchFocus: "Engineering & CS", logo: "🇧🇩", domain: "aiub.edu",
+    pillars: { academicReputation: 46.2, citationsPerFaculty: 43.5, employerReputation: 54.8, facultyStudentRatio: 52.1, internationalResearchNetwork: 34.9, employmentOutcomes: 58.2, sustainability: 41.3, internationalDiversity: 27.8 },
+    trend: [22, 21, 21, 20, 20, 20], highlights: ["IEEE-affiliated research groups", "Largest engineering intake in BD", "Industry-ready curriculum focus"],
+  },
+  {
+    id: "ulab", name: "University of Liberal Arts Bangladesh", country: "Bangladesh", city: "Dhaka", founded: 2004, students: 5500, researchFocus: "Arts & Humanities", logo: "🇧🇩", domain: "ulab.edu.bd",
+    pillars: { academicReputation: 43.1, citationsPerFaculty: 40.6, employerReputation: 48.3, facultyStudentRatio: 60.2, internationalResearchNetwork: 36.5, employmentOutcomes: 50.7, sustainability: 47.2, internationalDiversity: 25.4 },
+    trend: [23, 22, 22, 21, 21, 21], highlights: ["Bangladesh's first liberal arts university", "Award-winning media & film department", "Center for Bangladeshi Studies"],
+  },
 ];
 
 // Build the final dataset with computed scores and ranks
