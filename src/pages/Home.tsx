@@ -6,6 +6,7 @@ import { generateUniversities, generateActivityFeed } from "@/data/universities"
 import ActivityFeed from "@/components/ActivityFeed";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
+import TrendingNews from "@/components/TrendingNews";
 
 const universities = generateUniversities();
 const activityItems = generateActivityFeed();
@@ -107,6 +108,9 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      {/* Trending News */}
+      <TrendingNews />
 
       {/* Activity Feed */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 w-full">
