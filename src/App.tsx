@@ -9,6 +9,7 @@ import UniversityProfile from "./pages/UniversityProfile";
 import Methodology from "./pages/Methodology";
 import FindMyMatch from "./pages/FindMyMatch";
 import NotFound from "./pages/NotFound";
+import AIChatWidget from "./components/AIChatWidget";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/methodology" element={<Methodology />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <AIChatWidget />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
