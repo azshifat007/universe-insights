@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Search, TrendingUp, Globe, Award } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { generateUniversities, generateActivityFeed } from "@/data/universities";
+import UniversityLogo from "@/components/UniversityLogo";
 import ActivityFeed from "@/components/ActivityFeed";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
@@ -61,7 +62,7 @@ const Home = () => {
                     className="flex items-center justify-between px-4 py-3 hover:bg-muted/50 transition-colors"
                     onClick={() => setSearch("")}
                   >
-                    <span className="text-sm font-medium">{u.logo} {u.name}</span>
+                    <span className="text-sm font-medium flex items-center gap-2"><UniversityLogo domain={u.domain} name={u.name} className="h-6 w-6" />{u.name}</span>
                     <span className="text-xs text-muted-foreground">#{u.rank} · {u.overallScore.toFixed(1)}</span>
                   </Link>
                 ))}
@@ -89,7 +90,7 @@ const Home = () => {
           {top3.map((u, i) => (
             <Link key={u.id} to={`/university/${u.id}`} className="glass-card rounded-xl p-6 hover:shadow-xl transition-shadow group">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">{u.logo}</span>
+                <UniversityLogo domain={u.domain} name={u.name} className="h-10 w-10" />
                 <div>
                   <span className={`text-xs font-bold uppercase tracking-wider ${i === 0 ? "text-chart-5" : i === 1 ? "text-muted-foreground" : "text-orange-500"}`}>
                     #{u.rank} {i === 0 ? "🥇" : i === 1 ? "🥈" : "🥉"}
