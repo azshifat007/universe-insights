@@ -197,6 +197,83 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 43.1, citationsPerFaculty: 40.6, employerReputation: 48.3, facultyStudentRatio: 60.2, internationalResearchNetwork: 36.5, employmentOutcomes: 50.7, sustainability: 47.2, internationalDiversity: 25.4 },
     trend: [23, 22, 22, 21, 21, 21], highlights: ["Bangladesh's first liberal arts university", "Award-winning media & film department", "Center for Bangladeshi Studies"],
   },
+  // ─── More Famous World Universities ────────────────────────────────────────
+  {
+    id: "harvard", name: "Harvard University", country: "USA", city: "Cambridge, MA", founded: 1636, students: 21000, researchFocus: "Law & Medicine", logo: "🏛️", domain: "harvard.edu",
+    pillars: { academicReputation: 100, citationsPerFaculty: 98.7, employerReputation: 100, facultyStudentRatio: 97.1, internationalResearchNetwork: 95.8, employmentOutcomes: 99.2, sustainability: 93.5, internationalDiversity: 89.6 },
+    trend: [2, 2, 3, 3, 2, 2], highlights: ["Oldest university in the USA", "$50.9B endowment — world's largest", "161 Nobel laureates affiliated"],
+  },
+  {
+    id: "caltech", name: "California Institute of Technology", country: "USA", city: "Pasadena, CA", founded: 1891, students: 2240, researchFocus: "Physics & Engineering", logo: "🔬", domain: "caltech.edu",
+    pillars: { academicReputation: 96.2, citationsPerFaculty: 100, employerReputation: 88.5, facultyStudentRatio: 100, internationalResearchNetwork: 91.4, employmentOutcomes: 92.3, sustainability: 86.1, internationalDiversity: 88.9 },
+    trend: [6, 6, 5, 5, 6, 6], highlights: ["NASA's JPL management", "Highest citations per faculty globally", "46 Nobel laureates"],
+  },
+  {
+    id: "imperial", name: "Imperial College London", country: "UK", city: "London", founded: 1907, students: 22000, researchFocus: "Engineering & Medicine", logo: "🇬🇧", domain: "imperial.ac.uk",
+    pillars: { academicReputation: 93.8, citationsPerFaculty: 94.2, employerReputation: 93.1, facultyStudentRatio: 90.4, internationalResearchNetwork: 96.3, employmentOutcomes: 91.7, sustainability: 90.2, internationalDiversity: 97.8 },
+    trend: [8, 7, 7, 6, 7, 7], highlights: ["World-leading biomedical engineering", "Fleming discovered penicillin here", "Top employer connections in London"],
+  },
+  {
+    id: "yale", name: "Yale University", country: "USA", city: "New Haven, CT", founded: 1701, students: 14776, researchFocus: "Law & Arts", logo: "🏛️", domain: "yale.edu",
+    pillars: { academicReputation: 97.5, citationsPerFaculty: 89.3, employerReputation: 96.8, facultyStudentRatio: 95.6, internationalResearchNetwork: 88.2, employmentOutcomes: 97.1, sustainability: 91.8, internationalDiversity: 82.4 },
+    trend: [9, 9, 8, 8, 9, 9], highlights: ["5 US Presidents alumni", "World-class law & drama schools", "Sterling Memorial Library — 15M volumes"],
+  },
+  {
+    id: "ucl", name: "University College London", country: "UK", city: "London", founded: 1826, students: 49000, researchFocus: "Medicine & Social Sciences", logo: "🇬🇧", domain: "ucl.ac.uk",
+    pillars: { academicReputation: 91.5, citationsPerFaculty: 86.8, employerReputation: 89.2, facultyStudentRatio: 78.3, internationalResearchNetwork: 94.7, employmentOutcomes: 86.5, sustainability: 91.4, internationalDiversity: 96.1 },
+    trend: [10, 10, 9, 9, 10, 10], highlights: ["London's global university", "30 Nobel Prize winners", "Pioneering neuroscience research"],
+  },
+  {
+    id: "peking", name: "Peking University", country: "China", city: "Beijing", founded: 1898, students: 46000, researchFocus: "Sciences & Humanities", logo: "🏯", domain: "pku.edu.cn",
+    pillars: { academicReputation: 90.4, citationsPerFaculty: 88.5, employerReputation: 86.7, facultyStudentRatio: 77.8, internationalResearchNetwork: 80.3, employmentOutcomes: 89.4, sustainability: 83.7, internationalDiversity: 58.2 },
+    trend: [12, 11, 11, 10, 11, 11], highlights: ["China's most prestigious university", "Birthplace of the May Fourth Movement", "Leading in Chinese humanities research"],
+  },
+  {
+    id: "columbia", name: "Columbia University", country: "USA", city: "New York, NY", founded: 1754, students: 33413, researchFocus: "Journalism & Law", logo: "🏛️", domain: "columbia.edu",
+    pillars: { academicReputation: 95.1, citationsPerFaculty: 87.6, employerReputation: 94.3, facultyStudentRatio: 88.7, internationalResearchNetwork: 90.1, employmentOutcomes: 95.4, sustainability: 87.9, internationalDiversity: 85.3 },
+    trend: [11, 12, 12, 11, 12, 12], highlights: ["Pulitzer Prize administrator", "NYC location — global finance hub", "100+ Nobel laureates affiliated"],
+  },
+  {
+    id: "kyoto", name: "Kyoto University", country: "Japan", city: "Kyoto", founded: 1897, students: 22700, researchFocus: "Sciences & Philosophy", logo: "🗾", domain: "kyoto-u.ac.jp",
+    pillars: { academicReputation: 84.2, citationsPerFaculty: 75.8, employerReputation: 83.6, facultyStudentRatio: 86.1, internationalResearchNetwork: 78.3, employmentOutcomes: 85.7, sustainability: 84.5, internationalDiversity: 60.4 },
+    trend: [16, 15, 15, 14, 14, 14], highlights: ["11 Nobel Prize winners", "Japan's 2nd oldest imperial university", "iPS cell research pioneer — Shinya Yamanaka"],
+  },
+  // ─── Bangladesh — Government Universities ──────────────────────────────────
+  {
+    id: "du", name: "University of Dhaka", country: "Bangladesh", city: "Dhaka", founded: 1921, students: 37018, researchFocus: "Sciences & Social Sciences", logo: "🇧🇩", domain: "du.ac.bd",
+    pillars: { academicReputation: 58.7, citationsPerFaculty: 42.3, employerReputation: 62.4, facultyStudentRatio: 45.8, internationalResearchNetwork: 40.1, employmentOutcomes: 60.2, sustainability: 48.5, internationalDiversity: 22.3 },
+    trend: [16, 16, 16, 15, 15, 15], highlights: ["Oxford of the East", "Played pivotal role in 1952 Language Movement", "Bangladesh's oldest and largest public university"],
+  },
+  {
+    id: "buet", name: "Bangladesh University of Engineering & Technology", country: "Bangladesh", city: "Dhaka", founded: 1962, students: 7000, researchFocus: "Engineering & Architecture", logo: "🇧🇩", domain: "buet.ac.bd",
+    pillars: { academicReputation: 56.4, citationsPerFaculty: 50.8, employerReputation: 64.5, facultyStudentRatio: 62.3, internationalResearchNetwork: 37.6, employmentOutcomes: 68.7, sustainability: 44.2, internationalDiversity: 18.5 },
+    trend: [17, 17, 16, 16, 16, 16], highlights: ["Top engineering institution in Bangladesh", "ICPC World Finals regular participant", "Highest employer demand among BD engineers"],
+  },
+  {
+    id: "ru", name: "University of Rajshahi", country: "Bangladesh", city: "Rajshahi", founded: 1953, students: 33000, researchFocus: "Agriculture & Sciences", logo: "🇧🇩", domain: "ru.ac.bd",
+    pillars: { academicReputation: 48.5, citationsPerFaculty: 38.2, employerReputation: 50.1, facultyStudentRatio: 44.7, internationalResearchNetwork: 32.5, employmentOutcomes: 52.3, sustainability: 46.8, internationalDiversity: 15.2 },
+    trend: [22, 21, 21, 20, 20, 20], highlights: ["2nd oldest university in Bangladesh", "Leading agricultural research in NW Bangladesh", "763-acre green campus — largest in BD"],
+  },
+  {
+    id: "cu", name: "University of Chittagong", country: "Bangladesh", city: "Chittagong", founded: 1966, students: 27000, researchFocus: "Marine Sciences & Business", logo: "🇧🇩", domain: "cu.ac.bd",
+    pillars: { academicReputation: 46.2, citationsPerFaculty: 36.5, employerReputation: 48.8, facultyStudentRatio: 43.2, internationalResearchNetwork: 30.8, employmentOutcomes: 50.6, sustainability: 45.1, internationalDiversity: 14.8 },
+    trend: [24, 23, 23, 22, 22, 22], highlights: ["Major port-city university", "Institute of Marine Sciences and Fisheries", "Largest campus area in Bangladesh — 2,100 acres"],
+  },
+  {
+    id: "ju", name: "Jahangirnagar University", country: "Bangladesh", city: "Savar, Dhaka", founded: 1970, students: 15000, researchFocus: "Sciences & Social Sciences", logo: "🇧🇩", domain: "juniv.edu",
+    pillars: { academicReputation: 47.1, citationsPerFaculty: 39.4, employerReputation: 49.5, facultyStudentRatio: 48.6, internationalResearchNetwork: 31.2, employmentOutcomes: 51.8, sustainability: 50.3, internationalDiversity: 13.5 },
+    trend: [23, 22, 22, 21, 21, 21], highlights: ["Only fully residential public university in BD", "Migratory bird sanctuary on campus", "Strong mathematics and physics departments"],
+  },
+  {
+    id: "kuet", name: "Khulna University of Engineering & Technology", country: "Bangladesh", city: "Khulna", founded: 2003, students: 5500, researchFocus: "Engineering & Technology", logo: "🇧🇩", domain: "kuet.ac.bd",
+    pillars: { academicReputation: 42.8, citationsPerFaculty: 40.1, employerReputation: 48.2, facultyStudentRatio: 55.7, internationalResearchNetwork: 28.4, employmentOutcomes: 54.6, sustainability: 41.9, internationalDiversity: 12.1 },
+    trend: [26, 25, 25, 24, 24, 24], highlights: ["Leading engineering university in SW Bangladesh", "Strong renewable energy research", "Growing industrial partnerships in Khulna region"],
+  },
+  {
+    id: "bau", name: "Bangladesh Agricultural University", country: "Bangladesh", city: "Mymensingh", founded: 1961, students: 5200, researchFocus: "Agriculture & Veterinary", logo: "🇧🇩", domain: "bau.edu.bd",
+    pillars: { academicReputation: 44.5, citationsPerFaculty: 41.7, employerReputation: 46.3, facultyStudentRatio: 50.2, internationalResearchNetwork: 35.8, employmentOutcomes: 49.1, sustainability: 55.4, internationalDiversity: 16.7 },
+    trend: [25, 24, 24, 23, 23, 23], highlights: ["Top agricultural university in South Asia", "Pioneering rice and fisheries research", "Key contributor to Bangladesh's Green Revolution"],
+  },
 ];
 
 // Build the final dataset with computed scores and ranks
@@ -243,6 +320,8 @@ export interface ActivityItem {
   text: string;
   time: string;
   type: "update" | "new" | "alert";
+  universityName?: string;
+  universityDomain?: string;
 }
 
 export function generateActivityFeed(): ActivityItem[] {
@@ -258,7 +337,7 @@ export function generateActivityFeed(): ActivityItem[] {
   const mins = [1, 3, 7, 12, 18, 25, 34, 45];
   return Array.from({ length: 8 }, (_, i) => {
     const action = actions[i % actions.length];
-    const name = names[Math.floor(Math.random() * names.length)];
-    return { id: i, text: `${action.prefix} ${name}`, time: `${mins[i]}m ago`, type: action.type };
+    const uni = RAW[Math.floor(Math.random() * RAW.length)];
+    return { id: i, text: `${action.prefix} ${uni.name}`, time: `${mins[i]}m ago`, type: action.type, universityName: uni.name, universityDomain: uni.domain };
   });
 }

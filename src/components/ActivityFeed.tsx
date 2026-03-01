@@ -1,5 +1,6 @@
 import { ActivityItem } from "@/data/universities";
 import { Activity, RefreshCw, AlertCircle, PlusCircle } from "lucide-react";
+import UniversityLogo from "@/components/UniversityLogo";
 
 interface ActivityFeedProps {
   items: ActivityItem[];
@@ -27,9 +28,12 @@ const ActivityFeed = ({ items }: ActivityFeedProps) => (
       {items.map((item) => {
         const Icon = iconMap[item.type];
         return (
-          <li key={item.id} className="flex items-start gap-2.5 text-xs table-row-enter" style={{ animationDelay: `${item.id * 60}ms` }}>
-            <Icon className={`h-3.5 w-3.5 mt-0.5 shrink-0 ${colorMap[item.type]}`} />
-            <span className="text-foreground/80 leading-relaxed">{item.text}</span>
+          <li key={item.id} className="flex items-center gap-2.5 text-xs table-row-enter" style={{ animationDelay: `${item.id * 60}ms` }}>
+            <Icon className={`h-3.5 w-3.5 shrink-0 ${colorMap[item.type]}`} />
+            {item.universityDomain && (
+              <UniversityLogo domain={item.universityDomain} name={item.universityName || ""} className="h-5 w-5" />
+            )}
+            <span className="text-foreground/80 leading-relaxed flex-1 truncate">{item.text}</span>
             <span className="ml-auto text-muted-foreground shrink-0">{item.time}</span>
           </li>
         );
