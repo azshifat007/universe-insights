@@ -6,6 +6,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 import { generateUniversities, PILLAR_LABELS, PillarKey, calculateOverallScore, projectScores } from "@/data/universities";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
+import UniversityLogo from "@/components/UniversityLogo";
 
 const allUnis = generateUniversities();
 
@@ -59,7 +60,7 @@ const UniversityProfile = () => {
           {/* At a Glance sidebar */}
           <aside className="w-full lg:w-72 shrink-0 glass-card rounded-xl p-6 space-y-5 h-fit">
             <div className="text-center">
-              <span className="text-5xl block mb-3">{uni.logo}</span>
+              <UniversityLogo domain={uni.domain} name={uni.name} className="h-16 w-16 mb-3" />
               <h1 className="font-display text-xl font-bold">{uni.name}</h1>
               <p className="text-sm text-muted-foreground mt-1">{uni.researchFocus}</p>
             </div>
