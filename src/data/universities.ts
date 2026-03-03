@@ -289,6 +289,37 @@ export function generateUniversities(): University[] {
 }
 
 /**
+ * Generate simulated 5-year rank history for a university.
+ * Uses seeded deterministic variation based on university id.
+ */
+export function generateRankHistory(uni: University): { ranks: number[]; scores: number[] } {
+  // Simple hash from id for determinism
+  let hash = 0;
+  for (let i = 0; i < uni.id.length; i++) hash = ((hash << 5) - hash + uni.id.charCodeAt(i)) | 0;
+  const seed = Math.abs(hash);
+
+  const ranks: number[] = [];
+  const scores: number[] = [];
+
+  for (let y = 0; y < 5; y++) {
+    // Simulate gradual improvement or decline based on current rank
+    const drift = ((seed * (y + 1) * 7) % 7) - 3; // -3 to +3
+    const yearRank = Math.max(1, uni.rank + (4 - y) * drift);
+    ranks.push(Math.round(yearRank));
+
+    const scoreDrift = ((seed * (y + 1) * 13) % 11) - 5; // -5 to +5
+    const yearScore = Math.max(0, Math.min(100, uni.overallScore + (4 - y) * scoreDrift * 0.3));
+    scores.push(Math.round(yearScore * 10) / 10);
+  }
+
+  // Last year is always current
+  ranks[4] = uni.rank;
+  scores[4] = uni.overallScore;
+
+  return { ranks, scores };
+}
+
+/**
  * Simulate a real-time refresh: jitter every pillar by ±2 points,
  * then recalculate scores and re-sort.
  */
