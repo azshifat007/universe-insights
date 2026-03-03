@@ -49,8 +49,8 @@ const WorldMap = ({ universities }: WorldMapProps) => {
             {/* Simplified world outline */}
             <defs>
               <linearGradient id="ocean" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="hsl(220, 20%, 95%)" />
-                <stop offset="100%" stopColor="hsl(220, 20%, 90%)" />
+                <stop offset="0%" stopColor="hsl(var(--muted))" />
+                <stop offset="100%" stopColor="hsl(var(--border))" />
               </linearGradient>
               <filter id="glow">
                 <feGaussianBlur stdDeviation="3" result="blur" />
@@ -110,11 +110,11 @@ const WorldMap = ({ universities }: WorldMapProps) => {
                     <g className="cursor-pointer transition-transform hover:scale-110" style={{ transformOrigin: `${r.cx}px ${r.cy}px` }}>
                       {/* Glow ring */}
                       <circle cx={r.cx} cy={r.cy} r={radius + 4}
-                        fill="none" stroke="hsl(160, 60%, 40%)" strokeWidth="1"
+                        fill="none" stroke="hsl(var(--accent))" strokeWidth="1"
                         opacity={opacity * 0.3} />
                       {/* Main bubble */}
                       <circle cx={r.cx} cy={r.cy} r={radius}
-                        fill="hsl(160, 60%, 40%)" opacity={opacity}
+                        fill="hsl(var(--accent))" opacity={opacity}
                         className="transition-all duration-300" filter="url(#glow)" />
                       {/* Count label */}
                       <text x={r.cx} y={r.cy} textAnchor="middle" dominantBaseline="central"
