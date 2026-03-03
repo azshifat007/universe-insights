@@ -7,6 +7,7 @@ import { generateUniversities, PILLAR_LABELS, PillarKey, calculateOverallScore, 
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import UniversityLogo from "@/components/UniversityLogo";
+import HistoricalTrendChart from "@/components/HistoricalTrendChart";
 
 const allUnis = generateUniversities();
 
@@ -152,6 +153,9 @@ const UniversityProfile = () => {
                 </div>
               </div>
             </div>
+
+            {/* Historical Trend */}
+            <HistoricalTrendChart university={uni} />
 
             {/* Research Highlights */}
             <div className="glass-card rounded-xl p-6">

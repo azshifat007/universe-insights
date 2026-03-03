@@ -8,6 +8,7 @@ import ActivityFeed from "@/components/ActivityFeed";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import TrendingNews from "@/components/TrendingNews";
+import WorldMap from "@/components/WorldMap";
 
 const universities = generateUniversities();
 const activityItems = generateActivityFeed();
@@ -109,6 +110,9 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      {/* World Map */}
+      <WorldMap universities={universities} />
 
       {/* Trending News */}
       <TrendingNews />
