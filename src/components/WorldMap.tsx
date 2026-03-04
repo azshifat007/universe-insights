@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import type { University } from "@/data/universities";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import worldMapImg from "@/assets/world-map.webp";
 
 interface Region {
   id: string;
