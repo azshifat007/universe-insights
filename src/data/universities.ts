@@ -238,6 +238,57 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 84.2, citationsPerFaculty: 75.8, employerReputation: 83.6, facultyStudentRatio: 86.1, internationalResearchNetwork: 78.3, employmentOutcomes: 85.7, sustainability: 84.5, internationalDiversity: 60.4 },
     trend: [16, 15, 15, 14, 14, 14], highlights: ["11 Nobel Prize winners", "Japan's 2nd oldest imperial university", "iPS cell research pioneer — Shinya Yamanaka"],
   },
+  // ─── Additional World Universities ──────────────────────────────────────────
+  {
+    id: "sorbonne", name: "Sorbonne University", country: "France", city: "Paris", founded: 1257, students: 55000, researchFocus: "Sciences & Humanities", logo: "🇫🇷", domain: "sorbonne-universite.fr",
+    pillars: { academicReputation: 87.3, citationsPerFaculty: 82.1, employerReputation: 80.5, facultyStudentRatio: 70.2, internationalResearchNetwork: 88.4, employmentOutcomes: 78.9, sustainability: 86.3, internationalDiversity: 82.7 },
+    trend: [14, 13, 13, 13, 12, 12], highlights: ["Oldest university in Paris", "Marie Curie's research home", "Leading European humanities center"],
+  },
+  {
+    id: "karolinska", name: "Karolinska Institute", country: "Sweden", city: "Stockholm", founded: 1810, students: 8500, researchFocus: "Medicine & Health", logo: "🇸🇪", domain: "ki.se",
+    pillars: { academicReputation: 88.1, citationsPerFaculty: 91.5, employerReputation: 78.3, facultyStudentRatio: 89.4, internationalResearchNetwork: 92.7, employmentOutcomes: 82.6, sustainability: 94.8, internationalDiversity: 85.3 },
+    trend: [13, 14, 14, 14, 13, 13], highlights: ["Awards the Nobel Prize in Medicine", "World-leading biomedical research", "Top medical university in Europe"],
+  },
+  {
+    id: "unam", name: "National Autonomous University of Mexico", country: "Mexico", city: "Mexico City", founded: 1551, students: 360000, researchFocus: "Sciences & Arts", logo: "🇲🇽", domain: "unam.mx",
+    pillars: { academicReputation: 78.5, citationsPerFaculty: 55.2, employerReputation: 76.8, facultyStudentRatio: 52.3, internationalResearchNetwork: 68.7, employmentOutcomes: 70.4, sustainability: 80.2, internationalDiversity: 40.1 },
+    trend: [18, 18, 17, 17, 16, 16], highlights: ["UNESCO World Heritage campus", "Largest university in Latin America", "Leading Spanish-language research output"],
+  },
+  {
+    id: "leiden", name: "Leiden University", country: "Netherlands", city: "Leiden", founded: 1575, students: 32000, researchFocus: "Law & Governance", logo: "🇳🇱", domain: "universiteitleiden.nl",
+    pillars: { academicReputation: 82.4, citationsPerFaculty: 79.8, employerReputation: 76.1, facultyStudentRatio: 74.5, internationalResearchNetwork: 90.2, employmentOutcomes: 77.3, sustainability: 88.9, internationalDiversity: 86.5 },
+    trend: [17, 16, 16, 15, 15, 15], highlights: ["Oldest university in Netherlands", "Einstein was a professor here", "International Court of Justice partner"],
+  },
+  {
+    id: "cairo", name: "Cairo University", country: "Egypt", city: "Cairo", founded: 1908, students: 155000, researchFocus: "Medicine & Engineering", logo: "🇪🇬", domain: "cu.edu.eg",
+    pillars: { academicReputation: 65.2, citationsPerFaculty: 45.8, employerReputation: 62.7, facultyStudentRatio: 48.3, internationalResearchNetwork: 52.1, employmentOutcomes: 58.6, sustainability: 55.3, internationalDiversity: 38.2 },
+    trend: [22, 21, 21, 20, 19, 19], highlights: ["Oldest modern university in Africa/Middle East", "Leading Arab-world research output", "Prominent medical school in MENA"],
+  },
+  {
+    id: "moscow", name: "Lomonosov Moscow State University", country: "Russia", city: "Moscow", founded: 1755, students: 47000, researchFocus: "Physics & Mathematics", logo: "🇷🇺", domain: "msu.ru",
+    pillars: { academicReputation: 83.6, citationsPerFaculty: 62.4, employerReputation: 80.1, facultyStudentRatio: 72.8, internationalResearchNetwork: 65.3, employmentOutcomes: 76.5, sustainability: 70.2, internationalDiversity: 55.8 },
+    trend: [16, 15, 15, 16, 17, 17], highlights: ["Russia's oldest and largest university", "13 Nobel Prize winners", "Iconic Stalinist skyscraper campus"],
+  },
+  {
+    id: "technion", name: "Technion — Israel Institute of Technology", country: "Israel", city: "Haifa", founded: 1912, students: 14000, researchFocus: "Engineering & CS", logo: "🇮🇱", domain: "technion.ac.il",
+    pillars: { academicReputation: 79.8, citationsPerFaculty: 88.6, employerReputation: 82.4, facultyStudentRatio: 83.5, internationalResearchNetwork: 80.1, employmentOutcomes: 86.7, sustainability: 76.3, internationalDiversity: 60.2 },
+    trend: [15, 16, 16, 15, 14, 14], highlights: ["4 Nobel Prize winners", "Israel's MIT", "Iron Dome technology origins"],
+  },
+  {
+    id: "kaust", name: "King Abdullah University of Science & Technology", country: "Saudi Arabia", city: "Thuwal", founded: 2009, students: 1200, researchFocus: "Energy & Environmental Science", logo: "🇸🇦", domain: "kaust.edu.sa",
+    pillars: { academicReputation: 62.5, citationsPerFaculty: 95.2, employerReputation: 58.3, facultyStudentRatio: 98.7, internationalResearchNetwork: 78.4, employmentOutcomes: 65.8, sustainability: 82.1, internationalDiversity: 96.4 },
+    trend: [20, 19, 18, 17, 16, 16], highlights: ["Highest citations per faculty in Middle East", "$20B endowment", "100% graduate-level institution"],
+  },
+  {
+    id: "nairobi", name: "University of Nairobi", country: "Kenya", city: "Nairobi", founded: 1956, students: 84000, researchFocus: "Agriculture & Public Health", logo: "🇰🇪", domain: "uonbi.ac.ke",
+    pillars: { academicReputation: 55.8, citationsPerFaculty: 38.5, employerReputation: 56.2, facultyStudentRatio: 42.7, internationalResearchNetwork: 48.3, employmentOutcomes: 52.1, sustainability: 58.7, internationalDiversity: 35.4 },
+    trend: [25, 24, 24, 23, 22, 22], highlights: ["East Africa's leading university", "Wangari Maathai's alma mater", "Key partner in tropical disease research"],
+  },
+  {
+    id: "uba", name: "University of Buenos Aires", country: "Argentina", city: "Buenos Aires", founded: 1821, students: 328000, researchFocus: "Law & Social Sciences", logo: "🇦🇷", domain: "uba.ar",
+    pillars: { academicReputation: 76.4, citationsPerFaculty: 52.3, employerReputation: 74.8, facultyStudentRatio: 48.5, internationalResearchNetwork: 62.5, employmentOutcomes: 68.3, sustainability: 72.1, internationalDiversity: 42.7 },
+    trend: [19, 19, 19, 18, 18, 18], highlights: ["5 Nobel Prize winners", "Largest university in Argentina", "Free public university tradition"],
+  },
   // ─── Bangladesh — Government Universities ──────────────────────────────────
   {
     id: "du", name: "University of Dhaka", country: "Bangladesh", city: "Dhaka", founded: 1921, students: 37018, researchFocus: "Sciences & Social Sciences", logo: "🇧🇩", domain: "du.ac.bd",
