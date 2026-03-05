@@ -127,7 +127,7 @@ const ComparisonModal = ({ universities }: ComparisonModalProps) => {
                   disabled={!selected.includes(u.id) && selected.length >= 3}
                   className="h-3.5 w-3.5"
                 />
-                <UniversityLogo domain={u.domain} name={u.name} size="xs" />
+                <UniversityLogo domain={u.domain} name={u.name} />
                 <div className="min-w-0">
                   <p className="truncate font-medium leading-tight">{u.name.split(" ").slice(0, 3).join(" ")}</p>
                   <p className="text-[10px] text-muted-foreground">{u.country}</p>
