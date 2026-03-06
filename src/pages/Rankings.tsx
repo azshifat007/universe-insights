@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { generateUniversities, refreshScores, SUBJECTS } from "@/data/universities";
+import { generateUniversities, refreshScores, SUBJECTS, REGION_MAP } from "@/data/universities";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import FilterSidebar from "@/components/FilterSidebar";
