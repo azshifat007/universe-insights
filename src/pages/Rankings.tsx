@@ -64,7 +64,7 @@ const Rankings = () => {
 
           <TabsContent value="global">
             <div className="flex flex-col lg:flex-row gap-6">
-              <FilterSidebar country={country} researchFocus={researchFocus} minScore={minScore} onCountryChange={setCountry} onResearchFocusChange={setResearchFocus} onMinScoreChange={setMinScore} />
+              <FilterSidebar country={country} researchFocus={researchFocus} minScore={minScore} region={region} onCountryChange={setCountry} onResearchFocusChange={setResearchFocus} onMinScoreChange={setMinScore} onRegionChange={setRegion} />
               <div className="flex-1 min-w-0 space-y-8">
                 {loading ? (
                   <RankingTableSkeleton />
