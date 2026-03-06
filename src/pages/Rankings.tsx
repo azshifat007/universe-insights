@@ -41,7 +41,7 @@ const Rankings = () => {
       if (u.overallScore < minScore) return false;
       return true;
     }),
-    [universities, country, researchFocus, minScore]
+    [universities, country, region, researchFocus, minScore]
   );
 
   const loading = universities === null;
