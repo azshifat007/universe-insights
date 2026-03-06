@@ -14,6 +14,7 @@ const Rankings = () => {
   const [universities, setUniversities] = useState<ReturnType<typeof generateUniversities> | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [country, setCountry] = useState("all");
+  const [region, setRegion] = useState("all");
   const [researchFocus, setResearchFocus] = useState("all");
   const [minScore, setMinScore] = useState(0);
 
