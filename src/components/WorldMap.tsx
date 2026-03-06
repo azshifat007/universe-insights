@@ -28,6 +28,7 @@ interface WorldMapProps {
 }
 
 const WorldMap = ({ universities }: WorldMapProps) => {
+  const navigate = useNavigate();
   const regionData = useMemo(() => {
     return REGIONS.map((r) => {
       const unis = universities.filter((u) => r.countries.includes(u.country));
