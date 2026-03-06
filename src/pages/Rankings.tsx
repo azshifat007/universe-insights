@@ -35,6 +35,7 @@ const Rankings = () => {
 
   const filtered = useMemo(
     () => (universities ?? []).filter((u) => {
+      if (region !== "all" && REGION_MAP[u.country] !== region) return false;
       if (country !== "all" && u.country !== country) return false;
       if (researchFocus !== "all" && u.researchFocus !== researchFocus) return false;
       if (u.overallScore < minScore) return false;
