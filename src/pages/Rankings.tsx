@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { generateUniversities, refreshScores, SUBJECTS } from "@/data/universities";
+import { generateUniversities, refreshScores, SUBJECTS, REGION_MAP } from "@/data/universities";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import FilterSidebar from "@/components/FilterSidebar";
@@ -14,6 +14,7 @@ const Rankings = () => {
   const [universities, setUniversities] = useState<ReturnType<typeof generateUniversities> | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [country, setCountry] = useState("all");
+  const [region, setRegion] = useState("all");
   const [researchFocus, setResearchFocus] = useState("all");
   const [minScore, setMinScore] = useState(0);
 
@@ -34,12 +35,13 @@ const Rankings = () => {
 
   const filtered = useMemo(
     () => (universities ?? []).filter((u) => {
+      if (region !== "all" && REGION_MAP[u.country] !== region) return false;
       if (country !== "all" && u.country !== country) return false;
       if (researchFocus !== "all" && u.researchFocus !== researchFocus) return false;
       if (u.overallScore < minScore) return false;
       return true;
     }),
-    [universities, country, researchFocus, minScore]
+    [universities, country, region, researchFocus, minScore]
   );
 
   const loading = universities === null;
@@ -62,7 +64,7 @@ const Rankings = () => {
 
           <TabsContent value="global">
             <div className="flex flex-col lg:flex-row gap-6">
-              <FilterSidebar country={country} researchFocus={researchFocus} minScore={minScore} onCountryChange={setCountry} onResearchFocusChange={setResearchFocus} onMinScoreChange={setMinScore} />
+              <FilterSidebar country={country} researchFocus={researchFocus} minScore={minScore} region={region} onCountryChange={setCountry} onResearchFocusChange={setResearchFocus} onMinScoreChange={setMinScore} onRegionChange={setRegion} />
               <div className="flex-1 min-w-0 space-y-8">
                 {loading ? (
                   <RankingTableSkeleton />

@@ -457,6 +457,21 @@ export function refreshScores(unis: University[]): University[] {
   return updated;
 }
 
+// ─── Region mapping ─────────────────────────────────────────────────────────
+export const REGION_MAP: Record<string, string> = {
+  "USA": "North America", "Canada": "North America",
+  "Mexico": "Latin America", "Brazil": "Latin America", "Argentina": "Latin America",
+  "UK": "Europe", "Germany": "Europe", "Switzerland": "Europe", "France": "Europe",
+  "Sweden": "Europe", "Netherlands": "Europe", "Russia": "Europe",
+  "Japan": "Asia", "China": "Asia", "Singapore": "Asia", "South Korea": "Asia",
+  "India": "Asia", "Bangladesh": "Asia",
+  "Israel": "Middle East", "Saudi Arabia": "Middle East",
+  "Egypt": "Africa", "South Africa": "Africa", "Kenya": "Africa",
+  "Australia": "Oceania",
+};
+
+export const REGIONS = [...new Set(Object.values(REGION_MAP))].sort();
+
 // ─── Filter constants ───────────────────────────────────────────────────────
 export const COUNTRIES = [...new Set(RAW.map((u) => u.country))].sort();
 export const RESEARCH_FOCUSES = [...new Set(RAW.map((u) => u.researchFocus))].sort();
