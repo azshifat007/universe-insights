@@ -14,12 +14,12 @@ interface Region {
 
 const REGIONS: Region[] = [
   { id: "na", label: "North America", cx: 180, cy: 140, countries: ["USA", "Canada"] },
-  { id: "sa", label: "South America", cx: 230, cy: 280, countries: ["Brazil"] },
-  { id: "eu", label: "Europe", cx: 420, cy: 120, countries: ["UK", "Switzerland", "Germany"] },
-  { id: "af", label: "Africa", cx: 430, cy: 260, countries: ["South Africa"] },
-  { id: "sa-asia", label: "South Asia", cx: 540, cy: 200, countries: ["India", "Bangladesh"] },
-  { id: "ea", label: "East Asia", cx: 630, cy: 160, countries: ["China", "Japan", "South Korea"] },
-  { id: "sea", label: "Southeast Asia", cx: 620, cy: 230, countries: ["Singapore"] },
+  { id: "la", label: "Latin America", cx: 230, cy: 280, countries: ["Brazil", "Mexico", "Argentina"] },
+  { id: "eu", label: "Europe", cx: 420, cy: 120, countries: ["UK", "Switzerland", "Germany", "France", "Sweden", "Netherlands", "Russia"] },
+  { id: "af", label: "Africa", cx: 430, cy: 260, countries: ["South Africa", "Kenya", "Egypt"] },
+  { id: "sa-asia", label: "Asia", cx: 540, cy: 200, countries: ["India", "Bangladesh"] },
+  { id: "ea", label: "East Asia", cx: 630, cy: 160, countries: ["China", "Japan", "South Korea", "Singapore"] },
+  { id: "me", label: "Middle East", cx: 490, cy: 180, countries: ["Israel", "Saudi Arabia"] },
   { id: "oc", label: "Oceania", cx: 680, cy: 310, countries: ["Australia"] },
 ];
 
