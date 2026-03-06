@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { generateUniversities, refreshScores, SUBJECTS, REGION_MAP } from "@/data/universities";
 import Navbar from "@/components/Navbar";
@@ -11,10 +12,11 @@ import ComparisonModal from "@/components/ComparisonModal";
 import UniversityLogo from "@/components/UniversityLogo";
 
 const Rankings = () => {
+  const [searchParams] = useSearchParams();
   const [universities, setUniversities] = useState<ReturnType<typeof generateUniversities> | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [country, setCountry] = useState("all");
-  const [region, setRegion] = useState("all");
+  const [region, setRegion] = useState(searchParams.get("region") || "all");
   const [researchFocus, setResearchFocus] = useState("all");
   const [minScore, setMinScore] = useState(0);
 
