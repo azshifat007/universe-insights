@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import type { University } from "@/data/universities";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import worldMapImg from "@/assets/world-map.webp";
@@ -13,12 +14,11 @@ interface Region {
 
 const REGIONS: Region[] = [
   { id: "na", label: "North America", cx: 180, cy: 140, countries: ["USA", "Canada"] },
-  { id: "sa", label: "South America", cx: 230, cy: 280, countries: ["Brazil"] },
-  { id: "eu", label: "Europe", cx: 420, cy: 120, countries: ["UK", "Switzerland", "Germany"] },
-  { id: "af", label: "Africa", cx: 430, cy: 260, countries: ["South Africa"] },
-  { id: "sa-asia", label: "South Asia", cx: 540, cy: 200, countries: ["India", "Bangladesh"] },
-  { id: "ea", label: "East Asia", cx: 630, cy: 160, countries: ["China", "Japan", "South Korea"] },
-  { id: "sea", label: "Southeast Asia", cx: 620, cy: 230, countries: ["Singapore"] },
+  { id: "la", label: "Latin America", cx: 230, cy: 280, countries: ["Brazil", "Mexico", "Argentina"] },
+  { id: "eu", label: "Europe", cx: 420, cy: 120, countries: ["UK", "Switzerland", "Germany", "France", "Sweden", "Netherlands", "Russia"] },
+  { id: "af", label: "Africa", cx: 430, cy: 260, countries: ["South Africa", "Kenya", "Egypt"] },
+  { id: "asia", label: "Asia", cx: 580, cy: 185, countries: ["India", "Bangladesh", "China", "Japan", "South Korea", "Singapore"] },
+  { id: "me", label: "Middle East", cx: 475, cy: 195, countries: ["Israel", "Saudi Arabia"] },
   { id: "oc", label: "Oceania", cx: 680, cy: 310, countries: ["Australia"] },
 ];
 
@@ -27,6 +27,7 @@ interface WorldMapProps {
 }
 
 const WorldMap = ({ universities }: WorldMapProps) => {
+  const navigate = useNavigate();
   const regionData = useMemo(() => {
     return REGIONS.map((r) => {
       const unis = universities.filter((u) => r.countries.includes(u.country));
@@ -80,7 +81,8 @@ const WorldMap = ({ universities }: WorldMapProps) => {
               return (
                 <Tooltip key={r.id}>
                   <TooltipTrigger asChild>
-                    <g className="cursor-pointer transition-transform hover:scale-110" style={{ transformOrigin: `${r.cx}px ${r.cy}px` }}>
+                    <g className="cursor-pointer transition-transform hover:scale-110" style={{ transformOrigin: `${r.cx}px ${r.cy}px` }}
+                      onClick={() => navigate(`/rankings?region=${encodeURIComponent(r.label)}`)}>
                       {/* Glow ring */}
                       <circle cx={r.cx} cy={r.cy} r={radius + 4}
                         fill="none" stroke="hsl(var(--accent))" strokeWidth="1"
