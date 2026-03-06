@@ -82,7 +82,8 @@ const WorldMap = ({ universities }: WorldMapProps) => {
               return (
                 <Tooltip key={r.id}>
                   <TooltipTrigger asChild>
-                    <g className="cursor-pointer transition-transform hover:scale-110" style={{ transformOrigin: `${r.cx}px ${r.cy}px` }}>
+                    <g className="cursor-pointer transition-transform hover:scale-110" style={{ transformOrigin: `${r.cx}px ${r.cy}px` }}
+                      onClick={() => navigate(`/rankings?region=${encodeURIComponent(r.label)}`)}>
                       {/* Glow ring */}
                       <circle cx={r.cx} cy={r.cy} r={radius + 4}
                         fill="none" stroke="hsl(var(--accent))" strokeWidth="1"
