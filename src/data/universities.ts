@@ -325,6 +325,72 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 44.5, citationsPerFaculty: 41.7, employerReputation: 46.3, facultyStudentRatio: 50.2, internationalResearchNetwork: 35.8, employmentOutcomes: 49.1, sustainability: 55.4, internationalDiversity: 16.7 },
     trend: [25, 24, 24, 23, 23, 23], highlights: ["Top agricultural university in South Asia", "Pioneering rice and fisheries research", "Key contributor to Bangladesh's Green Revolution"],
   },
+  // ─── Bangladesh — More Universities ────────────────────────────────────────
+  {
+    id: "sust", name: "Shahjalal University of Science & Technology", country: "Bangladesh", city: "Sylhet", founded: 1991, students: 13000, researchFocus: "Sciences & Technology", logo: "🇧🇩", domain: "sust.edu",
+    pillars: { academicReputation: 46.8, citationsPerFaculty: 40.5, employerReputation: 49.2, facultyStudentRatio: 47.3, internationalResearchNetwork: 31.6, employmentOutcomes: 52.4, sustainability: 47.8, internationalDiversity: 14.1 },
+    trend: [24, 23, 23, 22, 22, 22], highlights: ["First science & technology university in BD", "Strong CS and physics departments", "Scenic hill-adjacent campus in Sylhet"],
+  },
+  {
+    id: "kushtia", name: "Islamic University", country: "Bangladesh", city: "Kushtia", founded: 1979, students: 22000, researchFocus: "Islamic Studies & Sciences", logo: "🇧🇩", domain: "iu.ac.bd",
+    pillars: { academicReputation: 40.2, citationsPerFaculty: 34.8, employerReputation: 43.5, facultyStudentRatio: 41.6, internationalResearchNetwork: 26.3, employmentOutcomes: 46.7, sustainability: 42.1, internationalDiversity: 12.8 },
+    trend: [28, 27, 27, 26, 26, 26], highlights: ["Leading Islamic studies research in BD", "Applied chemistry & biochemistry programs", "Expanding distance learning programs"],
+  },
+  {
+    id: "jkkniu", name: "Jatiya Kabi Kazi Nazrul Islam University", country: "Bangladesh", city: "Mymensingh", founded: 2005, students: 8000, researchFocus: "Arts & Sciences", logo: "🇧🇩", domain: "jkkniu.edu.bd",
+    pillars: { academicReputation: 38.5, citationsPerFaculty: 33.2, employerReputation: 41.8, facultyStudentRatio: 46.5, internationalResearchNetwork: 24.7, employmentOutcomes: 44.3, sustainability: 40.8, internationalDiversity: 10.5 },
+    trend: [30, 29, 29, 28, 28, 28], highlights: ["Named after national poet Kazi Nazrul Islam", "Growing research in Bangla literature", "One of the newer public universities"],
+  },
+  {
+    id: "ruet", name: "Rajshahi University of Engineering & Technology", country: "Bangladesh", city: "Rajshahi", founded: 2003, students: 4500, researchFocus: "Engineering & Technology", logo: "🇧🇩", domain: "ruet.ac.bd",
+    pillars: { academicReputation: 43.1, citationsPerFaculty: 41.2, employerReputation: 49.6, facultyStudentRatio: 54.8, internationalResearchNetwork: 27.9, employmentOutcomes: 55.8, sustainability: 40.3, internationalDiversity: 11.4 },
+    trend: [27, 26, 26, 25, 25, 25], highlights: ["Premier engineering institute in NW Bangladesh", "Strong ICPC competitive programming", "Growing renewable energy research"],
+  },
+  {
+    id: "cuet", name: "Chittagong University of Engineering & Technology", country: "Bangladesh", city: "Chittagong", founded: 2003, students: 5000, researchFocus: "Engineering & Architecture", logo: "🇧🇩", domain: "cuet.ac.bd",
+    pillars: { academicReputation: 43.5, citationsPerFaculty: 40.8, employerReputation: 50.3, facultyStudentRatio: 55.2, internationalResearchNetwork: 28.1, employmentOutcomes: 56.2, sustainability: 41.5, internationalDiversity: 11.9 },
+    trend: [26, 25, 25, 24, 24, 24], highlights: ["Top engineering school in SE Bangladesh", "Strong civil and mechanical programs", "Industry ties with Chittagong port economy"],
+  },
+  {
+    id: "ku", name: "Khulna University", country: "Bangladesh", city: "Khulna", founded: 1991, students: 9500, researchFocus: "Environmental Science & Forestry", logo: "🇧🇩", domain: "ku.ac.bd",
+    pillars: { academicReputation: 44.1, citationsPerFaculty: 38.9, employerReputation: 46.7, facultyStudentRatio: 46.1, internationalResearchNetwork: 30.5, employmentOutcomes: 49.8, sustainability: 52.3, internationalDiversity: 13.2 },
+    trend: [27, 26, 26, 25, 25, 25], highlights: ["Leading Sundarbans & mangrove research", "Strong forestry and environmental programs", "Gateway university for SW Bangladesh"],
+  },
+  {
+    id: "pust", name: "Pabna University of Science & Technology", country: "Bangladesh", city: "Pabna", founded: 2008, students: 6000, researchFocus: "Sciences & Business", logo: "🇧🇩", domain: "pust.ac.bd",
+    pillars: { academicReputation: 37.8, citationsPerFaculty: 32.5, employerReputation: 40.2, facultyStudentRatio: 48.3, internationalResearchNetwork: 23.1, employmentOutcomes: 43.5, sustainability: 39.7, internationalDiversity: 9.8 },
+    trend: [31, 30, 30, 29, 29, 29], highlights: ["Rapidly growing science university", "Strong ICT and mathematics programs", "Focus on applied research for rural development"],
+  },
+  {
+    id: "diu", name: "Daffodil International University", country: "Bangladesh", city: "Dhaka", founded: 2002, students: 25000, researchFocus: "CS & Business", logo: "🇧🇩", domain: "daffodilvarsity.edu.bd",
+    pillars: { academicReputation: 44.8, citationsPerFaculty: 41.3, employerReputation: 52.1, facultyStudentRatio: 50.6, internationalResearchNetwork: 33.8, employmentOutcomes: 56.4, sustainability: 43.5, internationalDiversity: 24.3 },
+    trend: [25, 24, 24, 23, 23, 23], highlights: ["Largest IT-focused private university in BD", "Active ICPC and hackathon participation", "Strong industry-academia collaboration"],
+  },
+  {
+    id: "uiu", name: "United International University", country: "Bangladesh", city: "Dhaka", founded: 2003, students: 8000, researchFocus: "Engineering & Business", logo: "🇧🇩", domain: "uiu.ac.bd",
+    pillars: { academicReputation: 42.5, citationsPerFaculty: 39.8, employerReputation: 50.4, facultyStudentRatio: 52.7, internationalResearchNetwork: 30.2, employmentOutcomes: 54.1, sustainability: 41.8, internationalDiversity: 22.6 },
+    trend: [27, 26, 26, 25, 25, 25], highlights: ["Unitrax Foundation-backed", "Strong EEE and CSE departments", "Modern Satarkul campus"],
+  },
+  {
+    id: "stamford", name: "Stamford University Bangladesh", country: "Bangladesh", city: "Dhaka", founded: 2002, students: 18000, researchFocus: "Pharmacy & Business", logo: "🇧🇩", domain: "stamforduniversity.edu.bd",
+    pillars: { academicReputation: 40.1, citationsPerFaculty: 36.7, employerReputation: 46.5, facultyStudentRatio: 49.1, internationalResearchNetwork: 27.5, employmentOutcomes: 50.3, sustainability: 38.9, internationalDiversity: 20.8 },
+    trend: [29, 28, 28, 27, 27, 27], highlights: ["Leading pharmacy education in BD", "Film & media studies program", "Multiple campuses across Bangladesh"],
+  },
+  {
+    id: "aust", name: "Ahsanullah University of Science & Technology", country: "Bangladesh", city: "Dhaka", founded: 1995, students: 9000, researchFocus: "Engineering & Architecture", logo: "🇧🇩", domain: "aust.edu",
+    pillars: { academicReputation: 44.2, citationsPerFaculty: 40.5, employerReputation: 51.8, facultyStudentRatio: 53.4, internationalResearchNetwork: 29.6, employmentOutcomes: 55.7, sustainability: 40.1, internationalDiversity: 19.3 },
+    trend: [26, 25, 25, 24, 24, 24], highlights: ["Top private engineering university", "Strong architecture program", "Dhaka Tejgaon campus with modern labs"],
+  },
+  {
+    id: "nstu", name: "Noakhali Science & Technology University", country: "Bangladesh", city: "Noakhali", founded: 2001, students: 7500, researchFocus: "Sciences & Fisheries", logo: "🇧🇩", domain: "nstu.edu.bd",
+    pillars: { academicReputation: 39.4, citationsPerFaculty: 35.1, employerReputation: 42.3, facultyStudentRatio: 47.8, internationalResearchNetwork: 25.8, employmentOutcomes: 46.2, sustainability: 44.5, internationalDiversity: 11.2 },
+    trend: [29, 28, 28, 27, 27, 27], highlights: ["Coastal region's leading university", "Marine fisheries and oceanography focus", "Growing applied sciences research"],
+  },
+  {
+    id: "bsmmu", name: "Bangabandhu Sheikh Mujib Medical University", country: "Bangladesh", city: "Dhaka", founded: 1998, students: 3500, researchFocus: "Medicine & Public Health", logo: "🇧🇩", domain: "bsmmu.edu.bd",
+    pillars: { academicReputation: 50.5, citationsPerFaculty: 46.8, employerReputation: 54.3, facultyStudentRatio: 58.7, internationalResearchNetwork: 36.4, employmentOutcomes: 62.1, sustainability: 46.2, internationalDiversity: 17.5 },
+    trend: [21, 20, 20, 19, 19, 19], highlights: ["Bangladesh's only public medical university", "Leading clinical research in South Asia", "National referral center for specialized medicine"],
+  },
 ];
 
 // Build the final dataset with computed scores and ranks
