@@ -17,9 +17,8 @@ const REGIONS: Region[] = [
   { id: "la", label: "Latin America", cx: 230, cy: 280, countries: ["Brazil", "Mexico", "Argentina"] },
   { id: "eu", label: "Europe", cx: 420, cy: 120, countries: ["UK", "Switzerland", "Germany", "France", "Sweden", "Netherlands", "Russia"] },
   { id: "af", label: "Africa", cx: 430, cy: 260, countries: ["South Africa", "Kenya", "Egypt"] },
-  { id: "sa-asia", label: "Asia", cx: 540, cy: 200, countries: ["India", "Bangladesh"] },
-  { id: "ea", label: "East Asia", cx: 630, cy: 160, countries: ["China", "Japan", "South Korea", "Singapore"] },
-  { id: "me", label: "Middle East", cx: 490, cy: 180, countries: ["Israel", "Saudi Arabia"] },
+  { id: "asia", label: "Asia", cx: 580, cy: 185, countries: ["India", "Bangladesh", "China", "Japan", "South Korea", "Singapore"] },
+  { id: "me", label: "Middle East", cx: 475, cy: 195, countries: ["Israel", "Saudi Arabia"] },
   { id: "oc", label: "Oceania", cx: 680, cy: 310, countries: ["Australia"] },
 ];
 
