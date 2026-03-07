@@ -391,6 +391,248 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 50.5, citationsPerFaculty: 46.8, employerReputation: 54.3, facultyStudentRatio: 58.7, internationalResearchNetwork: 36.4, employmentOutcomes: 62.1, sustainability: 46.2, internationalDiversity: 17.5 },
     trend: [21, 20, 20, 19, 19, 19], highlights: ["Bangladesh's only public medical university", "Leading clinical research in South Asia", "National referral center for specialized medicine"],
   },
+  // ─── Bangladesh — Additional Universities ──────────────────────────────────
+  {
+    id: "bup", name: "Bangladesh University of Professionals", country: "Bangladesh", city: "Dhaka", founded: 2008, students: 7000, researchFocus: "Security & Management", logo: "🇧🇩", domain: "bup.edu.bd",
+    pillars: { academicReputation: 46.5, citationsPerFaculty: 38.7, employerReputation: 55.3, facultyStudentRatio: 58.1, internationalResearchNetwork: 28.9, employmentOutcomes: 58.4, sustainability: 43.2, internationalDiversity: 15.8 },
+    trend: [26, 25, 25, 24, 24, 24], highlights: ["Run under Armed Forces Division", "Strong defense & security studies", "Rapidly growing civilian programs"],
+  },
+  {
+    id: "mbstu", name: "Mawlana Bhashani Science & Technology University", country: "Bangladesh", city: "Tangail", founded: 2001, students: 8500, researchFocus: "Sciences & Technology", logo: "🇧🇩", domain: "mbstu.ac.bd",
+    pillars: { academicReputation: 39.8, citationsPerFaculty: 34.2, employerReputation: 42.5, facultyStudentRatio: 46.8, internationalResearchNetwork: 25.4, employmentOutcomes: 45.8, sustainability: 43.1, internationalDiversity: 10.9 },
+    trend: [30, 29, 29, 28, 28, 28], highlights: ["Named after Maulana Abdul Hamid Khan Bhashani", "Growing CS and textile engineering programs", "Eco-friendly campus initiatives"],
+  },
+  {
+    id: "hstu", name: "Hajee Mohammad Danesh Science & Technology University", country: "Bangladesh", city: "Dinajpur", founded: 2002, students: 9000, researchFocus: "Agriculture & Engineering", logo: "🇧🇩", domain: "hstu.ac.bd",
+    pillars: { academicReputation: 38.2, citationsPerFaculty: 33.5, employerReputation: 41.8, facultyStudentRatio: 45.2, internationalResearchNetwork: 24.1, employmentOutcomes: 44.5, sustainability: 46.3, internationalDiversity: 10.2 },
+    trend: [31, 30, 30, 29, 29, 29], highlights: ["Leading university in Rangpur division", "Strong veterinary and agricultural programs", "Largest campus in northern Bangladesh"],
+  },
+  {
+    id: "just", name: "Jessore University of Science & Technology", country: "Bangladesh", city: "Jessore", founded: 2007, students: 7200, researchFocus: "Sciences & Fisheries", logo: "🇧🇩", domain: "just.edu.bd",
+    pillars: { academicReputation: 37.5, citationsPerFaculty: 32.8, employerReputation: 40.6, facultyStudentRatio: 47.1, internationalResearchNetwork: 23.5, employmentOutcomes: 43.2, sustainability: 41.5, internationalDiversity: 9.8 },
+    trend: [32, 31, 31, 30, 30, 30], highlights: ["Major university in Khulna division", "Microbiology and biotechnology focus", "Growing fisheries research output"],
+  },
+  {
+    id: "duet", name: "Dhaka University of Engineering & Technology", country: "Bangladesh", city: "Gazipur", founded: 2003, students: 5500, researchFocus: "Engineering & Technology", logo: "🇧🇩", domain: "duet.ac.bd",
+    pillars: { academicReputation: 41.8, citationsPerFaculty: 39.5, employerReputation: 48.7, facultyStudentRatio: 54.1, internationalResearchNetwork: 27.2, employmentOutcomes: 53.4, sustainability: 39.8, internationalDiversity: 11.5 },
+    trend: [28, 27, 27, 26, 26, 26], highlights: ["Formerly BIT Dhaka", "Strong mechanical and civil engineering", "Close proximity to Dhaka industrial zone"],
+  },
+  {
+    id: "sau", name: "Sylhet Agricultural University", country: "Bangladesh", city: "Sylhet", founded: 2006, students: 3800, researchFocus: "Agriculture & Veterinary", logo: "🇧🇩", domain: "sau.ac.bd",
+    pillars: { academicReputation: 36.8, citationsPerFaculty: 34.1, employerReputation: 39.5, facultyStudentRatio: 50.3, internationalResearchNetwork: 26.2, employmentOutcomes: 42.8, sustainability: 48.7, internationalDiversity: 10.1 },
+    trend: [33, 32, 32, 31, 31, 31], highlights: ["Tea garden research specialization", "Veterinary and animal sciences focus", "Expanding aquaculture research"],
+  },
+  {
+    id: "cvasu", name: "Chittagong Veterinary & Animal Sciences University", country: "Bangladesh", city: "Chittagong", founded: 2006, students: 2800, researchFocus: "Veterinary & Marine Sciences", logo: "🇧🇩", domain: "cvasu.ac.bd",
+    pillars: { academicReputation: 38.5, citationsPerFaculty: 36.7, employerReputation: 41.2, facultyStudentRatio: 55.6, internationalResearchNetwork: 28.8, employmentOutcomes: 45.6, sustainability: 47.2, internationalDiversity: 12.4 },
+    trend: [31, 30, 30, 29, 29, 29], highlights: ["Only dedicated veterinary university in BD", "Leading poultry and dairy research", "FAO and WHO collaborative projects"],
+  },
+  {
+    id: "sbau", name: "Sher-e-Bangla Agricultural University", country: "Bangladesh", city: "Dhaka", founded: 2001, students: 4200, researchFocus: "Agriculture & Agribusiness", logo: "🇧🇩", domain: "sau.edu.bd",
+    pillars: { academicReputation: 40.2, citationsPerFaculty: 37.4, employerReputation: 43.1, facultyStudentRatio: 49.8, internationalResearchNetwork: 29.5, employmentOutcomes: 46.3, sustainability: 50.1, internationalDiversity: 11.8 },
+    trend: [29, 28, 28, 27, 27, 27], highlights: ["Located in heart of Dhaka — Agargaon campus", "Crop science and agroforestry focus", "Strong national food security research"],
+  },
+  {
+    id: "cou", name: "Comilla University", country: "Bangladesh", city: "Comilla", founded: 2006, students: 7000, researchFocus: "Sciences & Arts", logo: "🇧🇩", domain: "cou.ac.bd",
+    pillars: { academicReputation: 37.2, citationsPerFaculty: 31.8, employerReputation: 40.1, facultyStudentRatio: 45.5, internationalResearchNetwork: 22.8, employmentOutcomes: 42.7, sustainability: 40.2, internationalDiversity: 9.5 },
+    trend: [33, 32, 32, 31, 31, 31], highlights: ["Major university in Comilla district", "Growing statistics and economics programs", "Active student research culture"],
+  },
+  {
+    id: "brur", name: "Begum Rokeya University, Rangpur", country: "Bangladesh", city: "Rangpur", founded: 2008, students: 8500, researchFocus: "Sciences & Social Sciences", logo: "🇧🇩", domain: "brur.ac.bd",
+    pillars: { academicReputation: 36.5, citationsPerFaculty: 31.2, employerReputation: 39.4, facultyStudentRatio: 44.8, internationalResearchNetwork: 22.1, employmentOutcomes: 41.5, sustainability: 39.8, internationalDiversity: 9.2 },
+    trend: [34, 33, 33, 32, 32, 32], highlights: ["Named after women's rights pioneer Begum Rokeya", "Key university for Rangpur division", "Expanding social science research"],
+  },
+  {
+    id: "bsmrstu", name: "Bangabandhu Sheikh Mujibur Rahman Science & Technology University", country: "Bangladesh", city: "Gopalganj", founded: 2011, students: 5500, researchFocus: "Sciences & Technology", logo: "🇧🇩", domain: "bsmrstu.edu.bd",
+    pillars: { academicReputation: 35.8, citationsPerFaculty: 30.5, employerReputation: 38.7, facultyStudentRatio: 46.2, internationalResearchNetwork: 21.5, employmentOutcomes: 40.8, sustainability: 38.5, internationalDiversity: 8.8 },
+    trend: [35, 34, 34, 33, 33, 33], highlights: ["Named after Father of the Nation", "Modern science labs and research facilities", "Growing ICT and data science programs"],
+  },
+  {
+    id: "bou", name: "Bangladesh Open University", country: "Bangladesh", city: "Gazipur", founded: 1992, students: 500000, researchFocus: "Distance Education", logo: "🇧🇩", domain: "bou.ac.bd",
+    pillars: { academicReputation: 35.1, citationsPerFaculty: 28.4, employerReputation: 38.2, facultyStudentRatio: 30.5, internationalResearchNetwork: 20.8, employmentOutcomes: 40.1, sustainability: 42.5, internationalDiversity: 8.5 },
+    trend: [36, 35, 35, 34, 34, 34], highlights: ["Largest university in Bangladesh by enrollment", "Pioneer of distance learning in South Asia", "Reaching rural and underserved populations"],
+  },
+  {
+    id: "iiuc", name: "International Islamic University Chittagong", country: "Bangladesh", city: "Chittagong", founded: 1995, students: 14000, researchFocus: "Islamic Studies & Sciences", logo: "🇧🇩", domain: "iiuc.ac.bd",
+    pillars: { academicReputation: 41.5, citationsPerFaculty: 37.2, employerReputation: 47.3, facultyStudentRatio: 50.5, internationalResearchNetwork: 30.1, employmentOutcomes: 50.2, sustainability: 42.8, internationalDiversity: 22.1 },
+    trend: [28, 27, 27, 26, 26, 26], highlights: ["Leading private university in Chittagong", "Strong EEE and pharmacy programs", "Active international student body"],
+  },
+  {
+    id: "uap", name: "University of Asia Pacific", country: "Bangladesh", city: "Dhaka", founded: 1996, students: 6500, researchFocus: "Engineering & Architecture", logo: "🇧🇩", domain: "uap-bd.edu",
+    pillars: { academicReputation: 42.1, citationsPerFaculty: 38.5, employerReputation: 49.8, facultyStudentRatio: 52.3, internationalResearchNetwork: 28.5, employmentOutcomes: 52.7, sustainability: 39.5, internationalDiversity: 18.5 },
+    trend: [28, 27, 27, 26, 26, 26], highlights: ["Award-winning architecture department", "Strong civil engineering program", "Urban Dhaka campus with industry access"],
+  },
+  {
+    id: "green", name: "Green University of Bangladesh", country: "Bangladesh", city: "Dhaka", founded: 2003, students: 7000, researchFocus: "CS & Engineering", logo: "🇧🇩", domain: "green.edu.bd",
+    pillars: { academicReputation: 38.8, citationsPerFaculty: 35.2, employerReputation: 45.1, facultyStudentRatio: 49.7, internationalResearchNetwork: 25.8, employmentOutcomes: 48.5, sustainability: 44.2, internationalDiversity: 16.8 },
+    trend: [30, 29, 29, 28, 28, 28], highlights: ["Focus on green technology research", "Strong competitive programming culture", "Industry-linked CS curriculum"],
+  },
+  {
+    id: "lus", name: "Leading University, Sylhet", country: "Bangladesh", city: "Sylhet", founded: 2001, students: 5000, researchFocus: "Business & CS", logo: "🇧🇩", domain: "lus.ac.bd",
+    pillars: { academicReputation: 36.2, citationsPerFaculty: 32.1, employerReputation: 42.5, facultyStudentRatio: 48.4, internationalResearchNetwork: 23.5, employmentOutcomes: 46.1, sustainability: 38.2, internationalDiversity: 18.2 },
+    trend: [32, 31, 31, 30, 30, 30], highlights: ["Top private university in Sylhet region", "Strong business administration program", "Growing IT and software engineering focus"],
+  },
+  {
+    id: "pru", name: "Premier University, Chittagong", country: "Bangladesh", city: "Chittagong", founded: 2002, students: 8500, researchFocus: "Law & Business", logo: "🇧🇩", domain: "puc.ac.bd",
+    pillars: { academicReputation: 37.5, citationsPerFaculty: 33.4, employerReputation: 44.2, facultyStudentRatio: 47.8, internationalResearchNetwork: 24.8, employmentOutcomes: 47.3, sustainability: 37.5, internationalDiversity: 17.5 },
+    trend: [31, 30, 30, 29, 29, 29], highlights: ["Leading private university in Chittagong", "Strong law faculty", "Active moot court and legal aid programs"],
+  },
+  {
+    id: "btu", name: "Bangladesh Textile University", country: "Bangladesh", city: "Dhaka", founded: 2010, students: 3500, researchFocus: "Textile Engineering", logo: "🇧🇩", domain: "butex.edu.bd",
+    pillars: { academicReputation: 41.2, citationsPerFaculty: 38.8, employerReputation: 52.5, facultyStudentRatio: 56.3, internationalResearchNetwork: 30.2, employmentOutcomes: 60.1, sustainability: 45.8, internationalDiversity: 14.5 },
+    trend: [27, 26, 26, 25, 25, 25], highlights: ["Only dedicated textile university in BD", "Strong ties to $45B RMG export industry", "Pioneering sustainable fashion research"],
+  },
+  // ─── Additional World Universities ─────────────────────────────────────────
+  {
+    id: "princeton", name: "Princeton University", country: "USA", city: "Princeton, NJ", founded: 1746, students: 8478, researchFocus: "Mathematics & Physics", logo: "🏛️", domain: "princeton.edu",
+    pillars: { academicReputation: 99.1, citationsPerFaculty: 97.8, employerReputation: 97.2, facultyStudentRatio: 99.5, internationalResearchNetwork: 90.5, employmentOutcomes: 98.1, sustainability: 90.8, internationalDiversity: 85.7 },
+    trend: [4, 4, 5, 5, 4, 4], highlights: ["69 Nobel laureates affiliated", "Strongest math department globally", "$35.8B endowment"],
+  },
+  {
+    id: "uchicago", name: "University of Chicago", country: "USA", city: "Chicago, IL", founded: 1890, students: 17834, researchFocus: "Economics & Law", logo: "🏛️", domain: "uchicago.edu",
+    pillars: { academicReputation: 96.8, citationsPerFaculty: 95.2, employerReputation: 94.5, facultyStudentRatio: 93.1, internationalResearchNetwork: 88.7, employmentOutcomes: 96.3, sustainability: 88.4, internationalDiversity: 83.2 },
+    trend: [7, 7, 6, 6, 7, 7], highlights: ["100 Nobel Prize affiliates", "Chicago school of economics", "Birthplace of nuclear energy — Manhattan Project"],
+  },
+  {
+    id: "upenn", name: "University of Pennsylvania", country: "USA", city: "Philadelphia, PA", founded: 1740, students: 28000, researchFocus: "Business & Medicine", logo: "🏛️", domain: "upenn.edu",
+    pillars: { academicReputation: 94.5, citationsPerFaculty: 90.1, employerReputation: 95.8, facultyStudentRatio: 89.2, internationalResearchNetwork: 87.3, employmentOutcomes: 97.2, sustainability: 87.5, internationalDiversity: 84.8 },
+    trend: [10, 10, 9, 9, 10, 10], highlights: ["Wharton School — #1 MBA globally", "First medical school in America", "Founded by Benjamin Franklin"],
+  },
+  {
+    id: "jhu", name: "Johns Hopkins University", country: "USA", city: "Baltimore, MD", founded: 1876, students: 26402, researchFocus: "Medicine & Public Health", logo: "🏛️", domain: "jhu.edu",
+    pillars: { academicReputation: 93.2, citationsPerFaculty: 96.4, employerReputation: 88.7, facultyStudentRatio: 91.8, internationalResearchNetwork: 92.5, employmentOutcomes: 90.8, sustainability: 86.2, internationalDiversity: 80.5 },
+    trend: [11, 11, 10, 10, 11, 11], highlights: ["#1 in US federal research spending", "Bloomberg School of Public Health", "Pioneer of the American research university model"],
+  },
+  {
+    id: "cornell", name: "Cornell University", country: "USA", city: "Ithaca, NY", founded: 1865, students: 25582, researchFocus: "Engineering & Agriculture", logo: "🏛️", domain: "cornell.edu",
+    pillars: { academicReputation: 92.4, citationsPerFaculty: 87.5, employerReputation: 91.3, facultyStudentRatio: 88.6, internationalResearchNetwork: 86.8, employmentOutcomes: 92.1, sustainability: 89.5, internationalDiversity: 82.1 },
+    trend: [13, 13, 12, 12, 13, 13], highlights: ["Only Ivy with a land-grant mission", "World-leading hotel administration school", "Cornell Tech campus in NYC"],
+  },
+  {
+    id: "duke", name: "Duke University", country: "USA", city: "Durham, NC", founded: 1838, students: 17620, researchFocus: "Medicine & Public Policy", logo: "🏛️", domain: "duke.edu",
+    pillars: { academicReputation: 91.8, citationsPerFaculty: 92.3, employerReputation: 90.5, facultyStudentRatio: 90.1, internationalResearchNetwork: 85.4, employmentOutcomes: 93.5, sustainability: 88.1, internationalDiversity: 79.6 },
+    trend: [12, 12, 11, 11, 12, 12], highlights: ["Duke Health — top-ranked medical center", "Strong public policy research", "$12.7B endowment"],
+  },
+  {
+    id: "nw", name: "Northwestern University", country: "USA", city: "Evanston, IL", founded: 1851, students: 22801, researchFocus: "Journalism & Engineering", logo: "🏛️", domain: "northwestern.edu",
+    pillars: { academicReputation: 90.5, citationsPerFaculty: 88.2, employerReputation: 91.8, facultyStudentRatio: 87.4, internationalResearchNetwork: 84.1, employmentOutcomes: 93.8, sustainability: 86.7, internationalDiversity: 78.3 },
+    trend: [14, 14, 13, 13, 14, 14], highlights: ["Medill School — #1 journalism program", "Kellogg School of Management", "Qatar and San Francisco satellite campuses"],
+  },
+  {
+    id: "edinburgh", name: "University of Edinburgh", country: "UK", city: "Edinburgh", founded: 1583, students: 45000, researchFocus: "AI & Medicine", logo: "🇬🇧", domain: "ed.ac.uk",
+    pillars: { academicReputation: 89.8, citationsPerFaculty: 84.5, employerReputation: 87.2, facultyStudentRatio: 76.5, internationalResearchNetwork: 93.1, employmentOutcomes: 85.3, sustainability: 91.5, internationalDiversity: 94.8 },
+    trend: [14, 13, 13, 12, 12, 12], highlights: ["6th oldest English-speaking university", "Pioneering AI & informatics research", "Dolly the Sheep was cloned here"],
+  },
+  {
+    id: "lse", name: "London School of Economics", country: "UK", city: "London", founded: 1895, students: 12500, researchFocus: "Economics & Political Science", logo: "🇬🇧", domain: "lse.ac.uk",
+    pillars: { academicReputation: 91.2, citationsPerFaculty: 78.4, employerReputation: 94.7, facultyStudentRatio: 82.3, internationalResearchNetwork: 89.5, employmentOutcomes: 95.2, sustainability: 84.3, internationalDiversity: 97.5 },
+    trend: [12, 12, 11, 11, 11, 11], highlights: ["World leader in social sciences", "18 Nobel Prize winners", "Most internationally diverse campus in UK"],
+  },
+  {
+    id: "kcl", name: "King's College London", country: "UK", city: "London", founded: 1829, students: 35000, researchFocus: "Law & Health", logo: "🇬🇧", domain: "kcl.ac.uk",
+    pillars: { academicReputation: 87.5, citationsPerFaculty: 82.8, employerReputation: 86.3, facultyStudentRatio: 74.8, internationalResearchNetwork: 91.2, employmentOutcomes: 84.7, sustainability: 87.8, internationalDiversity: 95.2 },
+    trend: [16, 15, 15, 14, 14, 14], highlights: ["Strand campus in heart of London", "DNA structure discovered here", "Florence Nightingale's nursing school"],
+  },
+  {
+    id: "manchester", name: "University of Manchester", country: "UK", city: "Manchester", founded: 1824, students: 44000, researchFocus: "Physics & Engineering", logo: "🇬🇧", domain: "manchester.ac.uk",
+    pillars: { academicReputation: 86.2, citationsPerFaculty: 81.5, employerReputation: 84.8, facultyStudentRatio: 73.2, internationalResearchNetwork: 90.4, employmentOutcomes: 83.5, sustainability: 89.2, internationalDiversity: 91.8 },
+    trend: [17, 16, 16, 15, 15, 15], highlights: ["25 Nobel laureates", "Graphene discovered here", "Largest single-site university in UK"],
+  },
+  {
+    id: "tum", name: "Technical University of Munich", country: "Germany", city: "Munich", founded: 1868, students: 50000, researchFocus: "Engineering & CS", logo: "🇩🇪", domain: "tum.de",
+    pillars: { academicReputation: 88.5, citationsPerFaculty: 85.2, employerReputation: 90.3, facultyStudentRatio: 72.8, internationalResearchNetwork: 87.6, employmentOutcomes: 89.5, sustainability: 91.8, internationalDiversity: 82.5 },
+    trend: [13, 13, 12, 12, 12, 12], highlights: ["Germany's #1 technical university", "17 Nobel Prize winners", "Strong BMW, Siemens, SAP partnerships"],
+  },
+  {
+    id: "heidelberg", name: "Heidelberg University", country: "Germany", city: "Heidelberg", founded: 1386, students: 30000, researchFocus: "Medicine & Natural Sciences", logo: "🇩🇪", domain: "uni-heidelberg.de",
+    pillars: { academicReputation: 85.8, citationsPerFaculty: 83.7, employerReputation: 80.2, facultyStudentRatio: 76.5, internationalResearchNetwork: 88.9, employmentOutcomes: 81.3, sustainability: 87.4, internationalDiversity: 80.1 },
+    trend: [15, 15, 14, 14, 14, 14], highlights: ["Germany's oldest university", "12 Nobel Prize winners", "Excellence cluster in molecular biology"],
+  },
+  {
+    id: "epfl", name: "École Polytechnique Fédérale de Lausanne", country: "Switzerland", city: "Lausanne", founded: 1853, students: 13000, researchFocus: "Engineering & CS", logo: "🇨🇭", domain: "epfl.ch",
+    pillars: { academicReputation: 90.2, citationsPerFaculty: 95.8, employerReputation: 88.7, facultyStudentRatio: 92.3, internationalResearchNetwork: 96.5, employmentOutcomes: 87.2, sustainability: 93.4, internationalDiversity: 97.1 },
+    trend: [8, 8, 7, 7, 8, 8], highlights: ["Switzerland's leading tech university", "Human Brain Project headquarters", "Most international campus in Europe"],
+  },
+  {
+    id: "uva", name: "University of Amsterdam", country: "Netherlands", city: "Amsterdam", founded: 1632, students: 39000, researchFocus: "Social Sciences & Humanities", logo: "🇳🇱", domain: "uva.nl",
+    pillars: { academicReputation: 83.5, citationsPerFaculty: 80.2, employerReputation: 78.8, facultyStudentRatio: 71.5, internationalResearchNetwork: 89.8, employmentOutcomes: 79.4, sustainability: 87.2, internationalDiversity: 88.5 },
+    trend: [17, 16, 16, 15, 15, 15], highlights: ["Largest university in Netherlands", "Spinoza Prize winners hub", "Leading media and communication research"],
+  },
+  {
+    id: "kuleuven", name: "KU Leuven", country: "Belgium", city: "Leuven", founded: 1425, students: 65000, researchFocus: "Biomedical & Engineering", logo: "🇧🇪", domain: "kuleuven.be",
+    pillars: { academicReputation: 87.8, citationsPerFaculty: 88.5, employerReputation: 83.2, facultyStudentRatio: 74.1, internationalResearchNetwork: 91.8, employmentOutcomes: 82.5, sustainability: 90.5, internationalDiversity: 84.3 },
+    trend: [13, 13, 12, 12, 12, 12], highlights: ["Most innovative European university", "Oldest Catholic university in world", "Leading nanotechnology research — IMEC"],
+  },
+  {
+    id: "copenhagen", name: "University of Copenhagen", country: "Denmark", city: "Copenhagen", founded: 1479, students: 38000, researchFocus: "Health & Natural Sciences", logo: "🇩🇰", domain: "ku.dk",
+    pillars: { academicReputation: 86.5, citationsPerFaculty: 87.8, employerReputation: 79.5, facultyStudentRatio: 75.8, internationalResearchNetwork: 92.4, employmentOutcomes: 80.2, sustainability: 94.2, internationalDiversity: 83.8 },
+    trend: [14, 14, 13, 13, 13, 13], highlights: ["9 Nobel Prize laureates", "Niels Bohr Institute for physics", "Leading in health and life sciences"],
+  },
+  {
+    id: "helsinki", name: "University of Helsinki", country: "Finland", city: "Helsinki", founded: 1640, students: 31000, researchFocus: "Environmental & Life Sciences", logo: "🇫🇮", domain: "helsinki.fi",
+    pillars: { academicReputation: 82.1, citationsPerFaculty: 83.4, employerReputation: 74.8, facultyStudentRatio: 73.5, internationalResearchNetwork: 90.1, employmentOutcomes: 76.3, sustainability: 95.8, internationalDiversity: 78.5 },
+    trend: [18, 17, 17, 16, 16, 16], highlights: ["Finland's largest and oldest university", "Leading climate and atmospheric research", "Consistently ranked #1 in sustainability"],
+  },
+  {
+    id: "kaist", name: "Korea Advanced Institute of Science & Technology", country: "South Korea", city: "Daejeon", founded: 1971, students: 11000, researchFocus: "Engineering & AI", logo: "🇰🇷", domain: "kaist.ac.kr",
+    pillars: { academicReputation: 84.8, citationsPerFaculty: 88.2, employerReputation: 86.5, facultyStudentRatio: 87.3, internationalResearchNetwork: 78.4, employmentOutcomes: 89.7, sustainability: 80.5, internationalDiversity: 62.8 },
+    trend: [12, 12, 11, 11, 11, 11], highlights: ["South Korea's MIT", "Leading robotics and AI research", "Strong Samsung and LG partnerships"],
+  },
+  {
+    id: "hku", name: "University of Hong Kong", country: "China", city: "Hong Kong", founded: 1911, students: 31000, researchFocus: "Medicine & Law", logo: "🏯", domain: "hku.hk",
+    pillars: { academicReputation: 88.2, citationsPerFaculty: 82.5, employerReputation: 90.8, facultyStudentRatio: 80.4, internationalResearchNetwork: 88.7, employmentOutcomes: 88.5, sustainability: 85.3, internationalDiversity: 93.2 },
+    trend: [11, 11, 10, 10, 10, 10], highlights: ["Asia's most international university", "Strong common law program", "Gateway between East and West"],
+  },
+  {
+    id: "ntu", name: "Nanyang Technological University", country: "Singapore", city: "Singapore", founded: 1991, students: 33000, researchFocus: "Engineering & Materials Science", logo: "🦁", domain: "ntu.edu.sg",
+    pillars: { academicReputation: 87.5, citationsPerFaculty: 89.8, employerReputation: 91.2, facultyStudentRatio: 81.5, internationalResearchNetwork: 86.3, employmentOutcomes: 90.8, sustainability: 92.5, internationalDiversity: 90.1 },
+    trend: [9, 9, 8, 8, 9, 9], highlights: ["World's most beautiful campus", "Young University #1 multiple times", "Leading materials science research"],
+  },
+  {
+    id: "iitd", name: "Indian Institute of Technology Delhi", country: "India", city: "New Delhi", founded: 1961, students: 13000, researchFocus: "Engineering & CS", logo: "🇮🇳", domain: "iitd.ac.in",
+    pillars: { academicReputation: 74.2, citationsPerFaculty: 79.5, employerReputation: 86.3, facultyStudentRatio: 84.8, internationalResearchNetwork: 60.5, employmentOutcomes: 90.2, sustainability: 69.8, internationalDiversity: 40.5 },
+    trend: [15, 14, 14, 13, 13, 13], highlights: ["India's top-ranked IIT", "Strong Silicon Valley alumni network", "Leading AI and ML research in India"],
+  },
+  {
+    id: "monash", name: "Monash University", country: "Australia", city: "Melbourne", founded: 1958, students: 86000, researchFocus: "Pharmacy & Engineering", logo: "🦘", domain: "monash.edu",
+    pillars: { academicReputation: 85.4, citationsPerFaculty: 79.8, employerReputation: 84.5, facultyStudentRatio: 71.2, internationalResearchNetwork: 87.5, employmentOutcomes: 81.8, sustainability: 90.8, internationalDiversity: 94.7 },
+    trend: [15, 14, 14, 13, 13, 13], highlights: ["Australia's largest university", "#1 in pharmacy globally", "Campuses on 4 continents"],
+  },
+  {
+    id: "usyd", name: "University of Sydney", country: "Australia", city: "Sydney", founded: 1850, students: 73000, researchFocus: "Medicine & Veterinary", logo: "🦘", domain: "sydney.edu.au",
+    pillars: { academicReputation: 86.8, citationsPerFaculty: 78.5, employerReputation: 86.2, facultyStudentRatio: 70.8, internationalResearchNetwork: 88.2, employmentOutcomes: 83.5, sustainability: 91.2, internationalDiversity: 93.5 },
+    trend: [14, 14, 13, 13, 13, 13], highlights: ["Australia's first university", "Pioneering pain management research", "Gothic Revival architecture landmark"],
+  },
+  {
+    id: "anu", name: "Australian National University", country: "Australia", city: "Canberra", founded: 1946, students: 25500, researchFocus: "Astrophysics & Policy", logo: "🦘", domain: "anu.edu.au",
+    pillars: { academicReputation: 84.5, citationsPerFaculty: 81.2, employerReputation: 78.8, facultyStudentRatio: 79.5, internationalResearchNetwork: 90.8, employmentOutcomes: 79.2, sustainability: 89.5, internationalDiversity: 88.2 },
+    trend: [16, 15, 15, 14, 14, 14], highlights: ["Australia's national research university", "Mount Stromlo Observatory", "Leading public policy research"],
+  },
+  {
+    id: "mcgill", name: "McGill University", country: "Canada", city: "Montreal", founded: 1821, students: 40000, researchFocus: "Medicine & Neuroscience", logo: "🍁", domain: "mcgill.ca",
+    pillars: { academicReputation: 88.5, citationsPerFaculty: 80.8, employerReputation: 83.5, facultyStudentRatio: 76.2, internationalResearchNetwork: 86.5, employmentOutcomes: 82.8, sustainability: 88.2, internationalDiversity: 91.5 },
+    trend: [12, 12, 11, 11, 11, 11], highlights: ["12 Nobel laureates", "Osler — father of modern medicine trained here", "Bilingual Montreal setting"],
+  },
+  {
+    id: "ubc", name: "University of British Columbia", country: "Canada", city: "Vancouver", founded: 1908, students: 66000, researchFocus: "Forestry & Environmental Sciences", logo: "🍁", domain: "ubc.ca",
+    pillars: { academicReputation: 87.2, citationsPerFaculty: 79.5, employerReputation: 82.8, facultyStudentRatio: 73.5, internationalResearchNetwork: 88.1, employmentOutcomes: 81.5, sustainability: 93.2, internationalDiversity: 90.8 },
+    trend: [13, 13, 12, 12, 12, 12], highlights: ["Stunning Pacific campus", "Leading forestry and sustainability research", "8 Nobel Prize winners"],
+  },
+  {
+    id: "sapienza", name: "Sapienza University of Rome", country: "Italy", city: "Rome", founded: 1303, students: 112000, researchFocus: "Classics & Engineering", logo: "🇮🇹", domain: "uniroma1.it",
+    pillars: { academicReputation: 80.5, citationsPerFaculty: 72.8, employerReputation: 76.3, facultyStudentRatio: 58.2, internationalResearchNetwork: 82.5, employmentOutcomes: 74.1, sustainability: 79.8, internationalDiversity: 72.5 },
+    trend: [20, 19, 19, 18, 18, 18], highlights: ["Largest university in Europe by enrollment", "One of the world's oldest universities", "#1 in Classics globally"],
+  },
+  {
+    id: "puc", name: "Pontificia Universidad Católica de Chile", country: "Chile", city: "Santiago", founded: 1888, students: 33000, researchFocus: "Engineering & Social Sciences", logo: "🇨🇱", domain: "uc.cl",
+    pillars: { academicReputation: 78.8, citationsPerFaculty: 68.5, employerReputation: 82.1, facultyStudentRatio: 70.2, internationalResearchNetwork: 72.8, employmentOutcomes: 80.5, sustainability: 78.2, internationalDiversity: 55.8 },
+    trend: [19, 18, 18, 17, 17, 17], highlights: ["#1 university in Latin America", "Strong astronomy — Atacama access", "Leading business school in South America"],
+  },
+  {
+    id: "wits", name: "University of the Witwatersrand", country: "South Africa", city: "Johannesburg", founded: 1896, students: 40000, researchFocus: "Mining & Health Sciences", logo: "🇿🇦", domain: "wits.ac.za",
+    pillars: { academicReputation: 70.2, citationsPerFaculty: 58.4, employerReputation: 68.5, facultyStudentRatio: 60.8, internationalResearchNetwork: 71.5, employmentOutcomes: 64.2, sustainability: 72.8, internationalDiversity: 62.5 },
+    trend: [19, 18, 18, 17, 17, 17], highlights: ["Nelson Mandela's alma mater", "World-class paleontology — Cradle of Humankind", "Leading mining engineering research"],
+  },
 ];
 
 // Build the final dataset with computed scores and ranks
@@ -460,9 +702,10 @@ export function refreshScores(unis: University[]): University[] {
 // ─── Region mapping ─────────────────────────────────────────────────────────
 export const REGION_MAP: Record<string, string> = {
   "USA": "North America", "Canada": "North America",
-  "Mexico": "Latin America", "Brazil": "Latin America", "Argentina": "Latin America",
+  "Mexico": "Latin America", "Brazil": "Latin America", "Argentina": "Latin America", "Chile": "Latin America",
   "UK": "Europe", "Germany": "Europe", "Switzerland": "Europe", "France": "Europe",
   "Sweden": "Europe", "Netherlands": "Europe", "Russia": "Europe",
+  "Belgium": "Europe", "Denmark": "Europe", "Finland": "Europe", "Italy": "Europe",
   "Japan": "Asia", "China": "Asia", "Singapore": "Asia", "South Korea": "Asia",
   "India": "Asia", "Bangladesh": "Asia",
   "Israel": "Middle East", "Saudi Arabia": "Middle East",
