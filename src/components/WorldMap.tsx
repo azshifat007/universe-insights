@@ -90,7 +90,7 @@ const WorldMap = ({ universities }: WorldMapProps) => {
                       {/* Main bubble */}
                       <circle cx={r.cx} cy={r.cy} r={radius}
                         fill="hsl(var(--accent))" opacity={opacity}
-                        className="transition-all duration-300" filter="url(#glow)" />
+                        className="transition-all duration-300 pulse" filter="url(#glow)" />
                       {/* Count label */}
                       <text x={r.cx} y={r.cy} textAnchor="middle" dominantBaseline="central"
                         className="fill-primary-foreground font-bold" fontSize={radius > 20 ? 14 : 11}>
