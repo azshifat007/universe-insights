@@ -702,9 +702,10 @@ export function refreshScores(unis: University[]): University[] {
 // ─── Region mapping ─────────────────────────────────────────────────────────
 export const REGION_MAP: Record<string, string> = {
   "USA": "North America", "Canada": "North America",
-  "Mexico": "Latin America", "Brazil": "Latin America", "Argentina": "Latin America",
+  "Mexico": "Latin America", "Brazil": "Latin America", "Argentina": "Latin America", "Chile": "Latin America",
   "UK": "Europe", "Germany": "Europe", "Switzerland": "Europe", "France": "Europe",
   "Sweden": "Europe", "Netherlands": "Europe", "Russia": "Europe",
+  "Belgium": "Europe", "Denmark": "Europe", "Finland": "Europe", "Italy": "Europe",
   "Japan": "Asia", "China": "Asia", "Singapore": "Asia", "South Korea": "Asia",
   "India": "Asia", "Bangladesh": "Asia",
   "Israel": "Middle East", "Saudi Arabia": "Middle East",
