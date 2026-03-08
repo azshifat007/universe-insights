@@ -1,7 +1,13 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import greenUniversityLogo from "@/assets/green-university-logo.png";
 
 const LOGO_DEV_TOKEN = "pk_er9_2UKzSjCIV0vDETiJUA";
+
+// Custom logo overrides for universities where Logo.dev doesn't have a good logo
+const CUSTOM_LOGOS: Record<string, string> = {
+  "green.edu.bd": greenUniversityLogo,
+};
 
 interface UniversityLogoProps {
   domain?: string;
