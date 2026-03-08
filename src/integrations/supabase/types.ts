@@ -14,16 +14,204 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      algorithm_settings: {
+        Row: {
+          id: string
+          key: string
+          label: string
+          updated_at: string | null
+          updated_by: string | null
+          value: number
+        }
+        Insert: {
+          id?: string
+          key: string
+          label: string
+          updated_at?: string | null
+          updated_by?: string | null
+          value: number
+        }
+        Update: {
+          id?: string
+          key?: string
+          label?: string
+          updated_at?: string | null
+          updated_by?: string | null
+          value?: number
+        }
+        Relationships: []
+      }
+      news: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          description: string | null
+          id: string
+          image_url: string | null
+          is_visible: boolean | null
+          published_at: string | null
+          source: string | null
+          title: string
+          updated_at: string | null
+          url: string | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_visible?: boolean | null
+          published_at?: string | null
+          source?: string | null
+          title: string
+          updated_at?: string | null
+          url?: string | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_visible?: boolean | null
+          published_at?: string | null
+          source?: string | null
+          title?: string
+          updated_at?: string | null
+          url?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          id: string
+          updated_at: string
+          username: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          id: string
+          updated_at?: string
+          username?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          id?: string
+          updated_at?: string
+          username?: string | null
+        }
+        Relationships: []
+      }
+      universities: {
+        Row: {
+          academic_reputation: number | null
+          citations_per_faculty: number | null
+          city: string
+          country: string
+          created_at: string | null
+          domain: string | null
+          employer_reputation: number | null
+          employment_outcomes: number | null
+          faculty_student_ratio: number | null
+          founded: number | null
+          highlights: string[] | null
+          id: string
+          international_diversity: number | null
+          international_research_network: number | null
+          is_active: boolean | null
+          name: string
+          research_focus: string | null
+          slug: string
+          students: number | null
+          sustainability: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          academic_reputation?: number | null
+          citations_per_faculty?: number | null
+          city: string
+          country: string
+          created_at?: string | null
+          domain?: string | null
+          employer_reputation?: number | null
+          employment_outcomes?: number | null
+          faculty_student_ratio?: number | null
+          founded?: number | null
+          highlights?: string[] | null
+          id?: string
+          international_diversity?: number | null
+          international_research_network?: number | null
+          is_active?: boolean | null
+          name: string
+          research_focus?: string | null
+          slug: string
+          students?: number | null
+          sustainability?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          academic_reputation?: number | null
+          citations_per_faculty?: number | null
+          city?: string
+          country?: string
+          created_at?: string | null
+          domain?: string | null
+          employer_reputation?: number | null
+          employment_outcomes?: number | null
+          faculty_student_ratio?: number | null
+          founded?: number | null
+          highlights?: string[] | null
+          id?: string
+          international_diversity?: number | null
+          international_research_network?: number | null
+          is_active?: boolean | null
+          name?: string
+          research_focus?: string | null
+          slug?: string
+          students?: number | null
+          sustainability?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +338,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
