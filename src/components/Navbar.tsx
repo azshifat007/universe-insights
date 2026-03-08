@@ -14,6 +14,12 @@ const NAV_ITEMS = [
 const Navbar = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+  const { isAdmin } = useAuth();
+
+  const navItems = [
+    ...NAV_ITEMS,
+    ...(isAdmin ? [{ label: "Admin", path: "/admin" }] : []),
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-primary text-primary-foreground border-b border-primary-foreground/10">
