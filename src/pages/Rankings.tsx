@@ -2,6 +2,8 @@ import { useState, useCallback, useMemo, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { generateUniversities, refreshScores, SUBJECTS, REGION_MAP } from "@/data/universities";
+import type { PillarKey, University } from "@/data/universities";
+import { fetchAlgorithmWeights, calculateWeightedScore } from "@/lib/algorithmWeights";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import FilterSidebar from "@/components/FilterSidebar";
