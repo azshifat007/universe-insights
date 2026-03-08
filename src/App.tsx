@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/hooks/useAuth";
 import Home from "./pages/Home";
 import Rankings from "./pages/Rankings";
@@ -17,27 +18,29 @@ import AIChatWidget from "./components/AIChatWidget";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AuthProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/rankings" element={<Rankings />} />
-            <Route path="/university/:id" element={<UniversityProfile />} />
-            <Route path="/find-my-match" element={<FindMyMatch />} />
-            <Route path="/methodology" element={<Methodology />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <AIChatWidget />
-        </AuthProvider>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AuthProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/rankings" element={<Rankings />} />
+              <Route path="/university/:id" element={<UniversityProfile />} />
+              <Route path="/find-my-match" element={<FindMyMatch />} />
+              <Route path="/methodology" element={<Methodology />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <AIChatWidget />
+          </AuthProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ThemeProvider>
 );
 
 export default App;
