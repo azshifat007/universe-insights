@@ -114,7 +114,7 @@ const UniversityProfile = () => {
           {/* Main content */}
           <main className="flex-1 min-w-0 space-y-6">
             {/* Radar chart */}
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card-hover rounded-xl p-6">
               <h2 className="font-display text-lg font-bold mb-4">Performance Radar</h2>
               <ResponsiveContainer width="100%" height={320}>
                 <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="75%">
