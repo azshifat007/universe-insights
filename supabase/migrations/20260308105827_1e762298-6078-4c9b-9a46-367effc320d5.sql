@@ -1,0 +1,1 @@
+ALTER TABLE public.universities ADD CONSTRAINT universities_slug_unique UNIQUE (slug);
