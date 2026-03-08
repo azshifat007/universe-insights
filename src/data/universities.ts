@@ -898,7 +898,13 @@ export const REGIONS = [...new Set(Object.values(REGION_MAP))].sort();
 // ─── Filter constants ───────────────────────────────────────────────────────
 export const COUNTRIES = [...new Set(RAW.map((u) => u.country))].sort();
 export const RESEARCH_FOCUSES = [...new Set(RAW.map((u) => u.researchFocus))].sort();
-export const SUBJECTS = ["Engineering", "Computer Science", "Medicine", "Business", "Arts & Humanities", "Natural Sciences"];
+export const SUBJECTS = [
+  "Engineering", "Computer Science", "Medicine", "Business",
+  "Arts & Humanities", "Natural Sciences", "Technology",
+  "Law", "Sciences", "Humanities", "Mathematics",
+  "Agriculture", "Social Sciences", "Economics",
+  "Architecture", "Environmental", "Pharmacy",
+];
 
 // ─── Activity feed simulation ───────────────────────────────────────────────
 export interface ActivityItem {
