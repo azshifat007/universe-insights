@@ -17,8 +17,8 @@ const REGIONS: Region[] = [
   { id: "la", label: "Latin America", cx: 230, cy: 280, countries: ["Brazil", "Mexico", "Argentina", "Chile", "Colombia", "Costa Rica", "Peru"] },
   { id: "eu", label: "Europe", cx: 420, cy: 120, countries: ["UK", "Switzerland", "Germany", "France", "Sweden", "Netherlands", "Russia", "Belgium", "Denmark", "Finland", "Italy", "Austria", "Poland", "Norway", "Croatia", "Czech Republic", "Spain", "Portugal", "Greece", "Hungary"] },
   { id: "af", label: "Africa", cx: 430, cy: 260, countries: ["South Africa", "Kenya", "Egypt", "Nigeria", "Uganda", "Ghana", "Tanzania", "Ethiopia", "Morocco"] },
-  { id: "asia", label: "Asia", cx: 580, cy: 185, countries: ["India", "Bangladesh", "China", "Japan", "South Korea", "Singapore", "Thailand", "Philippines", "Malaysia", "Vietnam", "Indonesia", "Nepal", "Sri Lanka", "Pakistan"] },
-  { id: "me", label: "Middle East", cx: 475, cy: 195, countries: ["Israel", "Saudi Arabia", "Turkey", "Iran"] },
+  { id: "asia", label: "Asia", cx: 580, cy: 185, countries: ["India", "Bangladesh", "China", "Japan", "South Korea", "Singapore", "Thailand", "Philippines", "Malaysia", "Vietnam", "Indonesia", "Nepal", "Sri Lanka", "Pakistan", "Taiwan"] },
+  { id: "me", label: "Middle East", cx: 475, cy: 195, countries: ["Israel", "Saudi Arabia", "Turkey", "Iran", "UAE"] },
   { id: "oc", label: "Oceania", cx: 680, cy: 310, countries: ["Australia", "New Zealand"] },
 ];
 
