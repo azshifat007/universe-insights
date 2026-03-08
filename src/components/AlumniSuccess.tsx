@@ -214,53 +214,29 @@ const AlumniSuccess = ({ university }: AlumniSuccessProps) => {
 
                 {data.regionDistribution.map((r) => {
                   const radius = Math.max(12, Math.min(40, r.percentage * 0.5));
-                  const opacity = 0.3 + (r.percentage / 100) * 0.5;
+                  const op = 0.3 + (r.percentage / 100) * 0.5;
 
                   return (
-                    <TooltipTrigger key={r.region} asChild>
-                      <g>
-                        {/* Glow circle */}
-                        <circle
-                          cx={r.x} cy={r.y}
-                          r={radius + 8}
-                          fill="hsl(160, 60%, 40%)"
-                          opacity={opacity * 0.2}
-                        />
-                        {/* Main bubble */}
-                        <circle
-                          cx={r.x} cy={r.y}
-                          r={radius}
-                          fill="hsl(160, 60%, 40%)"
-                          opacity={opacity}
-                          className="cursor-default"
-                        >
-                          <animate attributeName="r" values={`${radius};${radius + 2};${radius}`} dur="3s" repeatCount="indefinite" />
-                          <animate attributeName="opacity" values={`${opacity};${opacity * 0.7};${opacity}`} dur="3s" repeatCount="indefinite" />
-                        </circle>
-                        {/* Percentage label */}
-                        <text
-                          x={r.x} y={r.y + 1}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          fill="white"
-                          fontSize="10"
-                          fontWeight="700"
-                        >
-                          {r.percentage}%
-                        </text>
-                      </g>
-                    </TooltipTrigger>
+                    <Tooltip key={r.region}>
+                      <TooltipTrigger asChild>
+                        <g className="cursor-default">
+                          <circle cx={r.x} cy={r.y} r={radius + 8} fill="hsl(160, 60%, 40%)" opacity={op * 0.2} />
+                          <circle cx={r.x} cy={r.y} r={radius} fill="hsl(160, 60%, 40%)" opacity={op}>
+                            <animate attributeName="r" values={`${radius};${radius + 2};${radius}`} dur="3s" repeatCount="indefinite" />
+                            <animate attributeName="opacity" values={`${op};${op * 0.7};${op}`} dur="3s" repeatCount="indefinite" />
+                          </circle>
+                          <text x={r.x} y={r.y + 1} textAnchor="middle" dominantBaseline="middle" fill="white" fontSize="10" fontWeight="700">
+                            {r.percentage}%
+                          </text>
+                        </g>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="text-xs">
+                        <p className="font-semibold">{r.region}</p>
+                        <p className="text-muted-foreground">{r.label} · {r.percentage}% of alumni</p>
+                      </TooltipContent>
+                    </Tooltip>
                   );
                 })}
-
-                {data.regionDistribution.map((r) => (
-                  <Tooltip key={`tip-${r.region}`}>
-                    <TooltipContent side="top" className="text-xs">
-                      <p className="font-semibold">{r.region}</p>
-                      <p className="text-muted-foreground">{r.label} · {r.percentage}% of alumni</p>
-                    </TooltipContent>
-                  </Tooltip>
-                ))}
               </svg>
             </TooltipProvider>
           </div>
