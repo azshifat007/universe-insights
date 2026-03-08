@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import UniversityLogo from "@/components/UniversityLogo";
 import HistoricalTrendChart from "@/components/HistoricalTrendChart";
+import AlumniSuccess from "@/components/AlumniSuccess";
 
 const allUnis = generateUniversities();
 
