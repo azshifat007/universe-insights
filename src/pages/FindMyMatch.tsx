@@ -208,8 +208,8 @@ const FindMyMatch = () => {
                     <Label
                       key={b.value}
                       htmlFor={`budget-${b.value}`}
-                      className={`flex flex-col gap-0.5 p-3 rounded-lg border cursor-pointer transition-colors ${
-                        answers.budget === b.value ? "border-secondary bg-secondary/10" : "border-border hover:border-secondary/40"
+                      className={`flex flex-col gap-0.5 p-3 rounded-lg border cursor-pointer hover-lift ${
+                        answers.budget === b.value ? "border-secondary bg-secondary/10 shadow-md" : "border-border hover:border-secondary/40"
                       }`}
                     >
                       <div className="flex items-center gap-2">
