@@ -17,16 +17,8 @@ serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    // Check if universities already seeded
-    const { count } = await supabaseAdmin.from("universities").select("*", { count: "exact", head: true });
-    if (count && count > 0) {
-      return new Response(JSON.stringify({ message: `Already seeded with ${count} universities` }), {
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
     const { batch } = await req.json();
-    
+
     if (!batch || !Array.isArray(batch) || batch.length === 0) {
       return new Response(JSON.stringify({ error: "No data provided" }), {
         status: 400,
@@ -34,24 +26,23 @@ serve(async (req) => {
       });
     }
 
-    // Insert in chunks of 50
+    // Upsert in chunks of 50 using slug as conflict key
     const chunkSize = 50;
-    let inserted = 0;
+    let upserted = 0;
     for (let i = 0; i < batch.length; i += chunkSize) {
       const chunk = batch.slice(i, i + chunkSize);
-      const { error } = await supabaseAdmin.from("universities").insert(chunk);
+      const { error } = await supabaseAdmin
+        .from("universities")
+        .upsert(chunk, { onConflict: "slug" });
       if (error) {
-        console.error(`Error inserting chunk ${i}:`, error);
-        // Skip duplicates
-        if (!error.message.includes("duplicate")) {
-          throw error;
-        }
+        console.error(`Error upserting chunk ${i}:`, error);
+        throw error;
       } else {
-        inserted += chunk.length;
+        upserted += chunk.length;
       }
     }
 
-    return new Response(JSON.stringify({ message: `Seeded ${inserted} universities` }), {
+    return new Response(JSON.stringify({ message: `Synced ${upserted} universities` }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (error) {
