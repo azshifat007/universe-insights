@@ -89,12 +89,10 @@ export function OverviewTab() {
           <h2 className="font-display text-2xl font-bold text-foreground">Dashboard Overview</h2>
           <p className="text-muted-foreground text-sm mt-1">Key metrics for your university analytics platform.</p>
         </div>
-        {stats.totalUniversities === 0 && !loading && (
-          <Button onClick={handleSeedUniversities} disabled={seeding} variant="outline" className="border-secondary/30 text-secondary hover:bg-secondary/10">
-            <Database className="h-4 w-4 mr-1" />
-            {seeding ? "Seeding..." : "Seed Universities from Static Data"}
-          </Button>
-        )}
+        <Button onClick={handleSeedUniversities} disabled={seeding} variant="outline" className="border-secondary/30 text-secondary hover:bg-secondary/10">
+          <Database className="h-4 w-4 mr-1" />
+          {seeding ? "Syncing..." : stats.totalUniversities === 0 ? "Seed Universities from Static Data" : `Sync All (${stats.totalUniversities} in DB)`}
+        </Button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {cards.map((card) => (
