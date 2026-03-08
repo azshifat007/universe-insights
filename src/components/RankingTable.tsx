@@ -104,7 +104,7 @@ const RankingTable = ({ universities, onRefresh, isRefreshing }: RankingTablePro
             </TableHeader>
             <TableBody>
               {pageData.map((u, i) => (
-                <TableRow key={u.id} className="table-row-enter hover:bg-muted/30 transition-colors" style={{ animationDelay: `${i * 20}ms` }}>
+                <TableRow key={u.id} className="table-row-enter hover:bg-muted/30 hover:shadow-md hover:scale-[1.01] hover:-translate-y-px transition-all duration-200" style={{ animationDelay: `${i * 20}ms` }}>
                   <TableCell className="font-display font-bold text-primary">{startRank + i + 1}</TableCell>
                   <TableCell>
                     <Link to={`/university/${u.id}`} className="group flex items-center gap-3">
