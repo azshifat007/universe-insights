@@ -26,9 +26,12 @@ function getMonogram(name: string): string {
 }
 
 const UniversityLogo = ({ domain, name, className }: UniversityLogoProps) => {
-  const logoUrl = domain
-    ? `https://img.logo.dev/${domain}?token=${LOGO_DEV_TOKEN}&size=64`
-    : undefined;
+  const customLogo = domain ? CUSTOM_LOGOS[domain] : undefined;
+  const logoUrl = customLogo
+    ? customLogo
+    : domain
+      ? `https://img.logo.dev/${domain}?token=${LOGO_DEV_TOKEN}&size=64`
+      : undefined;
 
   return (
     <Avatar className={cn("h-8 w-8 shrink-0", className)}>
