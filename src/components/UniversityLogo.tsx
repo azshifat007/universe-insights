@@ -1,7 +1,13 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import greenUniversityLogo from "@/assets/green-university-logo.png";
 
 const LOGO_DEV_TOKEN = "pk_er9_2UKzSjCIV0vDETiJUA";
+
+// Custom logo overrides for universities where Logo.dev doesn't have a good logo
+const CUSTOM_LOGOS: Record<string, string> = {
+  "green.edu.bd": greenUniversityLogo,
+};
 
 interface UniversityLogoProps {
   domain?: string;
@@ -20,9 +26,12 @@ function getMonogram(name: string): string {
 }
 
 const UniversityLogo = ({ domain, name, className }: UniversityLogoProps) => {
-  const logoUrl = domain
-    ? `https://img.logo.dev/${domain}?token=${LOGO_DEV_TOKEN}&size=64`
-    : undefined;
+  const customLogo = domain ? CUSTOM_LOGOS[domain] : undefined;
+  const logoUrl = customLogo
+    ? customLogo
+    : domain
+      ? `https://img.logo.dev/${domain}?token=${LOGO_DEV_TOKEN}&size=64`
+      : undefined;
 
   return (
     <Avatar className={cn("h-8 w-8 shrink-0", className)}>
