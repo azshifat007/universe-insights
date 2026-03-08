@@ -9,6 +9,7 @@ import DashboardFooter from "@/components/DashboardFooter";
 import UniversityLogo from "@/components/UniversityLogo";
 import HistoricalTrendChart from "@/components/HistoricalTrendChart";
 import AlumniSuccess from "@/components/AlumniSuccess";
+import GreenIntelligence from "@/components/GreenIntelligence";
 
 const allUnis = generateUniversities();
 
@@ -160,6 +161,9 @@ const UniversityProfile = () => {
 
             {/* Alumni Success */}
             <AlumniSuccess university={uni} />
+
+            {/* Green Intelligence */}
+            <GreenIntelligence university={uni} />
 
             {/* Research Highlights */}
             <div className="glass-card rounded-xl p-6">

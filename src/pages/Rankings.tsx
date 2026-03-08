@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { generateUniversities, refreshScores, SUBJECTS, REGION_MAP } from "@/data/universities";
 import Navbar from "@/components/Navbar";
@@ -19,6 +19,7 @@ const Rankings = () => {
   const [region, setRegion] = useState(searchParams.get("region") || "all");
   const [researchFocus, setResearchFocus] = useState("all");
   const [minScore, setMinScore] = useState(0);
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
 
   // Deferred initial load to show skeleton first
   useEffect(() => {
@@ -81,16 +82,62 @@ const Rankings = () => {
           <TabsContent value="subject">
             <div className="glass-card rounded-lg p-8">
               <h3 className="font-display text-lg font-bold mb-4">Rankings by Subject</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {SUBJECTS.map((subj) => (
-                  <div key={subj} className="p-4 rounded-lg bg-muted/50 border border-border hover:border-secondary/50 transition-colors cursor-pointer">
-                    <p className="font-medium text-sm">{subj}</p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {(universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(subj.toLowerCase().split(" ")[0])).length || "—"} universities
-                    </p>
+              {!selectedSubject ? (
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {SUBJECTS.map((subj) => {
+                    const count = (universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(subj.toLowerCase().split(" ")[0])).length;
+                    return (
+                      <div
+                        key={subj}
+                        onClick={() => setSelectedSubject(subj)}
+                        className="p-4 rounded-lg bg-muted/50 border border-border hover:border-secondary/50 hover:bg-secondary/5 transition-colors cursor-pointer group"
+                      >
+                        <p className="font-medium text-sm group-hover:text-secondary transition-colors">{subj}</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {count || "—"} universities
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div>
+                  <button
+                    onClick={() => setSelectedSubject(null)}
+                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-4 transition-colors"
+                  >
+                    ← Back to all subjects
+                  </button>
+                  <h4 className="font-display text-base font-bold mb-3">{selectedSubject}</h4>
+                  <div className="space-y-2">
+                    {(universities ?? [])
+                      .filter((u) => u.researchFocus.toLowerCase().includes(selectedSubject.toLowerCase().split(" ")[0]))
+                      .sort((a, b) => b.overallScore - a.overallScore)
+                      .map((u, i) => (
+                        <Link
+                          key={u.id}
+                          to={`/university/${u.id}`}
+                          className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/50 hover:border-secondary/50 hover:bg-secondary/5 transition-colors"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="font-display font-bold text-primary w-8">{i + 1}</span>
+                            <UniversityLogo domain={u.domain} name={u.name} />
+                            <div>
+                              <p className="text-sm font-medium">{u.name}</p>
+                              <p className="text-xs text-muted-foreground">{u.city}, {u.country}</p>
+                            </div>
+                          </div>
+                          <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-secondary/15 text-secondary">
+                            {u.overallScore.toFixed(1)}
+                          </span>
+                        </Link>
+                      ))}
+                    {(universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(selectedSubject.toLowerCase().split(" ")[0])).length === 0 && (
+                      <p className="text-sm text-muted-foreground py-4 text-center">No universities found for this subject.</p>
+                    )}
                   </div>
-                ))}
-              </div>
+                </div>
+              )}
             </div>
           </TabsContent>
 
