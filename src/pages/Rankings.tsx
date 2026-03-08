@@ -117,7 +117,7 @@ const Rankings = () => {
                       <div
                         key={subj}
                         onClick={() => setSelectedSubject(subj)}
-                        className="p-4 rounded-lg bg-muted/50 border border-border hover:border-secondary/50 hover:bg-secondary/5 transition-colors cursor-pointer group"
+                        className="p-4 rounded-lg bg-muted/50 border border-border hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-200 cursor-pointer group hover:scale-105 hover:shadow-lg hover:-translate-y-0.5"
                       >
                         <div className="flex items-center gap-2 mb-1">
                           {Icon && <Icon className="h-4 w-4 text-muted-foreground group-hover:text-secondary transition-colors" />}
