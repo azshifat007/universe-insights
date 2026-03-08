@@ -41,7 +41,14 @@ export function OverviewTab() {
     setSeeding(true);
     try {
       const universities = generateUniversities();
-      const batch = universities.map((u) => ({
+      // Deduplicate by id (used as slug) — keep first occurrence
+      const seen = new Set<string>();
+      const deduped = universities.filter((u) => {
+        if (seen.has(u.id)) return false;
+        seen.add(u.id);
+        return true;
+      });
+      const batch = deduped.map((u) => ({
         slug: u.id,
         name: u.name,
         country: u.country,
@@ -67,7 +74,7 @@ export function OverviewTab() {
       });
 
       if (error) throw error;
-      toast({ title: "Universities Seeded!", description: data?.message || `Imported ${batch.length} universities.` });
+      toast({ title: "Universities Synced!", description: data?.message || `Imported ${batch.length} universities.` });
       fetchStats();
     } catch (err: any) {
       toast({ title: "Seeding failed", description: err.message, variant: "destructive" });
