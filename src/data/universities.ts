@@ -1286,7 +1286,14 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
 
 // Build the final dataset with computed scores and ranks
 export function generateUniversities(): University[] {
-  const withScores = RAW.map((u) => ({
+  // Deduplicate by id — keep the first occurrence
+  const seen = new Set<string>();
+  const unique = RAW.filter((u) => {
+    if (seen.has(u.id)) return false;
+    seen.add(u.id);
+    return true;
+  });
+  const withScores = unique.map((u) => ({
     ...u,
     overallScore: calculateOverallScore(u.pillars),
     rank: 0,
