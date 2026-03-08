@@ -162,6 +162,9 @@ const UniversityProfile = () => {
             {/* Alumni Success */}
             <AlumniSuccess university={uni} />
 
+            {/* Green Intelligence */}
+            <GreenIntelligence university={uni} />
+
             {/* Research Highlights */}
             <div className="glass-card rounded-xl p-6">
               <div className="flex items-center gap-2 mb-4">
