@@ -884,10 +884,12 @@ export const REGION_MAP: Record<string, string> = {
   "UK": "Europe", "Germany": "Europe", "Switzerland": "Europe", "France": "Europe",
   "Sweden": "Europe", "Netherlands": "Europe", "Russia": "Europe",
   "Belgium": "Europe", "Denmark": "Europe", "Finland": "Europe", "Italy": "Europe",
+  "Austria": "Europe", "Poland": "Europe", "Norway": "Europe",
   "Japan": "Asia", "China": "Asia", "Singapore": "Asia", "South Korea": "Asia",
-  "India": "Asia", "Bangladesh": "Asia",
-  "Israel": "Middle East", "Saudi Arabia": "Middle East",
-  "Egypt": "Africa", "South Africa": "Africa", "Kenya": "Africa",
+  "India": "Asia", "Bangladesh": "Asia", "Thailand": "Asia", "Philippines": "Asia",
+  "Malaysia": "Asia", "Vietnam": "Asia",
+  "Israel": "Middle East", "Saudi Arabia": "Middle East", "Turkey": "Middle East", "Iran": "Middle East",
+  "Egypt": "Africa", "South Africa": "Africa", "Kenya": "Africa", "Nigeria": "Africa", "Uganda": "Africa",
   "Australia": "Oceania",
 };
 
