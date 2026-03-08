@@ -174,8 +174,8 @@ const FindMyMatch = () => {
                     <Label
                       key={r.value}
                       htmlFor={`region-${r.value}`}
-                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-colors ${
-                        answers.region === r.value ? "border-secondary bg-secondary/10" : "border-border hover:border-secondary/40"
+                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer hover-lift ${
+                        answers.region === r.value ? "border-secondary bg-secondary/10 shadow-md" : "border-border hover:border-secondary/40"
                       }`}
                     >
                       <RadioGroupItem value={r.value} id={`region-${r.value}`} />
