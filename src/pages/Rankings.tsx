@@ -8,6 +8,32 @@ import FilterSidebar from "@/components/FilterSidebar";
 import RankingTable from "@/components/RankingTable";
 import RankingTableSkeleton from "@/components/RankingTableSkeleton";
 import AnalyticsCharts from "@/components/AnalyticsCharts";
+import {
+  Wrench, Monitor, Stethoscope, Briefcase, Palette, FlaskConical,
+  Cpu, Scale, Atom, BookOpen, Calculator, Wheat, Users, TrendingUp,
+  Building2, Leaf, Pill,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+const SUBJECT_ICONS: Record<string, LucideIcon> = {
+  "Engineering": Wrench,
+  "Computer Science": Monitor,
+  "Medicine": Stethoscope,
+  "Business": Briefcase,
+  "Arts & Humanities": Palette,
+  "Natural Sciences": FlaskConical,
+  "Technology": Cpu,
+  "Law": Scale,
+  "Sciences": Atom,
+  "Humanities": BookOpen,
+  "Mathematics": Calculator,
+  "Agriculture": Wheat,
+  "Social Sciences": Users,
+  "Economics": TrendingUp,
+  "Architecture": Building2,
+  "Environmental": Leaf,
+  "Pharmacy": Pill,
+};
 import ComparisonModal from "@/components/ComparisonModal";
 import UniversityLogo from "@/components/UniversityLogo";
 
@@ -86,13 +112,17 @@ const Rankings = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                   {SUBJECTS.map((subj) => {
                     const count = (universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(subj.toLowerCase().split(" ")[0])).length;
+                    const Icon = SUBJECT_ICONS[subj];
                     return (
                       <div
                         key={subj}
                         onClick={() => setSelectedSubject(subj)}
                         className="p-4 rounded-lg bg-muted/50 border border-border hover:border-secondary/50 hover:bg-secondary/5 transition-colors cursor-pointer group"
                       >
-                        <p className="font-medium text-sm group-hover:text-secondary transition-colors">{subj}</p>
+                        <div className="flex items-center gap-2 mb-1">
+                          {Icon && <Icon className="h-4 w-4 text-muted-foreground group-hover:text-secondary transition-colors" />}
+                          <p className="font-medium text-sm group-hover:text-secondary transition-colors">{subj}</p>
+                        </div>
                         <p className="text-xs text-muted-foreground mt-1">
                           {count || "—"} universities
                         </p>
