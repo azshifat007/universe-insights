@@ -191,8 +191,8 @@ const FindMyMatch = () => {
                     <Label
                       key={s.value}
                       htmlFor={`subject-${s.value}`}
-                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-colors ${
-                        answers.subject === s.value ? "border-secondary bg-secondary/10" : "border-border hover:border-secondary/40"
+                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer hover-lift ${
+                        answers.subject === s.value ? "border-secondary bg-secondary/10 shadow-md" : "border-border hover:border-secondary/40"
                       }`}
                     >
                       <RadioGroupItem value={s.value} id={`subject-${s.value}`} />
