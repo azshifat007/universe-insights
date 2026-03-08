@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { BarChart3, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
 
 const NAV_ITEMS = [
   { label: "Home", path: "/" },
