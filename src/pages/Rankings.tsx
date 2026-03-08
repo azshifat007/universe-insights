@@ -2,6 +2,8 @@ import { useState, useCallback, useMemo, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { generateUniversities, refreshScores, SUBJECTS, REGION_MAP } from "@/data/universities";
+import type { PillarKey, University } from "@/data/universities";
+import { fetchAlgorithmWeights, calculateWeightedScore } from "@/lib/algorithmWeights";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import FilterSidebar from "@/components/FilterSidebar";
@@ -47,10 +49,25 @@ const Rankings = () => {
   const [minScore, setMinScore] = useState(0);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
 
-  // Deferred initial load to show skeleton first
+  // Deferred initial load — fetch dynamic weights and apply them
   useEffect(() => {
-    const id = requestIdleCallback?.(() => setUniversities(generateUniversities())) ??
-      setTimeout(() => setUniversities(generateUniversities()), 0);
+    const init = async () => {
+      const baseUnis = generateUniversities();
+      try {
+        const weights = await fetchAlgorithmWeights();
+        // Recalculate scores with dynamic weights
+        const reweighted = baseUnis.map((u) => ({
+          ...u,
+          overallScore: calculateWeightedScore(u.pillars, weights),
+        }));
+        reweighted.sort((a, b) => b.overallScore - a.overallScore);
+        reweighted.forEach((u, i) => (u.rank = i + 1));
+        setUniversities(reweighted);
+      } catch {
+        setUniversities(baseUnis);
+      }
+    };
+    const id = requestIdleCallback?.(() => init()) ?? setTimeout(() => init(), 0);
     return () => { typeof id === "number" && clearTimeout(id); };
   }, []);
 
