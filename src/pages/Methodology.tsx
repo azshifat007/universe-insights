@@ -45,7 +45,7 @@ const Methodology = () => (
       </div>
 
       {/* Formula */}
-      <div className="glass-card rounded-xl p-6 mb-8">
+      <div className="glass-card-hover rounded-xl p-6 mb-8">
         <div className="flex items-center gap-2 mb-3">
           <Target className="h-5 w-5 text-secondary" />
           <h2 className="font-display text-lg font-bold">Scoring Formula</h2>
