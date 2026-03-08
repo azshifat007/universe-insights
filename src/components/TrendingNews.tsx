@@ -153,7 +153,7 @@ const TrendingNews = () => {
             href={article.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+            className="glass-card rounded-xl overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 hover:scale-[1.02] flex flex-col"
           >
             {/* Thumbnail */}
             <div className="h-40 bg-muted relative overflow-hidden">
