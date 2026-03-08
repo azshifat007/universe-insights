@@ -977,6 +977,138 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 80.5, citationsPerFaculty: 75.2, employerReputation: 78.8, facultyStudentRatio: 70.5, internationalResearchNetwork: 82.5, employmentOutcomes: 78.5, sustainability: 85.8, internationalDiversity: 88.5 },
     trend: [16, 15, 15, 14, 14, 14], highlights: ["New Zealand's largest and highest-ranked", "Strong Māori and Pacific research", "Leading in bioengineering"],
   },
+
+  // ─── Spain ──────────────────────────────────────────────────────────────────
+  {
+    id: "ub", name: "University of Barcelona", country: "Spain", city: "Barcelona", founded: 1450, students: 63000, researchFocus: "Medicine & Sciences", logo: "🇪🇸", domain: "ub.edu",
+    pillars: { academicReputation: 78.5, citationsPerFaculty: 72.8, employerReputation: 74.2, facultyStudentRatio: 58.5, internationalResearchNetwork: 75.8, employmentOutcomes: 70.5, sustainability: 78.2, internationalDiversity: 62.5 },
+    trend: [18, 17, 17, 16, 16, 16], highlights: ["Spain's top-ranked university", "Historic campus in Gothic Quarter", "Leading biomedical research in Southern Europe"],
+  },
+  {
+    id: "uam", name: "Universidad Autónoma de Madrid", country: "Spain", city: "Madrid", founded: 1968, students: 36000, researchFocus: "Sciences & Law", logo: "🇪🇸", domain: "uam.es",
+    pillars: { academicReputation: 75.2, citationsPerFaculty: 70.5, employerReputation: 72.8, facultyStudentRatio: 60.2, internationalResearchNetwork: 72.5, employmentOutcomes: 68.8, sustainability: 74.5, internationalDiversity: 58.8 },
+    trend: [19, 18, 18, 17, 17, 17], highlights: ["Top public university in Madrid", "Strong theoretical physics research", "Beautiful Cantoblanco campus"],
+  },
+  {
+    id: "upf", name: "Universitat Pompeu Fabra", country: "Spain", city: "Barcelona", founded: 1990, students: 16000, researchFocus: "Economics & Social Sciences", logo: "🇪🇸", domain: "upf.edu",
+    pillars: { academicReputation: 72.8, citationsPerFaculty: 78.5, employerReputation: 70.2, facultyStudentRatio: 68.5, internationalResearchNetwork: 70.8, employmentOutcomes: 72.5, sustainability: 68.2, internationalDiversity: 72.5 },
+    trend: [20, 19, 19, 18, 18, 18], highlights: ["Highest research output per capita in Spain", "Leading economics department in Europe", "Modern Ciutadella campus"],
+  },
+
+  // ─── Portugal ───────────────────────────────────────────────────────────────
+  {
+    id: "ulisboa", name: "Universidade de Lisboa", country: "Portugal", city: "Lisbon", founded: 1911, students: 50000, researchFocus: "Engineering & Sciences", logo: "🇵🇹", domain: "ulisboa.pt",
+    pillars: { academicReputation: 74.5, citationsPerFaculty: 68.2, employerReputation: 72.5, facultyStudentRatio: 55.8, internationalResearchNetwork: 72.8, employmentOutcomes: 68.5, sustainability: 75.8, internationalDiversity: 62.8 },
+    trend: [19, 18, 18, 17, 17, 17], highlights: ["Portugal's largest and top-ranked university", "Strong engineering and marine sciences", "Beautiful Alameda campus"],
+  },
+  {
+    id: "uporto", name: "Universidade do Porto", country: "Portugal", city: "Porto", founded: 1911, students: 32000, researchFocus: "Medicine & Engineering", logo: "🇵🇹", domain: "up.pt",
+    pillars: { academicReputation: 70.8, citationsPerFaculty: 68.5, employerReputation: 70.2, facultyStudentRatio: 58.5, internationalResearchNetwork: 70.5, employmentOutcomes: 68.2, sustainability: 72.5, internationalDiversity: 58.5 },
+    trend: [20, 19, 19, 18, 18, 18], highlights: ["Leading medical research in Portugal", "Strong biomedical engineering", "Historic riverside campus"],
+  },
+
+  // ─── Greece ─────────────────────────────────────────────────────────────────
+  {
+    id: "nkua", name: "National and Kapodistrian University of Athens", country: "Greece", city: "Athens", founded: 1837, students: 70000, researchFocus: "Medicine & Humanities", logo: "🇬🇷", domain: "uoa.gr",
+    pillars: { academicReputation: 72.5, citationsPerFaculty: 62.8, employerReputation: 68.5, facultyStudentRatio: 48.5, internationalResearchNetwork: 68.2, employmentOutcomes: 62.5, sustainability: 65.8, internationalDiversity: 42.5 },
+    trend: [21, 20, 20, 19, 19, 19], highlights: ["Greece's oldest and most prestigious university", "Leading archaeological and classical studies", "Historic downtown Athens campus"],
+  },
+  {
+    id: "auth", name: "Aristotle University of Thessaloniki", country: "Greece", city: "Thessaloniki", founded: 1925, students: 73000, researchFocus: "Engineering & Agriculture", logo: "🇬🇷", domain: "auth.gr",
+    pillars: { academicReputation: 68.5, citationsPerFaculty: 60.2, employerReputation: 65.8, facultyStudentRatio: 45.8, internationalResearchNetwork: 65.5, employmentOutcomes: 60.2, sustainability: 68.5, internationalDiversity: 40.8 },
+    trend: [22, 21, 21, 20, 20, 20], highlights: ["Largest university in Greece", "Strong agricultural and forestry research", "Expansive campus near the sea"],
+  },
+
+  // ─── Hungary ────────────────────────────────────────────────────────────────
+  {
+    id: "elte", name: "Eötvös Loránd University", country: "Hungary", city: "Budapest", founded: 1635, students: 28000, researchFocus: "Sciences & Humanities", logo: "🇭🇺", domain: "elte.hu",
+    pillars: { academicReputation: 70.2, citationsPerFaculty: 65.8, employerReputation: 68.5, facultyStudentRatio: 58.2, internationalResearchNetwork: 72.5, employmentOutcomes: 65.8, sustainability: 68.2, internationalDiversity: 55.8 },
+    trend: [20, 19, 19, 18, 18, 18], highlights: ["Hungary's oldest university", "Top-ranked in natural sciences in CEE", "Beautiful Danube campus"],
+  },
+  {
+    id: "bme", name: "Budapest University of Technology and Economics", country: "Hungary", city: "Budapest", founded: 1782, students: 24000, researchFocus: "Engineering & Technology", logo: "🇭🇺", domain: "bme.hu",
+    pillars: { academicReputation: 68.5, citationsPerFaculty: 62.5, employerReputation: 72.8, facultyStudentRatio: 60.5, internationalResearchNetwork: 65.8, employmentOutcomes: 70.5, sustainability: 62.8, internationalDiversity: 52.5 },
+    trend: [21, 20, 20, 19, 19, 19], highlights: ["Oldest technical university in the world", "Strong electrical and civil engineering", "Historic Buda campus on the Danube"],
+  },
+
+  // ─── More Bangladesh ────────────────────────────────────────────────────────
+  {
+    id: "ju-bd", name: "Jahangirnagar University", country: "Bangladesh", city: "Savar", founded: 1970, students: 18000, researchFocus: "Sciences & Social Sciences", logo: "🇧🇩", domain: "juniv.edu",
+    pillars: { academicReputation: 48.5, citationsPerFaculty: 40.2, employerReputation: 50.5, facultyStudentRatio: 55.8, internationalResearchNetwork: 38.5, employmentOutcomes: 48.2, sustainability: 58.5, internationalDiversity: 18.5 },
+    trend: [30, 29, 29, 28, 28, 28], highlights: ["Only residential public university in Bangladesh", "Lush green campus with lakes", "Strong biological sciences"],
+  },
+  {
+    id: "sust-bd", name: "Shahjalal University of Science & Technology", country: "Bangladesh", city: "Sylhet", founded: 1986, students: 14000, researchFocus: "Sciences & Technology", logo: "🇧🇩", domain: "sust.edu",
+    pillars: { academicReputation: 50.2, citationsPerFaculty: 42.8, employerReputation: 52.8, facultyStudentRatio: 58.5, internationalResearchNetwork: 40.5, employmentOutcomes: 50.8, sustainability: 55.2, internationalDiversity: 15.8 },
+    trend: [29, 28, 28, 27, 27, 27], highlights: ["Leading science university in Sylhet", "Strong CS and physics departments", "Beautiful hill campus"],
+  },
+  {
+    id: "cuet-bd", name: "Chittagong University of Engineering & Technology", country: "Bangladesh", city: "Chittagong", founded: 1968, students: 7000, researchFocus: "Engineering", logo: "🇧🇩", domain: "cuet.ac.bd",
+    pillars: { academicReputation: 48.8, citationsPerFaculty: 42.5, employerReputation: 55.2, facultyStudentRatio: 62.8, internationalResearchNetwork: 35.8, employmentOutcomes: 55.5, sustainability: 48.5, internationalDiversity: 12.5 },
+    trend: [30, 29, 29, 28, 28, 28], highlights: ["Top engineering in Chittagong division", "Strong civil and mechanical engineering", "Scenic hilltop campus"],
+  },
+  {
+    id: "ruet-bd", name: "Rajshahi University of Engineering & Technology", country: "Bangladesh", city: "Rajshahi", founded: 1964, students: 6500, researchFocus: "Engineering", logo: "🇧🇩", domain: "ruet.ac.bd",
+    pillars: { academicReputation: 47.5, citationsPerFaculty: 40.8, employerReputation: 54.5, facultyStudentRatio: 60.5, internationalResearchNetwork: 34.8, employmentOutcomes: 54.2, sustainability: 47.8, internationalDiversity: 10.8 },
+    trend: [31, 30, 30, 29, 29, 29], highlights: ["Premier engineering in Rajshahi", "Strong electrical engineering program", "Growing research output"],
+  },
+  {
+    id: "du-bd", name: "Dhaka University", country: "Bangladesh", city: "Dhaka", founded: 1921, students: 37000, researchFocus: "Humanities & Sciences", logo: "🇧🇩", domain: "du.ac.bd",
+    pillars: { academicReputation: 58.5, citationsPerFaculty: 48.2, employerReputation: 62.8, facultyStudentRatio: 45.5, internationalResearchNetwork: 48.5, employmentOutcomes: 58.2, sustainability: 52.8, internationalDiversity: 22.5 },
+    trend: [25, 24, 24, 23, 23, 23], highlights: ["Oxford of the East", "Historic Curzon Hall campus", "Played key role in Bangladesh's independence"],
+  },
+  {
+    id: "nsu-bd", name: "North South University", country: "Bangladesh", city: "Dhaka", founded: 1992, students: 25000, researchFocus: "Business & CS", logo: "🇧🇩", domain: "northsouth.edu",
+    pillars: { academicReputation: 52.5, citationsPerFaculty: 48.5, employerReputation: 62.5, facultyStudentRatio: 58.2, internationalResearchNetwork: 42.8, employmentOutcomes: 62.8, sustainability: 50.5, internationalDiversity: 28.5 },
+    trend: [27, 26, 26, 25, 25, 25], highlights: ["First private university in Bangladesh", "Strong business and CS programs", "Modern Bashundhara campus"],
+  },
+  {
+    id: "iub-bd", name: "Independent University Bangladesh", country: "Bangladesh", city: "Dhaka", founded: 1993, students: 12000, researchFocus: "Business & Liberal Arts", logo: "🇧🇩", domain: "iub.edu.bd",
+    pillars: { academicReputation: 48.2, citationsPerFaculty: 42.5, employerReputation: 55.8, facultyStudentRatio: 58.5, internationalResearchNetwork: 38.2, employmentOutcomes: 55.5, sustainability: 48.8, internationalDiversity: 25.8 },
+    trend: [29, 28, 28, 27, 27, 27], highlights: ["Pioneer in liberal arts education in Bangladesh", "Strong media and communications", "Active international exchange programs"],
+  },
+
+  // ─── More global additions ──────────────────────────────────────────────────
+  {
+    id: "unam", name: "Universidad Nacional Autónoma de México", country: "Mexico", city: "Mexico City", founded: 1551, students: 360000, researchFocus: "Sciences & Humanities", logo: "🇲🇽", domain: "unam.mx",
+    pillars: { academicReputation: 82.5, citationsPerFaculty: 62.8, employerReputation: 80.5, facultyStudentRatio: 42.5, internationalResearchNetwork: 72.5, employmentOutcomes: 72.8, sustainability: 78.5, internationalDiversity: 38.5 },
+    trend: [15, 14, 14, 13, 13, 13], highlights: ["Largest university in Latin America", "UNESCO World Heritage campus", "Leading research output in Spanish-speaking world"],
+  },
+  {
+    id: "uct-za", name: "University of Cape Town", country: "South Africa", city: "Cape Town", founded: 1829, students: 29000, researchFocus: "Medicine & Engineering", logo: "🇿🇦", domain: "uct.ac.za",
+    pillars: { academicReputation: 78.2, citationsPerFaculty: 72.5, employerReputation: 75.8, facultyStudentRatio: 62.5, internationalResearchNetwork: 75.8, employmentOutcomes: 70.2, sustainability: 72.5, internationalDiversity: 65.8 },
+    trend: [17, 16, 16, 15, 15, 15], highlights: ["Africa's highest-ranked university", "Stunning Table Mountain campus", "Leading HIV/AIDS and TB research"],
+  },
+  {
+    id: "waseda", name: "Waseda University", country: "Japan", city: "Tokyo", founded: 1882, students: 42000, researchFocus: "Engineering & Political Science", logo: "🇯🇵", domain: "waseda.jp",
+    pillars: { academicReputation: 78.5, citationsPerFaculty: 65.8, employerReputation: 85.2, facultyStudentRatio: 58.5, internationalResearchNetwork: 72.8, employmentOutcomes: 82.5, sustainability: 70.2, internationalDiversity: 58.5 },
+    trend: [17, 16, 16, 15, 15, 15], highlights: ["Japan's most famous private university", "7 Prime Ministers among alumni", "Leading employer reputation in Asia"],
+  },
+  {
+    id: "yonsei", name: "Yonsei University", country: "South Korea", city: "Seoul", founded: 1885, students: 38000, researchFocus: "Medicine & Engineering", logo: "🇰🇷", domain: "yonsei.ac.kr",
+    pillars: { academicReputation: 80.5, citationsPerFaculty: 72.8, employerReputation: 82.5, facultyStudentRatio: 65.8, internationalResearchNetwork: 75.5, employmentOutcomes: 80.2, sustainability: 75.8, internationalDiversity: 62.5 },
+    trend: [16, 15, 15, 14, 14, 14], highlights: ["One of SKY universities", "Leading medical school in Korea", "Beautiful Sinchon campus"],
+  },
+  {
+    id: "iitd", name: "Indian Institute of Technology Delhi", country: "India", city: "New Delhi", founded: 1961, students: 13000, researchFocus: "Engineering & Technology", logo: "🇮🇳", domain: "iitd.ac.in",
+    pillars: { academicReputation: 80.2, citationsPerFaculty: 75.5, employerReputation: 85.8, facultyStudentRatio: 78.5, internationalResearchNetwork: 62.8, employmentOutcomes: 88.5, sustainability: 68.5, internationalDiversity: 32.8 },
+    trend: [15, 14, 14, 13, 13, 13], highlights: ["India's top engineering institute", "Highest placement rates in India", "Leading AI and semiconductor research"],
+  },
+  {
+    id: "fudan", name: "Fudan University", country: "China", city: "Shanghai", founded: 1905, students: 35000, researchFocus: "Medicine & Sciences", logo: "🇨🇳", domain: "fudan.edu.cn",
+    pillars: { academicReputation: 85.8, citationsPerFaculty: 78.5, employerReputation: 82.5, facultyStudentRatio: 72.8, internationalResearchNetwork: 80.2, employmentOutcomes: 82.8, sustainability: 75.5, internationalDiversity: 55.8 },
+    trend: [13, 12, 12, 11, 11, 11], highlights: ["One of China's C9 League universities", "Leading medical research in Asia", "Historic Handan Road campus"],
+  },
+  {
+    id: "lmu", name: "Ludwig Maximilian University of Munich", country: "Germany", city: "Munich", founded: 1472, students: 52000, researchFocus: "Sciences & Medicine", logo: "🇩🇪", domain: "lmu.de",
+    pillars: { academicReputation: 88.5, citationsPerFaculty: 82.8, employerReputation: 82.5, facultyStudentRatio: 65.8, internationalResearchNetwork: 85.2, employmentOutcomes: 80.5, sustainability: 82.8, internationalDiversity: 72.5 },
+    trend: [11, 10, 10, 9, 9, 9], highlights: ["Germany's top-ranked university", "42 Nobel laureates", "Leading physics and life sciences"],
+  },
+  {
+    id: "ucl", name: "University College London", country: "UK", city: "London", founded: 1826, students: 46000, researchFocus: "Medicine & Architecture", logo: "🇬🇧", domain: "ucl.ac.uk",
+    pillars: { academicReputation: 92.5, citationsPerFaculty: 85.8, employerReputation: 90.2, facultyStudentRatio: 72.5, internationalResearchNetwork: 92.8, employmentOutcomes: 88.5, sustainability: 85.2, internationalDiversity: 95.8 },
+    trend: [9, 8, 8, 7, 7, 7], highlights: ["London's global university", "Most international student body in UK", "Leading neuroscience and AI research"],
+  },
 ];
 
 
@@ -1054,6 +1186,7 @@ export const REGION_MAP: Record<string, string> = {
   "Belgium": "Europe", "Denmark": "Europe", "Finland": "Europe", "Italy": "Europe",
   "Austria": "Europe", "Poland": "Europe", "Norway": "Europe",
   "Croatia": "Europe", "Czech Republic": "Europe",
+  "Spain": "Europe", "Portugal": "Europe", "Greece": "Europe", "Hungary": "Europe",
   "Japan": "Asia", "China": "Asia", "Singapore": "Asia", "South Korea": "Asia",
   "India": "Asia", "Bangladesh": "Asia", "Thailand": "Asia", "Philippines": "Asia",
   "Malaysia": "Asia", "Vietnam": "Asia", "Indonesia": "Asia",
