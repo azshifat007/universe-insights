@@ -108,6 +108,26 @@
   .glass-card {
     @apply bg-card/80 backdrop-blur-md border border-border/50 shadow-lg;
   }
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 ease-out;
+  }
+  .glass-card-hover:hover {
+    @apply shadow-xl -translate-y-1;
+    transform: translateY(-4px) scale(1.015);
+  }
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  .hover-lift:hover {
+    @apply shadow-lg -translate-y-1;
+    transform: translateY(-3px) scale(1.01);
+  }
+  .hover-glow {
+    @apply transition-all duration-300 ease-out;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 8px 30px -8px hsl(160 60% 40% / 0.2);
+  }
   .pulse-live {
     animation: pulse-green 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }

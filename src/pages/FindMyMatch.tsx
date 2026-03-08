@@ -174,8 +174,8 @@ const FindMyMatch = () => {
                     <Label
                       key={r.value}
                       htmlFor={`region-${r.value}`}
-                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-colors ${
-                        answers.region === r.value ? "border-secondary bg-secondary/10" : "border-border hover:border-secondary/40"
+                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer hover-lift ${
+                        answers.region === r.value ? "border-secondary bg-secondary/10 shadow-md" : "border-border hover:border-secondary/40"
                       }`}
                     >
                       <RadioGroupItem value={r.value} id={`region-${r.value}`} />
@@ -191,8 +191,8 @@ const FindMyMatch = () => {
                     <Label
                       key={s.value}
                       htmlFor={`subject-${s.value}`}
-                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-colors ${
-                        answers.subject === s.value ? "border-secondary bg-secondary/10" : "border-border hover:border-secondary/40"
+                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer hover-lift ${
+                        answers.subject === s.value ? "border-secondary bg-secondary/10 shadow-md" : "border-border hover:border-secondary/40"
                       }`}
                     >
                       <RadioGroupItem value={s.value} id={`subject-${s.value}`} />
@@ -208,8 +208,8 @@ const FindMyMatch = () => {
                     <Label
                       key={b.value}
                       htmlFor={`budget-${b.value}`}
-                      className={`flex flex-col gap-0.5 p-3 rounded-lg border cursor-pointer transition-colors ${
-                        answers.budget === b.value ? "border-secondary bg-secondary/10" : "border-border hover:border-secondary/40"
+                      className={`flex flex-col gap-0.5 p-3 rounded-lg border cursor-pointer hover-lift ${
+                        answers.budget === b.value ? "border-secondary bg-secondary/10 shadow-md" : "border-border hover:border-secondary/40"
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -228,8 +228,8 @@ const FindMyMatch = () => {
                     <Label
                       key={p.value}
                       htmlFor={`priority-${p.value}`}
-                      className={`flex flex-col gap-1 p-3 rounded-lg border cursor-pointer transition-colors ${
-                        answers.priority === p.value ? "border-secondary bg-secondary/10" : "border-border hover:border-secondary/40"
+                      className={`flex flex-col gap-1 p-3 rounded-lg border cursor-pointer hover-lift ${
+                        answers.priority === p.value ? "border-secondary bg-secondary/10 shadow-md" : "border-border hover:border-secondary/40"
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -265,7 +265,7 @@ const FindMyMatch = () => {
             </div>
 
             {results.map((uni, i) => (
-              <Card key={uni.id} className="glass-card overflow-hidden table-row-enter" style={{ animationDelay: `${i * 0.12}s` }}>
+              <Card key={uni.id} className="glass-card-hover overflow-hidden table-row-enter" style={{ animationDelay: `${i * 0.12}s` }}>
                 <CardContent className="p-5 sm:p-6">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">

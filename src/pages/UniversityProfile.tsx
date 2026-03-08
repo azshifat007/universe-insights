@@ -61,7 +61,7 @@ const UniversityProfile = () => {
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* At a Glance sidebar */}
-          <aside className="w-full lg:w-72 shrink-0 glass-card rounded-xl p-6 space-y-5 h-fit">
+          <aside className="w-full lg:w-72 shrink-0 glass-card hover-glow rounded-xl p-6 space-y-5 h-fit">
             <div className="text-center">
               <UniversityLogo domain={uni.domain} name={uni.name} className="h-16 w-16 mb-3" />
               <h1 className="font-display text-xl font-bold">{uni.name}</h1>
@@ -114,7 +114,7 @@ const UniversityProfile = () => {
           {/* Main content */}
           <main className="flex-1 min-w-0 space-y-6">
             {/* Radar chart */}
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card-hover rounded-xl p-6">
               <h2 className="font-display text-lg font-bold mb-4">Performance Radar</h2>
               <ResponsiveContainer width="100%" height={320}>
                 <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="75%">
@@ -128,7 +128,7 @@ const UniversityProfile = () => {
             </div>
 
             {/* Predictive Slider */}
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card-hover rounded-xl p-6">
               <div className="flex items-center gap-2 mb-4">
                 <TrendingUp className="h-5 w-5 text-secondary" />
                 <h2 className="font-display text-lg font-bold">Projected Growth</h2>
@@ -166,7 +166,7 @@ const UniversityProfile = () => {
             <GreenIntelligence university={uni} />
 
             {/* Research Highlights */}
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card-hover rounded-xl p-6">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="h-5 w-5 text-secondary" />
                 <h2 className="font-display text-lg font-bold">Research Highlights</h2>

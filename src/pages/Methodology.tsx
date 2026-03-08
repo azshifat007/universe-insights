@@ -45,7 +45,7 @@ const Methodology = () => (
       </div>
 
       {/* Formula */}
-      <div className="glass-card rounded-xl p-6 mb-8">
+      <div className="glass-card-hover rounded-xl p-6 mb-8">
         <div className="flex items-center gap-2 mb-3">
           <Target className="h-5 w-5 text-secondary" />
           <h2 className="font-display text-lg font-bold">Scoring Formula</h2>
@@ -61,7 +61,7 @@ const Methodology = () => (
       </div>
 
       {/* Weight breakdown bar */}
-      <div className="glass-card rounded-xl p-6 mb-8">
+      <div className="glass-card-hover rounded-xl p-6 mb-8">
         <div className="flex items-center gap-2 mb-4">
           <Scale className="h-5 w-5 text-secondary" />
           <h2 className="font-display text-lg font-bold">Weight Distribution</h2>
@@ -102,7 +102,7 @@ const Methodology = () => (
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {pillarKeys.map((key) => (
-            <div key={key} className="glass-card rounded-xl p-5 hover:shadow-lg transition-shadow">
+            <div key={key} className="glass-card-hover rounded-xl p-5">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl">{pillarIcons[key]}</span>
                 <div>
