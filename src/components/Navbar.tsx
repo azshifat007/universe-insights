@@ -60,7 +60,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <nav className="md:hidden border-t border-primary-foreground/10 bg-primary px-4 pb-3 space-y-1">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
