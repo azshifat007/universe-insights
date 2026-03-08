@@ -1186,6 +1186,7 @@ export const REGION_MAP: Record<string, string> = {
   "Belgium": "Europe", "Denmark": "Europe", "Finland": "Europe", "Italy": "Europe",
   "Austria": "Europe", "Poland": "Europe", "Norway": "Europe",
   "Croatia": "Europe", "Czech Republic": "Europe",
+  "Spain": "Europe", "Portugal": "Europe", "Greece": "Europe", "Hungary": "Europe",
   "Japan": "Asia", "China": "Asia", "Singapore": "Asia", "South Korea": "Asia",
   "India": "Asia", "Bangladesh": "Asia", "Thailand": "Asia", "Philippines": "Asia",
   "Malaysia": "Asia", "Vietnam": "Asia", "Indonesia": "Asia",
