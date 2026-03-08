@@ -83,7 +83,7 @@ const Rankings = () => {
             <div className="glass-card rounded-lg p-8">
               <h3 className="font-display text-lg font-bold mb-4">Rankings by Subject</h3>
               {!selectedSubject ? (
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                   {SUBJECTS.map((subj) => {
                     const count = (universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(subj.toLowerCase().split(" ")[0])).length;
                     return (
