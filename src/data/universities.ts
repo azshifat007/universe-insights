@@ -1213,6 +1213,74 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 42.8, citationsPerFaculty: 38.5, employerReputation: 48.5, facultyStudentRatio: 58.8, internationalResearchNetwork: 32.5, employmentOutcomes: 48.2, sustainability: 55.5, internationalDiversity: 8.8 },
     trend: [32, 31, 31, 30, 30, 30], highlights: ["Northern Bangladesh's top university", "Strong agricultural engineering", "Expanding research collaborations"],
   },
+
+  // ─── Scotland & Wales ───────────────────────────────────────────────────────
+  {
+    id: "st-andrews", name: "University of St Andrews", country: "UK", city: "St Andrews", founded: 1413, students: 12000, researchFocus: "Sciences & Humanities", logo: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", domain: "st-andrews.ac.uk",
+    pillars: { academicReputation: 85.2, citationsPerFaculty: 78.5, employerReputation: 82.8, facultyStudentRatio: 80.5, internationalResearchNetwork: 82.5, employmentOutcomes: 80.2, sustainability: 78.5, internationalDiversity: 88.5 },
+    trend: [13, 12, 12, 11, 11, 11], highlights: ["Scotland's oldest university", "Prince William's alma mater", "Top-ranked in UK for student satisfaction"],
+  },
+  {
+    id: "glasgow", name: "University of Glasgow", country: "UK", city: "Glasgow", founded: 1451, students: 36000, researchFocus: "Engineering & Medicine", logo: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", domain: "gla.ac.uk",
+    pillars: { academicReputation: 82.8, citationsPerFaculty: 75.2, employerReputation: 80.5, facultyStudentRatio: 68.5, internationalResearchNetwork: 82.8, employmentOutcomes: 78.5, sustainability: 82.2, internationalDiversity: 80.5 },
+    trend: [15, 14, 14, 13, 13, 13], highlights: ["Adam Smith's alma mater", "Leading gravitational wave research", "Beautiful Gothic main building"],
+  },
+  {
+    id: "cardiff", name: "Cardiff University", country: "UK", city: "Cardiff", founded: 1883, students: 33000, researchFocus: "Medicine & Engineering", logo: "🏴󠁧󠁢󠁷󠁬󠁳󠁿", domain: "cardiff.ac.uk",
+    pillars: { academicReputation: 72.5, citationsPerFaculty: 68.8, employerReputation: 72.2, facultyStudentRatio: 62.5, internationalResearchNetwork: 75.8, employmentOutcomes: 70.5, sustainability: 75.2, internationalDiversity: 68.5 },
+    trend: [19, 18, 18, 17, 17, 17], highlights: ["Wales' leading university", "Strong journalism and media school", "Russell Group member"],
+  },
+  {
+    id: "swansea", name: "Swansea University", country: "UK", city: "Swansea", founded: 1920, students: 24000, researchFocus: "Engineering & Sciences", logo: "🏴󠁧󠁢󠁷󠁬󠁳󠁿", domain: "swansea.ac.uk",
+    pillars: { academicReputation: 62.5, citationsPerFaculty: 60.8, employerReputation: 62.2, facultyStudentRatio: 60.5, internationalResearchNetwork: 68.5, employmentOutcomes: 65.8, sustainability: 72.8, internationalDiversity: 62.5 },
+    trend: [22, 21, 21, 20, 20, 20], highlights: ["Stunning Bay Campus on the coast", "Strong materials engineering", "Growing research reputation"],
+  },
+
+  // ─── Romania ────────────────────────────────────────────────────────────────
+  {
+    id: "ub-ro", name: "University of Bucharest", country: "Romania", city: "Bucharest", founded: 1864, students: 32000, researchFocus: "Sciences & Humanities", logo: "🇷🇴", domain: "unibuc.ro",
+    pillars: { academicReputation: 62.8, citationsPerFaculty: 55.2, employerReputation: 60.5, facultyStudentRatio: 50.8, internationalResearchNetwork: 62.5, employmentOutcomes: 58.2, sustainability: 58.5, internationalDiversity: 42.8 },
+    trend: [23, 22, 22, 21, 21, 21], highlights: ["Romania's oldest university", "Strong physics and mathematics", "Gateway to Eastern European research"],
+  },
+  {
+    id: "ubb-ro", name: "Babeș-Bolyai University", country: "Romania", city: "Cluj-Napoca", founded: 1919, students: 42000, researchFocus: "Sciences & Social Sciences", logo: "🇷🇴", domain: "ubbcluj.ro",
+    pillars: { academicReputation: 60.5, citationsPerFaculty: 55.8, employerReputation: 58.2, facultyStudentRatio: 48.5, internationalResearchNetwork: 62.8, employmentOutcomes: 56.5, sustainability: 60.2, internationalDiversity: 45.5 },
+    trend: [24, 23, 23, 22, 22, 22], highlights: ["Romania's largest university", "Multilingual instruction (Romanian, Hungarian, German)", "Heart of Transylvania's tech hub"],
+  },
+
+  // ─── More Philippines ───────────────────────────────────────────────────────
+  {
+    id: "up", name: "University of the Philippines Diliman", country: "Philippines", city: "Quezon City", founded: 1908, students: 50000, researchFocus: "Sciences & Social Sciences", logo: "🇵🇭", domain: "upd.edu.ph",
+    pillars: { academicReputation: 68.5, citationsPerFaculty: 55.8, employerReputation: 72.5, facultyStudentRatio: 52.5, internationalResearchNetwork: 55.8, employmentOutcomes: 70.2, sustainability: 65.8, internationalDiversity: 32.5 },
+    trend: [21, 20, 20, 19, 19, 19], highlights: ["Philippines' national university", "Leading research output in the country", "Strong social sciences and public policy"],
+  },
+  {
+    id: "ust-ph", name: "University of Santo Tomas", country: "Philippines", city: "Manila", founded: 1611, students: 45000, researchFocus: "Medicine & Law", logo: "🇵🇭", domain: "ust.edu.ph",
+    pillars: { academicReputation: 65.2, citationsPerFaculty: 50.5, employerReputation: 70.8, facultyStudentRatio: 48.5, internationalResearchNetwork: 52.8, employmentOutcomes: 68.5, sustainability: 60.2, internationalDiversity: 35.8 },
+    trend: [22, 21, 21, 20, 20, 20], highlights: ["Oldest existing university in Asia", "UNESCO Memory of the World archives", "Strong medical and pharmacy programs"],
+  },
+
+  // ─── More China ─────────────────────────────────────────────────────────────
+  {
+    id: "zju", name: "Zhejiang University", country: "China", city: "Hangzhou", founded: 1897, students: 60000, researchFocus: "Engineering & Sciences", logo: "🇨🇳", domain: "zju.edu.cn",
+    pillars: { academicReputation: 82.8, citationsPerFaculty: 80.5, employerReputation: 80.2, facultyStudentRatio: 65.8, internationalResearchNetwork: 78.5, employmentOutcomes: 80.5, sustainability: 78.8, internationalDiversity: 48.5 },
+    trend: [14, 13, 13, 12, 12, 12], highlights: ["C9 League member", "Leading AI and robotics research", "Beautiful West Lake campus"],
+  },
+  {
+    id: "sjtu", name: "Shanghai Jiao Tong University", country: "China", city: "Shanghai", founded: 1896, students: 48000, researchFocus: "Engineering & Medicine", logo: "🇨🇳", domain: "sjtu.edu.cn",
+    pillars: { academicReputation: 84.5, citationsPerFaculty: 78.2, employerReputation: 82.8, facultyStudentRatio: 68.5, internationalResearchNetwork: 78.8, employmentOutcomes: 82.5, sustainability: 75.5, internationalDiversity: 52.8 },
+    trend: [13, 12, 12, 11, 11, 11], highlights: ["Creator of ARWU world rankings", "Top engineering in China", "Strong medical school tradition"],
+  },
+  {
+    id: "pku", name: "Peking University", country: "China", city: "Beijing", founded: 1898, students: 45000, researchFocus: "Sciences & Humanities", logo: "🇨🇳", domain: "pku.edu.cn",
+    pillars: { academicReputation: 92.5, citationsPerFaculty: 82.8, employerReputation: 88.5, facultyStudentRatio: 72.5, internationalResearchNetwork: 82.5, employmentOutcomes: 85.8, sustainability: 78.5, internationalDiversity: 55.2 },
+    trend: [10, 9, 9, 8, 8, 8], highlights: ["China's most prestigious university", "Leading humanities and social sciences", "Beautiful Weiming Lake campus"],
+  },
+  {
+    id: "ustc", name: "University of Science and Technology of China", country: "China", city: "Hefei", founded: 1958, students: 18000, researchFocus: "Sciences & Technology", logo: "🇨🇳", domain: "ustc.edu.cn",
+    pillars: { academicReputation: 78.5, citationsPerFaculty: 85.8, employerReputation: 72.5, facultyStudentRatio: 82.5, internationalResearchNetwork: 75.8, employmentOutcomes: 78.2, sustainability: 72.8, internationalDiversity: 42.5 },
+    trend: [15, 14, 14, 13, 13, 13], highlights: ["China's top science-focused university", "Leading quantum computing research", "Chinese Academy of Sciences partner"],
+  },
 ];
 
 
