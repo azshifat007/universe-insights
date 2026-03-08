@@ -166,7 +166,7 @@ const UniversityProfile = () => {
             <GreenIntelligence university={uni} />
 
             {/* Research Highlights */}
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card-hover rounded-xl p-6">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="h-5 w-5 text-secondary" />
                 <h2 className="font-display text-lg font-bold">Research Highlights</h2>

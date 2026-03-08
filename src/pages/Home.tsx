@@ -89,7 +89,7 @@ const Home = () => {
         <h2 className="font-display text-2xl font-bold text-center mb-8">🏆 Top 3 Universities Spotlight</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {top3.map((u, i) => (
-            <Link key={u.id} to={`/university/${u.id}`} className="glass-card rounded-xl p-6 hover:shadow-xl transition-shadow group">
+            <Link key={u.id} to={`/university/${u.id}`} className="glass-card-hover rounded-xl p-6 group">
               <div className="flex items-center gap-3 mb-4">
                 <UniversityLogo domain={u.domain} name={u.name} className="h-10 w-10" />
                 <div>

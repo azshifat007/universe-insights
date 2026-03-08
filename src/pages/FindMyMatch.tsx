@@ -265,7 +265,7 @@ const FindMyMatch = () => {
             </div>
 
             {results.map((uni, i) => (
-              <Card key={uni.id} className="glass-card overflow-hidden table-row-enter" style={{ animationDelay: `${i * 0.12}s` }}>
+              <Card key={uni.id} className="glass-card-hover overflow-hidden table-row-enter" style={{ animationDelay: `${i * 0.12}s` }}>
                 <CardContent className="p-5 sm:p-6">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">

@@ -102,7 +102,7 @@ const Methodology = () => (
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {pillarKeys.map((key) => (
-            <div key={key} className="glass-card rounded-xl p-5 hover:shadow-lg transition-shadow">
+            <div key={key} className="glass-card-hover rounded-xl p-5">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl">{pillarIcons[key]}</span>
                 <div>
