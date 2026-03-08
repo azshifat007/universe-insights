@@ -19,6 +19,7 @@ const Rankings = () => {
   const [region, setRegion] = useState(searchParams.get("region") || "all");
   const [researchFocus, setResearchFocus] = useState("all");
   const [minScore, setMinScore] = useState(0);
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
 
   // Deferred initial load to show skeleton first
   useEffect(() => {
