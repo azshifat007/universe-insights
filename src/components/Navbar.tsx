@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { BarChart3, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
 
 const NAV_ITEMS = [
   { label: "Home", path: "/" },
@@ -13,6 +14,12 @@ const NAV_ITEMS = [
 const Navbar = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+  const { isAdmin } = useAuth();
+
+  const navItems = [
+    ...NAV_ITEMS,
+    ...(isAdmin ? [{ label: "Admin", path: "/admin" }] : []),
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-primary text-primary-foreground border-b border-primary-foreground/10">
@@ -24,7 +31,7 @@ const Navbar = () => {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
@@ -53,7 +60,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <nav className="md:hidden border-t border-primary-foreground/10 bg-primary px-4 pb-3 space-y-1">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
