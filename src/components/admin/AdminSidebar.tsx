@@ -19,7 +19,7 @@ const items = [
   { title: "Overview", value: "overview", icon: LayoutDashboard },
   { title: "University Manager", value: "universities", icon: GraduationCap },
   { title: "Algorithm Settings", value: "algorithm", icon: SlidersHorizontal },
-  { title: "News Manager", value: "news", icon: Newspaper },
+  { title: "GNews Settings", value: "news", icon: Newspaper },
 ];
 
 interface AdminSidebarProps {
