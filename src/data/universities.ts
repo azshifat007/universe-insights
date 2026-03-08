@@ -1048,16 +1048,20 @@ export function refreshScores(unis: University[]): University[] {
 export const REGION_MAP: Record<string, string> = {
   "USA": "North America", "Canada": "North America",
   "Mexico": "Latin America", "Brazil": "Latin America", "Argentina": "Latin America", "Chile": "Latin America",
+  "Colombia": "Latin America", "Costa Rica": "Latin America", "Peru": "Latin America",
   "UK": "Europe", "Germany": "Europe", "Switzerland": "Europe", "France": "Europe",
   "Sweden": "Europe", "Netherlands": "Europe", "Russia": "Europe",
   "Belgium": "Europe", "Denmark": "Europe", "Finland": "Europe", "Italy": "Europe",
   "Austria": "Europe", "Poland": "Europe", "Norway": "Europe",
+  "Croatia": "Europe", "Czech Republic": "Europe",
   "Japan": "Asia", "China": "Asia", "Singapore": "Asia", "South Korea": "Asia",
   "India": "Asia", "Bangladesh": "Asia", "Thailand": "Asia", "Philippines": "Asia",
-  "Malaysia": "Asia", "Vietnam": "Asia",
+  "Malaysia": "Asia", "Vietnam": "Asia", "Indonesia": "Asia",
+  "Nepal": "Asia", "Sri Lanka": "Asia", "Pakistan": "Asia",
   "Israel": "Middle East", "Saudi Arabia": "Middle East", "Turkey": "Middle East", "Iran": "Middle East",
   "Egypt": "Africa", "South Africa": "Africa", "Kenya": "Africa", "Nigeria": "Africa", "Uganda": "Africa",
-  "Australia": "Oceania",
+  "Ghana": "Africa", "Tanzania": "Africa", "Ethiopia": "Africa", "Morocco": "Africa",
+  "Australia": "Oceania", "New Zealand": "Oceania",
 };
 
 export const REGIONS = [...new Set(Object.values(REGION_MAP))].sort();
