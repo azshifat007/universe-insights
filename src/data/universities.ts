@@ -810,6 +810,173 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 42.5, citationsPerFaculty: 40.2, employerReputation: 44.8, facultyStudentRatio: 52.8, internationalResearchNetwork: 30.5, employmentOutcomes: 48.2, sustainability: 55.2, internationalDiversity: 12.2 },
     trend: [29, 28, 28, 27, 27, 27], highlights: ["Specialized agricultural research university", "Food security and crop science focus", "Strong ties to national agriculture sector"],
   },
+  // ─── Bangladesh — Even More Universities ───────────────────────────────────
+  {
+    id: "dmcdu", name: "Dhaka Medical College", country: "Bangladesh", city: "Dhaka", founded: 1946, students: 5000, researchFocus: "Medicine & Surgery", logo: "🇧🇩", domain: "dmc.gov.bd",
+    pillars: { academicReputation: 52.8, citationsPerFaculty: 45.2, employerReputation: 56.8, facultyStudentRatio: 55.2, internationalResearchNetwork: 32.5, employmentOutcomes: 62.8, sustainability: 42.5, internationalDiversity: 15.8 },
+    trend: [24, 23, 23, 22, 22, 22], highlights: ["Oldest medical institution in Bangladesh", "Leading clinical training center", "Attached to largest public hospital"],
+  },
+  {
+    id: "barisalu", name: "University of Barishal", country: "Bangladesh", city: "Barishal", founded: 2011, students: 6500, researchFocus: "Sciences & Social Sciences", logo: "🇧🇩", domain: "barisaluniv.edu.bd",
+    pillars: { academicReputation: 36.2, citationsPerFaculty: 30.8, employerReputation: 39.5, facultyStudentRatio: 47.2, internationalResearchNetwork: 21.8, employmentOutcomes: 41.2, sustainability: 40.8, internationalDiversity: 9.2 },
+    trend: [35, 34, 34, 33, 33, 33], highlights: ["Major university in southern Bangladesh", "Growing science faculty", "Key institution for Barishal division"],
+  },
+  {
+    id: "mist", name: "Military Institute of Science & Technology", country: "Bangladesh", city: "Dhaka", founded: 2003, students: 3000, researchFocus: "Engineering & CS", logo: "🇧🇩", domain: "mist.ac.bd",
+    pillars: { academicReputation: 44.5, citationsPerFaculty: 41.8, employerReputation: 52.5, facultyStudentRatio: 60.2, internationalResearchNetwork: 28.5, employmentOutcomes: 57.5, sustainability: 42.8, internationalDiversity: 13.5 },
+    trend: [27, 26, 26, 25, 25, 25], highlights: ["Military-run technical institute", "Strong cyber security research", "Rigorous engineering training"],
+  },
+  {
+    id: "nubd", name: "Noakhali University", country: "Bangladesh", city: "Noakhali", founded: 2006, students: 6000, researchFocus: "Business & Sciences", logo: "🇧🇩", domain: "nu.edu.bd",
+    pillars: { academicReputation: 35.8, citationsPerFaculty: 30.5, employerReputation: 39.8, facultyStudentRatio: 46.5, internationalResearchNetwork: 21.2, employmentOutcomes: 41.8, sustainability: 39.5, internationalDiversity: 9.5 },
+    trend: [36, 35, 35, 34, 34, 34], highlights: ["Serving coastal communities", "Growing business school", "Active community outreach programs"],
+  },
+  {
+    id: "bdu", name: "Bangabandhu Digital University", country: "Bangladesh", city: "Gazipur", founded: 2020, students: 2000, researchFocus: "CS & Digital Technology", logo: "🇧🇩", domain: "bdu.ac.bd",
+    pillars: { academicReputation: 32.5, citationsPerFaculty: 30.2, employerReputation: 38.5, facultyStudentRatio: 55.5, internationalResearchNetwork: 20.8, employmentOutcomes: 42.5, sustainability: 40.2, internationalDiversity: 10.2 },
+    trend: [38, 37, 37, 36, 36, 36], highlights: ["Bangladesh's first digital university", "Focus on AI and data science", "Supporting Digital Bangladesh vision"],
+  },
+  {
+    id: "sau-bd", name: "State University of Bangladesh", country: "Bangladesh", city: "Dhaka", founded: 2002, students: 8000, researchFocus: "Business & Social Sciences", logo: "🇧🇩", domain: "sub.edu.bd",
+    pillars: { academicReputation: 37.8, citationsPerFaculty: 32.8, employerReputation: 43.2, facultyStudentRatio: 47.8, internationalResearchNetwork: 24.2, employmentOutcomes: 46.8, sustainability: 38.2, internationalDiversity: 17.8 },
+    trend: [33, 32, 32, 31, 31, 31], highlights: ["Central Dhanmondi campus", "Strong MBA and BBA programs", "Active student research societies"],
+  },
+  {
+    id: "niter", name: "National Institute of Textile Engineering & Research", country: "Bangladesh", city: "Dhaka", founded: 2010, students: 3200, researchFocus: "Textile Engineering", logo: "🇧🇩", domain: "niter.edu.bd",
+    pillars: { academicReputation: 38.2, citationsPerFaculty: 35.5, employerReputation: 48.5, facultyStudentRatio: 54.2, internationalResearchNetwork: 25.8, employmentOutcomes: 55.2, sustainability: 42.8, internationalDiversity: 12.8 },
+    trend: [32, 31, 31, 30, 30, 30], highlights: ["Specialized textile research", "Direct RMG industry partnerships", "Modern weaving and dyeing labs"],
+  },
+  {
+    id: "rabiu", name: "Rabindra University, Bangladesh", country: "Bangladesh", city: "Shahzadpur", founded: 2017, students: 3500, researchFocus: "Arts & Cultural Studies", logo: "🇧🇩", domain: "rub.ac.bd",
+    pillars: { academicReputation: 33.5, citationsPerFaculty: 28.8, employerReputation: 36.5, facultyStudentRatio: 50.2, internationalResearchNetwork: 20.2, employmentOutcomes: 38.5, sustainability: 42.5, internationalDiversity: 8.5 },
+    trend: [37, 36, 36, 35, 35, 35], highlights: ["Named after Rabindranath Tagore", "Focus on Bengali arts and culture", "Located near Tagore's ancestral home"],
+  },
+  {
+    id: "bbdu", name: "Bangabandhu Sheikh Mujib Railway University", country: "Bangladesh", city: "Gazipur", founded: 2021, students: 1500, researchFocus: "Railway Engineering", logo: "🇧🇩", domain: "bsmru.ac.bd",
+    pillars: { academicReputation: 30.5, citationsPerFaculty: 28.2, employerReputation: 36.2, facultyStudentRatio: 58.5, internationalResearchNetwork: 18.5, employmentOutcomes: 40.5, sustainability: 38.8, internationalDiversity: 8.8 },
+    trend: [39, 38, 38, 37, 37, 37], highlights: ["Only railway university in South Asia", "Transportation engineering focus", "Supporting rail infrastructure development"],
+  },
+  {
+    id: "tutbd", name: "Textile University, Bangladesh", country: "Bangladesh", city: "Tejgaon, Dhaka", founded: 2010, students: 4000, researchFocus: "Textile & Fashion", logo: "🇧🇩", domain: "butex.edu.bd",
+    pillars: { academicReputation: 40.8, citationsPerFaculty: 38.2, employerReputation: 50.8, facultyStudentRatio: 55.8, internationalResearchNetwork: 28.8, employmentOutcomes: 58.5, sustainability: 44.5, internationalDiversity: 14.2 },
+    trend: [28, 27, 27, 26, 26, 26], highlights: ["Specialized in textile and fashion design", "Strong garment industry ties", "Sustainable textile research center"],
+  },
+  // ─── More Global Universities ──────────────────────────────────────────────
+  {
+    id: "uoft-sc", name: "University of São Carlos", country: "Brazil", city: "São Carlos", founded: 1970, students: 35000, researchFocus: "Physics & Engineering", logo: "🇧🇷", domain: "ufscar.br",
+    pillars: { academicReputation: 68.5, citationsPerFaculty: 62.8, employerReputation: 65.2, facultyStudentRatio: 60.5, internationalResearchNetwork: 58.8, employmentOutcomes: 62.5, sustainability: 70.2, internationalDiversity: 35.8 },
+    trend: [25, 24, 24, 23, 23, 23], highlights: ["Leading materials science in Brazil", "Strong physics department", "Hub for São Paulo state tech industry"],
+  },
+  {
+    id: "ghana", name: "University of Ghana", country: "Ghana", city: "Accra", founded: 1948, students: 38000, researchFocus: "Medicine & Agriculture", logo: "🇬🇭", domain: "ug.edu.gh",
+    pillars: { academicReputation: 55.2, citationsPerFaculty: 40.5, employerReputation: 54.8, facultyStudentRatio: 45.8, internationalResearchNetwork: 50.2, employmentOutcomes: 52.5, sustainability: 55.8, internationalDiversity: 38.5 },
+    trend: [27, 26, 26, 25, 25, 25], highlights: ["Ghana's premier university", "Leading Noguchi Memorial Research Institute", "Strong public health programs"],
+  },
+  {
+    id: "witwatersrand", name: "University of Dar es Salaam", country: "Tanzania", city: "Dar es Salaam", founded: 1961, students: 28000, researchFocus: "Marine Sciences & Law", logo: "🇹🇿", domain: "udsm.ac.tz",
+    pillars: { academicReputation: 50.5, citationsPerFaculty: 38.2, employerReputation: 50.8, facultyStudentRatio: 42.5, internationalResearchNetwork: 45.8, employmentOutcomes: 48.5, sustainability: 52.5, internationalDiversity: 35.2 },
+    trend: [28, 27, 27, 26, 26, 26], highlights: ["Tanzania's oldest university", "Indian Ocean marine research hub", "Leading law school in East Africa"],
+  },
+  {
+    id: "uandes", name: "Universidad de los Andes", country: "Colombia", city: "Bogotá", founded: 1948, students: 19000, researchFocus: "Engineering & Economics", logo: "🇨🇴", domain: "uniandes.edu.co",
+    pillars: { academicReputation: 72.8, citationsPerFaculty: 62.5, employerReputation: 76.8, facultyStudentRatio: 70.2, internationalResearchNetwork: 62.8, employmentOutcomes: 75.5, sustainability: 72.5, internationalDiversity: 48.5 },
+    trend: [20, 19, 19, 18, 18, 18], highlights: ["#1 university in Colombia", "Strong economics and engineering", "Leading business school in Andean region"],
+  },
+  {
+    id: "addis", name: "Addis Ababa University", country: "Ethiopia", city: "Addis Ababa", founded: 1950, students: 50000, researchFocus: "Medicine & Social Sciences", logo: "🇪🇹", domain: "aau.edu.et",
+    pillars: { academicReputation: 52.5, citationsPerFaculty: 38.8, employerReputation: 52.2, facultyStudentRatio: 40.5, internationalResearchNetwork: 45.5, employmentOutcomes: 48.8, sustainability: 50.5, internationalDiversity: 32.8 },
+    trend: [28, 27, 27, 26, 26, 26], highlights: ["Ethiopia's oldest university", "Leading medical research in Horn of Africa", "AU headquarters proximity advantage"],
+  },
+  {
+    id: "ucr", name: "University of Costa Rica", country: "Costa Rica", city: "San José", founded: 1940, students: 45000, researchFocus: "Biology & Environmental Science", logo: "🇨🇷", domain: "ucr.ac.cr",
+    pillars: { academicReputation: 62.8, citationsPerFaculty: 52.5, employerReputation: 60.5, facultyStudentRatio: 55.8, internationalResearchNetwork: 58.2, employmentOutcomes: 58.8, sustainability: 78.5, internationalDiversity: 40.2 },
+    trend: [24, 23, 23, 22, 22, 22], highlights: ["Central America's top university", "Leading tropical biodiversity research", "Strong environmental conservation programs"],
+  },
+  {
+    id: "thu", name: "Thu Dau Mot University", country: "Vietnam", city: "Binh Duong", founded: 2009, students: 18000, researchFocus: "Business & Technology", logo: "🇻🇳", domain: "tdmu.edu.vn",
+    pillars: { academicReputation: 42.5, citationsPerFaculty: 35.8, employerReputation: 48.5, facultyStudentRatio: 52.8, internationalResearchNetwork: 35.2, employmentOutcomes: 50.5, sustainability: 48.2, internationalDiversity: 25.8 },
+    trend: [30, 29, 29, 28, 28, 28], highlights: ["Fast-growing Vietnamese university", "Strong industry ties in Binh Duong", "Modern campus facilities"],
+  },
+  {
+    id: "ku-nepal", name: "Kathmandu University", country: "Nepal", city: "Dhulikhel", founded: 1991, students: 15000, researchFocus: "Engineering & Medicine", logo: "🇳🇵", domain: "ku.edu.np",
+    pillars: { academicReputation: 48.5, citationsPerFaculty: 42.8, employerReputation: 52.5, facultyStudentRatio: 55.8, internationalResearchNetwork: 38.5, employmentOutcomes: 50.2, sustainability: 52.8, internationalDiversity: 28.5 },
+    trend: [28, 27, 27, 26, 26, 26], highlights: ["Nepal's top private university", "Mountain campus with Himalayan views", "Strong medical and engineering schools"],
+  },
+  {
+    id: "srilanka", name: "University of Colombo", country: "Sri Lanka", city: "Colombo", founded: 1921, students: 12000, researchFocus: "Law & Medicine", logo: "🇱🇰", domain: "cmb.ac.lk",
+    pillars: { academicReputation: 52.8, citationsPerFaculty: 42.5, employerReputation: 55.8, facultyStudentRatio: 50.2, internationalResearchNetwork: 42.8, employmentOutcomes: 54.5, sustainability: 50.2, internationalDiversity: 25.8 },
+    trend: [26, 25, 25, 24, 24, 24], highlights: ["Sri Lanka's oldest university", "Leading law and medical faculties", "Strong humanities tradition"],
+  },
+  {
+    id: "ateneo", name: "Ateneo de Manila University", country: "Philippines", city: "Quezon City", founded: 1859, students: 15000, researchFocus: "Business & Social Sciences", logo: "🇵🇭", domain: "ateneo.edu",
+    pillars: { academicReputation: 62.5, citationsPerFaculty: 50.8, employerReputation: 70.2, facultyStudentRatio: 65.8, internationalResearchNetwork: 48.5, employmentOutcomes: 68.5, sustainability: 62.8, internationalDiversity: 38.5 },
+    trend: [23, 22, 22, 21, 21, 21], highlights: ["Top private university in Philippines", "Strong Jesuit education tradition", "Leading social enterprise research"],
+  },
+  {
+    id: "dlsu", name: "De La Salle University", country: "Philippines", city: "Manila", founded: 1911, students: 18000, researchFocus: "Engineering & Business", logo: "🇵🇭", domain: "dlsu.edu.ph",
+    pillars: { academicReputation: 60.8, citationsPerFaculty: 52.5, employerReputation: 68.5, facultyStudentRatio: 62.5, internationalResearchNetwork: 50.2, employmentOutcomes: 66.8, sustainability: 60.5, internationalDiversity: 35.8 },
+    trend: [24, 23, 23, 22, 22, 22], highlights: ["Lasallian tradition of excellence", "Strong engineering and IT programs", "Manila Taft Avenue landmark campus"],
+  },
+  {
+    id: "itb", name: "Institut Teknologi Bandung", country: "Indonesia", city: "Bandung", founded: 1920, students: 23000, researchFocus: "Engineering & Sciences", logo: "🇮🇩", domain: "itb.ac.id",
+    pillars: { academicReputation: 68.5, citationsPerFaculty: 58.2, employerReputation: 72.8, facultyStudentRatio: 65.5, internationalResearchNetwork: 55.8, employmentOutcomes: 70.5, sustainability: 65.8, internationalDiversity: 35.2 },
+    trend: [22, 21, 21, 20, 20, 20], highlights: ["Indonesia's top technical university", "Leading geothermal energy research", "Strong aerospace engineering program"],
+  },
+  {
+    id: "ui", name: "Universitas Indonesia", country: "Indonesia", city: "Depok", founded: 1849, students: 55000, researchFocus: "Medicine & Law", logo: "🇮🇩", domain: "ui.ac.id",
+    pillars: { academicReputation: 70.2, citationsPerFaculty: 55.8, employerReputation: 74.5, facultyStudentRatio: 60.2, internationalResearchNetwork: 58.5, employmentOutcomes: 72.8, sustainability: 68.5, internationalDiversity: 38.5 },
+    trend: [21, 20, 20, 19, 19, 19], highlights: ["Indonesia's oldest university", "Green campus in Depok", "Leading medical and law school"],
+  },
+  {
+    id: "utm", name: "Universiti Teknologi Malaysia", country: "Malaysia", city: "Johor Bahru", founded: 1972, students: 25000, researchFocus: "Engineering & Built Environment", logo: "🇲🇾", domain: "utm.my",
+    pillars: { academicReputation: 68.5, citationsPerFaculty: 62.5, employerReputation: 72.2, facultyStudentRatio: 65.8, internationalResearchNetwork: 65.5, employmentOutcomes: 72.5, sustainability: 70.8, internationalDiversity: 58.5 },
+    trend: [20, 19, 19, 18, 18, 18], highlights: ["Malaysia's leading technical university", "Strong sustainable engineering research", "Beautiful lakeside campus in Johor"],
+  },
+  {
+    id: "witwatersrand-pk", name: "Lahore University of Management Sciences", country: "Pakistan", city: "Lahore", founded: 1985, students: 4500, researchFocus: "Business & CS", logo: "🇵🇰", domain: "lums.edu.pk",
+    pillars: { academicReputation: 58.5, citationsPerFaculty: 52.8, employerReputation: 68.5, facultyStudentRatio: 72.5, internationalResearchNetwork: 48.2, employmentOutcomes: 70.5, sustainability: 55.8, internationalDiversity: 30.5 },
+    trend: [23, 22, 22, 21, 21, 21], highlights: ["Pakistan's top business school", "Strong Suleman Dawood School of Business", "Leading CS research in Pakistan"],
+  },
+  {
+    id: "nust-pk", name: "National University of Sciences & Technology", country: "Pakistan", city: "Islamabad", founded: 1991, students: 15000, researchFocus: "Engineering & Military Sciences", logo: "🇵🇰", domain: "nust.edu.pk",
+    pillars: { academicReputation: 55.8, citationsPerFaculty: 50.5, employerReputation: 62.8, facultyStudentRatio: 68.5, internationalResearchNetwork: 45.8, employmentOutcomes: 65.2, sustainability: 52.5, internationalDiversity: 25.8 },
+    trend: [24, 23, 23, 22, 22, 22], highlights: ["Pakistan's top engineering university", "Strong defense research ties", "Modern H-12 Islamabad campus"],
+  },
+  {
+    id: "misr", name: "Cairo University (Misr)", country: "Morocco", city: "Rabat", founded: 1957, students: 80000, researchFocus: "Engineering & Agriculture", logo: "🇲🇦", domain: "um5.ac.ma",
+    pillars: { academicReputation: 58.5, citationsPerFaculty: 45.2, employerReputation: 56.8, facultyStudentRatio: 42.5, internationalResearchNetwork: 52.8, employmentOutcomes: 54.5, sustainability: 55.8, internationalDiversity: 42.5 },
+    trend: [25, 24, 24, 23, 23, 23], highlights: ["Morocco's oldest modern university", "Strong French-language research output", "Gateway to African higher education"],
+  },
+  {
+    id: "uct-pe", name: "Pontificia Universidad Católica del Perú", country: "Peru", city: "Lima", founded: 1917, students: 30000, researchFocus: "Engineering & Social Sciences", logo: "🇵🇪", domain: "pucp.edu.pe",
+    pillars: { academicReputation: 68.2, citationsPerFaculty: 55.8, employerReputation: 72.5, facultyStudentRatio: 62.8, internationalResearchNetwork: 58.5, employmentOutcomes: 70.2, sustainability: 68.5, internationalDiversity: 42.8 },
+    trend: [22, 21, 21, 20, 20, 20], highlights: ["Peru's top university", "Strong Andean archaeology research", "Leading social sciences in South America"],
+  },
+  {
+    id: "iisc", name: "Indian Institute of Science", country: "India", city: "Bangalore", founded: 1909, students: 4500, researchFocus: "Sciences & Engineering", logo: "🇮🇳", domain: "iisc.ac.in",
+    pillars: { academicReputation: 78.5, citationsPerFaculty: 85.2, employerReputation: 75.8, facultyStudentRatio: 90.5, internationalResearchNetwork: 65.8, employmentOutcomes: 82.5, sustainability: 72.8, internationalDiversity: 38.5 },
+    trend: [14, 13, 13, 12, 12, 12], highlights: ["India's #1 research institution", "Highest citations per faculty in India", "Pioneering space and defense research"],
+  },
+  {
+    id: "uct-cr", name: "University of Zagreb", country: "Croatia", city: "Zagreb", founded: 1669, students: 70000, researchFocus: "Medicine & Engineering", logo: "🇭🇷", domain: "unizg.hr",
+    pillars: { academicReputation: 62.5, citationsPerFaculty: 55.8, employerReputation: 60.2, facultyStudentRatio: 52.5, internationalResearchNetwork: 65.8, employmentOutcomes: 58.5, sustainability: 62.8, internationalDiversity: 48.5 },
+    trend: [24, 23, 23, 22, 22, 22], highlights: ["Croatia's oldest and largest university", "Strong medical and engineering faculties", "Leading Southeast European research hub"],
+  },
+  {
+    id: "charles", name: "Charles University", country: "Czech Republic", city: "Prague", founded: 1348, students: 50000, researchFocus: "Medicine & Natural Sciences", logo: "🇨🇿", domain: "cuni.cz",
+    pillars: { academicReputation: 75.8, citationsPerFaculty: 70.2, employerReputation: 72.5, facultyStudentRatio: 62.8, internationalResearchNetwork: 78.5, employmentOutcomes: 70.5, sustainability: 75.2, internationalDiversity: 68.5 },
+    trend: [19, 18, 18, 17, 17, 17], highlights: ["Oldest university in Central Europe", "Founded by Emperor Charles IV", "Leading medical research in CEE"],
+  },
+  {
+    id: "otago", name: "University of Otago", country: "New Zealand", city: "Dunedin", founded: 1869, students: 21000, researchFocus: "Medicine & Environmental Sciences", logo: "🇳🇿", domain: "otago.ac.nz",
+    pillars: { academicReputation: 72.5, citationsPerFaculty: 70.8, employerReputation: 68.5, facultyStudentRatio: 72.8, internationalResearchNetwork: 78.5, employmentOutcomes: 70.2, sustainability: 82.5, internationalDiversity: 78.5 },
+    trend: [19, 18, 18, 17, 17, 17], highlights: ["New Zealand's oldest university", "Leading health sciences in Oceania", "Beautiful Gothic campus"],
+  },
+  {
+    id: "auckland", name: "University of Auckland", country: "New Zealand", city: "Auckland", founded: 1883, students: 42000, researchFocus: "Engineering & Medicine", logo: "🇳🇿", domain: "auckland.ac.nz",
+    pillars: { academicReputation: 80.5, citationsPerFaculty: 75.2, employerReputation: 78.8, facultyStudentRatio: 70.5, internationalResearchNetwork: 82.5, employmentOutcomes: 78.5, sustainability: 85.8, internationalDiversity: 88.5 },
+    trend: [16, 15, 15, 14, 14, 14], highlights: ["New Zealand's largest and highest-ranked", "Strong Māori and Pacific research", "Leading in bioengineering"],
+  },
 ];
 
 
