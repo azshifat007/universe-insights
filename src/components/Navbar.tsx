@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import { BarChart3, Menu, X } from "lucide-react";
+import { BarChart3, Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -15,11 +16,14 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const { isAdmin } = useAuth();
+  const { theme, setTheme } = useTheme();
 
   const navItems = [
     ...NAV_ITEMS,
     ...(isAdmin ? [{ label: "Admin", path: "/admin" }] : []),
   ];
+
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   return (
     <header className="sticky top-0 z-50 bg-primary text-primary-foreground border-b border-primary-foreground/10">
@@ -44,17 +48,39 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="ml-2 text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10"
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+          >
+            <Sun className="h-4 w-4 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
+          </Button>
         </nav>
 
         {/* Mobile toggle */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-primary-foreground hover:bg-primary-foreground/10"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
+        <div className="flex items-center gap-1 md:hidden">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-primary-foreground/70 hover:bg-primary-foreground/10"
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+          >
+            <Sun className="h-4 w-4 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-primary-foreground hover:bg-primary-foreground/10"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile menu */}
