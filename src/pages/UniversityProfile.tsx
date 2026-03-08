@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useMemo } from "react";
-import { ArrowLeft, MapPin, Calendar, Users, BookOpen, TrendingUp } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Users, BookOpen, TrendingUp, Briefcase } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import { generateUniversities, PILLAR_LABELS, PillarKey, calculateOverallScore, projectScores } from "@/data/universities";
@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import UniversityLogo from "@/components/UniversityLogo";
 import HistoricalTrendChart from "@/components/HistoricalTrendChart";
+import AlumniSuccess from "@/components/AlumniSuccess";
 
 const allUnis = generateUniversities();
 
@@ -156,6 +157,9 @@ const UniversityProfile = () => {
 
             {/* Historical Trend */}
             <HistoricalTrendChart university={uni} />
+
+            {/* Alumni Success */}
+            <AlumniSuccess university={uni} />
 
             {/* Research Highlights */}
             <div className="glass-card rounded-xl p-6">
