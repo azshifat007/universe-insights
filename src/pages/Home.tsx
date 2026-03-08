@@ -63,7 +63,7 @@ const Home = () => {
                     className="flex items-center justify-between px-4 py-3 hover:bg-muted/50 transition-colors"
                     onClick={() => setSearch("")}
                   >
-                    <span className="text-sm font-medium flex items-center gap-2"><UniversityLogo domain={u.domain} name={u.name} className="h-6 w-6" />{u.name}</span>
+                    <span className="text-sm font-medium flex items-center gap-2 text-foreground"><UniversityLogo domain={u.domain} name={u.name} className="h-6 w-6" />{u.name}</span>
                     <span className="text-xs text-muted-foreground">#{u.rank} · {u.overallScore.toFixed(1)}</span>
                   </Link>
                 ))}
