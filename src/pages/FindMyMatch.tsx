@@ -311,6 +311,10 @@ const FindMyMatch = () => {
             </div>
           </div>
         )}
+        {/* Admission Chance Simulator */}
+        <div className="mt-10">
+          <AdmissionChanceSimulator />
+        </div>
       </main>
 
       <DashboardFooter />
