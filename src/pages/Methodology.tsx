@@ -61,7 +61,7 @@ const Methodology = () => (
       </div>
 
       {/* Weight breakdown bar */}
-      <div className="glass-card rounded-xl p-6 mb-8">
+      <div className="glass-card-hover rounded-xl p-6 mb-8">
         <div className="flex items-center gap-2 mb-4">
           <Scale className="h-5 w-5 text-secondary" />
           <h2 className="font-display text-lg font-bold">Weight Distribution</h2>
