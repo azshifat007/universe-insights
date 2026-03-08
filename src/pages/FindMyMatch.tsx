@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import Navbar from "@/components/Navbar";
+import AdmissionChanceSimulator from "@/components/AdmissionChanceSimulator";
 import DashboardFooter from "@/components/DashboardFooter";
 import { generateUniversities, PILLAR_LABELS, type University, type PillarKey } from "@/data/universities";
 
