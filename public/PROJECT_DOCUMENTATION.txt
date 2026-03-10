@@ -1,0 +1,191 @@
+================================================================================
+                    UNIVERSE ANALYTICS — PROJECT DOCUMENTATION
+================================================================================
+
+1. PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+Universe Analytics is a university ranking and discovery platform built with
+React, TypeScript, Vite, Tailwind CSS, and shadcn/ui. It features a Lovable
+Cloud (Supabase) backend for data persistence, authentication, and serverless
+edge functions. The app supports light and dark themes with persistent
+preference storage.
+
+2. TECH STACK
+--------------------------------------------------------------------------------
+- Frontend:     React 18, TypeScript, Vite 5
+- Styling:      Tailwind CSS 3, shadcn/ui component library
+- State:        TanStack React Query, React Context (Auth)
+- Routing:      React Router v6
+- Charts:       Recharts
+- Theming:      next-themes (light/dark with localStorage persistence)
+- Backend:      Lovable Cloud (Supabase) — Postgres DB, Auth, Edge Functions
+- AI:           Lovable AI Gateway (Gemini 3 Flash) for chat counselor
+
+3. PAGES & ROUTES
+--------------------------------------------------------------------------------
+/                  → Home Page
+/rankings          → Rankings Page (live ranking table with filters)
+/university/:id    → University Profile Page (detailed metrics & charts)
+/find-my-match     → Find My Match wizard (personalized recommendations)
+/methodology       → Methodology Page (explains the ranking algorithm)
+/login             → Login Page (email/password authentication)
+/admin             → Admin Dashboard (protected, admin-only)
+*                  → 404 Not Found
+
+4. DATABASE SCHEMA (Lovable Cloud / Supabase)
+--------------------------------------------------------------------------------
+4.1 universities
+    - id (uuid, PK)
+    - name, slug (unique), country, city, domain
+    - founded (int), students (int), research_focus, highlights (text[])
+    - 8 ranking pillars (numeric, 0–100 each):
+        academic_reputation, citations_per_faculty, employer_reputation,
+        faculty_student_ratio, international_research_network,
+        employment_outcomes, sustainability, international_diversity
+    - is_active (boolean), created_at, updated_at
+    - RLS: public SELECT; admin INSERT/UPDATE/DELETE
+
+4.2 algorithm_settings
+    - id (uuid, PK), key, label, value (numeric)
+    - updated_by (uuid), updated_at
+    - Stores the 8 pillar weights as percentages (e.g., 30 = 30%)
+    - RLS: public SELECT; admin INSERT/UPDATE
+
+4.3 news
+    - id (uuid, PK), title, description, url, image_url, source
+    - category, is_visible (boolean), published_at, created_at, updated_at
+    - RLS: public SELECT (visible only); admin full CRUD
+
+4.4 profiles
+    - id (uuid, PK, matches auth.users.id)
+    - username, avatar_url, created_at, updated_at
+    - RLS: authenticated users can read/insert/update own profile only
+
+4.5 user_roles
+    - id (uuid, PK), user_id (uuid, FK → auth.users), role (enum: admin/moderator/user)
+    - RLS: users can SELECT own roles only; no public INSERT/UPDATE/DELETE
+    - A security-definer function `has_role(user_id, role)` is used in RLS
+      policies across all tables to check admin status without recursion.
+
+5. RANKING ALGORITHM
+--------------------------------------------------------------------------------
+The Overall Score (0–100) is a weighted average of 8 pillars:
+
+  Pillar                            Default Weight
+  ─────────────────────────────────────────────────
+  Academic Reputation               30%
+  Citations per Faculty             20%
+  Employer Reputation               15%
+  International Diversity           10%
+  Faculty-to-Student Ratio          10%
+  International Research Network     5%
+  Employment Outcomes                5%
+  Sustainability                     5%
+
+Weights are stored in the `algorithm_settings` DB table and can be adjusted
+by admins in real-time from the Admin Dashboard. The function
+`calculateWeightedScore()` in `src/lib/algorithmWeights.ts` computes scores.
+
+Raw university data lives in `src/data/universities.ts` and includes a
+deduplication step (by `id`) before score calculation.
+
+6. AUTHENTICATION & AUTHORIZATION
+--------------------------------------------------------------------------------
+- Auth is handled via Lovable Cloud (Supabase Auth) with email/password.
+- The `AuthProvider` context (`src/hooks/useAuth.tsx`) wraps the entire app
+  and exposes: user, session, isAdmin, loading, signIn, signOut.
+- Admin status is checked by querying the `user_roles` table for role='admin'.
+- The Admin page (`/admin`) redirects non-admin users with a toast message.
+- Email confirmation is required (auto-confirm is NOT enabled).
+
+7. EDGE FUNCTIONS (Serverless Backend)
+--------------------------------------------------------------------------------
+7.1 universe-chat (supabase/functions/universe-chat/index.ts)
+    - AI chat counselor powered by Lovable AI Gateway (Gemini 3 Flash)
+    - Streams SSE responses; includes live ranking data in system prompt
+    - Handles rate limits (429) and usage limits (402) gracefully
+
+7.2 fetch-news (supabase/functions/fetch-news/index.ts)
+    - Fetches higher-education news from GNews API
+    - Requires GNEWS_API_KEY secret
+    - Returns up to 6 articles with title, description, URL, image, source
+
+7.3 seed-universities (supabase/functions/seed-universities/index.ts)
+    - Bulk upserts university data into the DB (chunks of 50)
+    - Uses service role key (admin-level access)
+    - Conflict resolution on `slug` column
+
+7.4 seed-admin (supabase/functions/seed-admin/index.ts)
+    - Seeds initial admin user/role
+
+8. KEY COMPONENTS
+--------------------------------------------------------------------------------
+src/components/
+├── Navbar.tsx               → Top navigation with theme toggle (Sun/Moon)
+├── AIChatWidget.tsx         → Floating AI chat counselor widget
+├── RankingTable.tsx         → Main sortable/filterable ranking table
+├── RankingTableSkeleton.tsx → Loading skeleton for ranking table
+├── FilterSidebar.tsx        → Sidebar filters for rankings
+├── ComparisonModal.tsx      → Side-by-side university comparison
+├── WorldMap.tsx             → Interactive world map visualization
+├── HistoricalTrendChart.tsx → 5-year trend line chart
+├── AnalyticsCharts.tsx      → Dashboard analytics visualizations
+├── AdmissionChanceSimulator.tsx → Admission probability calculator
+├── AlumniSuccess.tsx        → Alumni success stories section
+├── ActivityFeed.tsx         → Real-time activity feed
+├── TrendingNews.tsx         → News carousel from GNews
+├── GreenIntelligence.tsx    → Sustainability metrics display
+├── UniversityLogo.tsx       → Favicon-based university logo
+├── DashboardFooter.tsx      → Footer with links and branding
+├── NavLink.tsx              → Reusable nav link component
+└── admin/
+    ├── AdminSidebar.tsx          → Admin panel sidebar navigation
+    ├── OverviewTab.tsx           → Admin dashboard overview
+    ├── UniversityManagerTab.tsx  → CRUD for universities
+    ├── AlgorithmSettingsTab.tsx  → Adjust ranking weights
+    └── NewsManagerTab.tsx        → Manage news articles
+
+9. DESIGN SYSTEM
+--------------------------------------------------------------------------------
+- Colors defined as HSL CSS variables in `src/index.css`
+- Primary: Deep Academic Blue (navy)
+- Secondary/Accent: Emerald Green
+- Full dark mode support with dedicated `.dark` token overrides
+- Typography: "Plus Jakarta Sans" (display), "Inter" (body)
+- All components use semantic Tailwind tokens (bg-primary, text-foreground, etc.)
+
+10. DATA FLOW
+--------------------------------------------------------------------------------
+1. Static data: `src/data/universities.ts` contains ~100+ raw university records
+   with pillar scores. The `generateUniversities()` function deduplicates,
+   calculates weighted scores, sorts by score, and assigns ranks.
+
+2. Dynamic data: The `universities` DB table mirrors this data and can be
+   managed via the Admin panel. The `seed-universities` edge function syncs
+   local data to the database.
+
+3. Algorithm weights: Fetched from `algorithm_settings` table at runtime.
+   Falls back to hardcoded defaults if the DB is empty or unavailable.
+
+4. News: Fetched on-demand via the `fetch-news` edge function, or managed
+   manually via the Admin news manager.
+
+5. AI Chat: Messages sent to the `universe-chat` edge function, which streams
+   responses from the Lovable AI Gateway with live ranking context.
+
+11. ENVIRONMENT VARIABLES
+--------------------------------------------------------------------------------
+Automatically managed (DO NOT edit .env manually):
+  - VITE_SUPABASE_URL
+  - VITE_SUPABASE_PUBLISHABLE_KEY
+  - VITE_SUPABASE_PROJECT_ID
+
+Edge function secrets (configured in Lovable Cloud):
+  - LOVABLE_API_KEY       → For AI chat gateway
+  - GNEWS_API_KEY         → For news fetching
+  - SUPABASE_URL          → Auto-provided to edge functions
+  - SUPABASE_SERVICE_ROLE_KEY → Auto-provided to edge functions
+
+================================================================================
+                              END OF DOCUMENTATION
+================================================================================
