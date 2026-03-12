@@ -34,6 +34,7 @@ const App = () => (
               <Route path="/methodology" element={<Methodology />} />
               <Route path="/login" element={<Login />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/notices" element={<Notices />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <AIChatWidget />
