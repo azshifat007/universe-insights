@@ -56,6 +56,7 @@ const Admin = () => {
             {activeTab === "universities" && <UniversityManagerTab />}
             {activeTab === "algorithm" && <AlgorithmSettingsTab />}
             {activeTab === "news" && <NewsManagerTab />}
+            {activeTab === "notices" && <NoticeManagerTab />}
           </main>
         </div>
       </div>

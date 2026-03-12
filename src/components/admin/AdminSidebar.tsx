@@ -20,6 +20,7 @@ const items = [
   { title: "University Manager", value: "universities", icon: GraduationCap },
   { title: "Algorithm Settings", value: "algorithm", icon: SlidersHorizontal },
   { title: "GNews Settings", value: "news", icon: Newspaper },
+  { title: "Notice Manager", value: "notices", icon: Bell },
 ];
 
 interface AdminSidebarProps {
