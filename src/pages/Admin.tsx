@@ -7,6 +7,7 @@ import { OverviewTab } from "@/components/admin/OverviewTab";
 import { UniversityManagerTab } from "@/components/admin/UniversityManagerTab";
 import { AlgorithmSettingsTab } from "@/components/admin/AlgorithmSettingsTab";
 import { NewsManagerTab } from "@/components/admin/NewsManagerTab";
+import { NoticeManagerTab } from "@/components/admin/NoticeManagerTab";
 import { useToast } from "@/hooks/use-toast";
 import { Skeleton } from "@/components/ui/skeleton";
 
