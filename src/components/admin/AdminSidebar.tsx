@@ -1,4 +1,4 @@
-import { LayoutDashboard, GraduationCap, SlidersHorizontal, Newspaper, LogOut } from "lucide-react";
+import { LayoutDashboard, GraduationCap, SlidersHorizontal, Newspaper, Bell, LogOut } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import {
