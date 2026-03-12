@@ -12,6 +12,7 @@ import Methodology from "./pages/Methodology";
 import FindMyMatch from "./pages/FindMyMatch";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
+import Notices from "./pages/Notices";
 import NotFound from "./pages/NotFound";
 import AIChatWidget from "./components/AIChatWidget";
 
