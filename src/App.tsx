@@ -15,6 +15,7 @@ import Admin from "./pages/Admin";
 import Notices from "./pages/Notices";
 import NotFound from "./pages/NotFound";
 import AIChatWidget from "./components/AIChatWidget";
+import GlobalAlertBanner from "./components/GlobalAlertBanner";
 
 const queryClient = new QueryClient();
 
