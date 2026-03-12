@@ -12,8 +12,10 @@ import Methodology from "./pages/Methodology";
 import FindMyMatch from "./pages/FindMyMatch";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
+import Notices from "./pages/Notices";
 import NotFound from "./pages/NotFound";
 import AIChatWidget from "./components/AIChatWidget";
+import GlobalAlertBanner from "./components/GlobalAlertBanner";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
+            <GlobalAlertBanner />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/rankings" element={<Rankings />} />
@@ -33,6 +36,7 @@ const App = () => (
               <Route path="/methodology" element={<Methodology />} />
               <Route path="/login" element={<Login />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/notices" element={<Notices />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <AIChatWidget />

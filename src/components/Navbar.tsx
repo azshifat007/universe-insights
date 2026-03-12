@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { label: "Rankings", path: "/rankings" },
   { label: "Find My Match", path: "/find-my-match" },
   { label: "Methodology", path: "/methodology" },
+  { label: "Notices", path: "/notices" },
 ];
 
 const Navbar = () => {
