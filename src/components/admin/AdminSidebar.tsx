@@ -1,4 +1,4 @@
-import { LayoutDashboard, GraduationCap, SlidersHorizontal, Newspaper, Bell, LogOut } from "lucide-react";
+import { LayoutDashboard, GraduationCap, SlidersHorizontal, Newspaper, Bell, LogOut, FileSpreadsheet } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import {
@@ -21,6 +21,7 @@ const items = [
   { title: "Algorithm Settings", value: "algorithm", icon: SlidersHorizontal },
   { title: "GNews Settings", value: "news", icon: Newspaper },
   { title: "Notice Manager", value: "notices", icon: Bell },
+  { title: "Raw Data", value: "rawdata", icon: FileSpreadsheet },
 ];
 
 interface AdminSidebarProps {
