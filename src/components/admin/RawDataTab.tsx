@@ -70,14 +70,19 @@ export function RawDataTab() {
 
   const filtered = useMemo(() => {
     if (!universities) return [];
-    return universities.filter((u) => {
+    const result = universities.filter((u) => {
       const matchSearch = u.name.toLowerCase().includes(search.toLowerCase()) ||
         u.city.toLowerCase().includes(search.toLowerCase()) ||
         u.slug.toLowerCase().includes(search.toLowerCase());
       const matchCountry = countryFilter === "all" || u.country === countryFilter;
       return matchSearch && matchCountry;
     });
+    setPage(1);
+    return result;
   }, [universities, search, countryFilter]);
+
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const paginated = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
   const exportCSV = () => {
     if (!filtered.length) return;
