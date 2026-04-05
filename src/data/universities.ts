@@ -482,6 +482,82 @@ const RAW: Omit<University, "overallScore" | "rank">[] = [
     pillars: { academicReputation: 41.2, citationsPerFaculty: 38.8, employerReputation: 52.5, facultyStudentRatio: 56.3, internationalResearchNetwork: 30.2, employmentOutcomes: 60.1, sustainability: 45.8, internationalDiversity: 14.5 },
     trend: [27, 26, 26, 25, 25, 25], highlights: ["Only dedicated textile university in BD", "Strong ties to $45B RMG export industry", "Pioneering sustainable fashion research"],
   },
+  // ─── Bangladesh — Newly Added Universities ─────────────────────────────────
+  {
+    id: "nu", name: "National University, Bangladesh", country: "Bangladesh", city: "Gazipur", founded: 1992, students: 2800000, researchFocus: "Affiliated Colleges", logo: "🇧🇩", domain: "nu.ac.bd",
+    pillars: { academicReputation: 34.5, citationsPerFaculty: 25.8, employerReputation: 36.2, facultyStudentRatio: 22.1, internationalResearchNetwork: 18.5, employmentOutcomes: 38.5, sustainability: 35.2, internationalDiversity: 6.5 },
+    trend: [38, 37, 37, 36, 36, 36], highlights: ["Largest university by enrollment in Bangladesh", "Affiliates 2,200+ colleges nationwide", "Key to mass higher education access"],
+  },
+  {
+    id: "bsmrau", name: "Bangabandhu Sheikh Mujibur Rahman Agricultural University", country: "Bangladesh", city: "Gazipur", founded: 1998, students: 2500, researchFocus: "Agriculture & Biotechnology", logo: "🇧🇩", domain: "bsmrau.edu.bd",
+    pillars: { academicReputation: 40.8, citationsPerFaculty: 37.5, employerReputation: 43.2, facultyStudentRatio: 55.8, internationalResearchNetwork: 30.5, employmentOutcomes: 44.8, sustainability: 52.3, internationalDiversity: 11.2 },
+    trend: [30, 29, 29, 28, 28, 28], highlights: ["Specialized agricultural research university", "Biotechnology and genetic engineering focus", "CGIAR collaborative research partner"],
+  },
+  {
+    id: "mist", name: "Military Institute of Science & Technology", country: "Bangladesh", city: "Dhaka", founded: 2003, students: 3200, researchFocus: "Engineering & Defense Tech", logo: "🇧🇩", domain: "mist.ac.bd",
+    pillars: { academicReputation: 45.2, citationsPerFaculty: 42.1, employerReputation: 55.8, facultyStudentRatio: 62.5, internationalResearchNetwork: 28.4, employmentOutcomes: 60.5, sustainability: 41.2, internationalDiversity: 13.8 },
+    trend: [25, 24, 24, 23, 23, 23], highlights: ["Under Bangladesh Armed Forces", "Strong CSE and EEE programs", "Highly selective admission process"],
+  },
+  {
+    id: "baiust", name: "Bangladesh Army International University of Science & Technology", country: "Bangladesh", city: "Comilla", founded: 2014, students: 2500, researchFocus: "Engineering & CS", logo: "🇧🇩", domain: "baiust.edu.bd",
+    pillars: { academicReputation: 34.8, citationsPerFaculty: 30.2, employerReputation: 42.5, facultyStudentRatio: 55.2, internationalResearchNetwork: 20.5, employmentOutcomes: 48.2, sustainability: 36.5, internationalDiversity: 10.5 },
+    trend: [35, 34, 34, 33, 33, 33], highlights: ["Army-backed technical university", "Modern lab facilities", "Growing research in AI and IoT"],
+  },
+  {
+    id: "bauet", name: "Bangladesh Army University of Engineering & Technology", country: "Bangladesh", city: "Natore", founded: 2015, students: 2000, researchFocus: "Engineering", logo: "🇧🇩", domain: "bauet.ac.bd",
+    pillars: { academicReputation: 33.5, citationsPerFaculty: 29.8, employerReputation: 40.8, facultyStudentRatio: 58.1, internationalResearchNetwork: 19.2, employmentOutcomes: 46.5, sustainability: 35.8, internationalDiversity: 9.8 },
+    trend: [36, 35, 35, 34, 34, 34], highlights: ["Newest army engineering university", "Focus on civil and mechanical engineering", "Growing defense research capabilities"],
+  },
+  {
+    id: "niter", name: "National Institute of Textile Engineering & Research", country: "Bangladesh", city: "Dhaka", founded: 2010, students: 2200, researchFocus: "Textile Engineering", logo: "🇧🇩", domain: "niter.edu.bd",
+    pillars: { academicReputation: 36.2, citationsPerFaculty: 34.5, employerReputation: 48.5, facultyStudentRatio: 54.8, internationalResearchNetwork: 24.2, employmentOutcomes: 55.8, sustainability: 42.5, internationalDiversity: 12.1 },
+    trend: [31, 30, 30, 29, 29, 29], highlights: ["Specialized textile research institute", "Direct industry placement pipeline", "Sustainable textile innovation research"],
+  },
+  {
+    id: "bubt", name: "Bangladesh University of Business & Technology", country: "Bangladesh", city: "Dhaka", founded: 2003, students: 11000, researchFocus: "Business & Technology", logo: "🇧🇩", domain: "bubt.edu.bd",
+    pillars: { academicReputation: 37.8, citationsPerFaculty: 32.5, employerReputation: 44.8, facultyStudentRatio: 46.5, internationalResearchNetwork: 23.8, employmentOutcomes: 48.5, sustainability: 37.2, internationalDiversity: 15.8 },
+    trend: [32, 31, 31, 30, 30, 30], highlights: ["Strong MBA and BBA programs", "Industry partnerships with corporates", "Active entrepreneurship incubator"],
+  },
+  {
+    id: "bgc", name: "BGC Trust University Bangladesh", country: "Bangladesh", city: "Chittagong", founded: 2012, students: 4500, researchFocus: "Medicine & Engineering", logo: "🇧🇩", domain: "bgctub.ac.bd",
+    pillars: { academicReputation: 34.2, citationsPerFaculty: 30.8, employerReputation: 40.2, facultyStudentRatio: 48.5, internationalResearchNetwork: 21.8, employmentOutcomes: 44.8, sustainability: 36.8, internationalDiversity: 14.2 },
+    trend: [34, 33, 33, 32, 32, 32], highlights: ["Medical college and engineering faculty", "Trust-funded charitable institution", "Growing healthcare research"],
+  },
+  {
+    id: "cubd", name: "City University Bangladesh", country: "Bangladesh", city: "Dhaka", founded: 2002, students: 9500, researchFocus: "Business & CS", logo: "🇧🇩", domain: "cityuniversity.edu.bd",
+    pillars: { academicReputation: 35.5, citationsPerFaculty: 31.2, employerReputation: 42.8, facultyStudentRatio: 45.2, internationalResearchNetwork: 22.5, employmentOutcomes: 46.2, sustainability: 35.5, internationalDiversity: 16.5 },
+    trend: [33, 32, 32, 31, 31, 31], highlights: ["Multi-campus private university", "Popular BBA and MBA programs", "Digital learning initiatives"],
+  },
+  {
+    id: "primeasia", name: "Primeasia University", country: "Bangladesh", city: "Dhaka", founded: 2003, students: 5500, researchFocus: "Law & Business", logo: "🇧🇩", domain: "primeasia.edu.bd",
+    pillars: { academicReputation: 33.8, citationsPerFaculty: 29.5, employerReputation: 39.5, facultyStudentRatio: 44.8, internationalResearchNetwork: 20.2, employmentOutcomes: 42.8, sustainability: 34.5, internationalDiversity: 13.8 },
+    trend: [35, 34, 34, 33, 33, 33], highlights: ["Strong law faculty", "Affordable private education", "Community engagement programs"],
+  },
+  {
+    id: "rabiu", name: "Rabindra University, Bangladesh", country: "Bangladesh", city: "Shahzadpur", founded: 2017, students: 2800, researchFocus: "Arts & Culture", logo: "🇧🇩", domain: "rub.ac.bd",
+    pillars: { academicReputation: 32.5, citationsPerFaculty: 28.2, employerReputation: 36.8, facultyStudentRatio: 50.2, internationalResearchNetwork: 19.8, employmentOutcomes: 38.5, sustainability: 40.2, internationalDiversity: 8.2 },
+    trend: [37, 36, 36, 35, 35, 35], highlights: ["Named after Rabindranath Tagore", "Focus on Bengali arts and culture", "Newest public university in Sirajganj"],
+  },
+  {
+    id: "bdu", name: "Bangabandhu Digital University", country: "Bangladesh", city: "Gazipur", founded: 2019, students: 1800, researchFocus: "Digital Technology & ICT", logo: "🇧🇩", domain: "bdu.ac.bd",
+    pillars: { academicReputation: 31.2, citationsPerFaculty: 28.5, employerReputation: 38.5, facultyStudentRatio: 52.8, internationalResearchNetwork: 22.1, employmentOutcomes: 42.5, sustainability: 38.8, internationalDiversity: 9.5 },
+    trend: [37, 36, 36, 35, 35, 35], highlights: ["First digital university in Bangladesh", "AI and cybersecurity specializations", "Supporting Digital Bangladesh vision"],
+  },
+  {
+    id: "bbdu", name: "Bangabandhu Sheikh Mujib Railway University", country: "Bangladesh", city: "Gazipur", founded: 2019, students: 1200, researchFocus: "Railway & Transport Engineering", logo: "🇧🇩", domain: "bsmru.ac.bd",
+    pillars: { academicReputation: 30.5, citationsPerFaculty: 27.2, employerReputation: 37.5, facultyStudentRatio: 55.5, internationalResearchNetwork: 18.8, employmentOutcomes: 40.2, sustainability: 37.5, internationalDiversity: 8.8 },
+    trend: [38, 37, 37, 36, 36, 36], highlights: ["Only railway university in South Asia", "Transport and logistics specialization", "Aligned with national railway modernization"],
+  },
+  {
+    id: "dmcdu", name: "Dhaka Medical College", country: "Bangladesh", city: "Dhaka", founded: 1946, students: 5000, researchFocus: "Medicine & Surgery", logo: "🇧🇩", domain: "dmc.gov.bd",
+    pillars: { academicReputation: 48.5, citationsPerFaculty: 42.8, employerReputation: 52.5, facultyStudentRatio: 45.2, internationalResearchNetwork: 32.5, employmentOutcomes: 58.5, sustainability: 40.2, internationalDiversity: 15.2 },
+    trend: [23, 22, 22, 21, 21, 21], highlights: ["Oldest medical institution in Bangladesh", "Largest teaching hospital in the country", "Pioneering tropical disease research"],
+  },
+  {
+    id: "nubd", name: "Noakhali University", country: "Bangladesh", city: "Noakhali", founded: 2006, students: 6500, researchFocus: "Sciences & Social Sciences", logo: "🇧🇩", domain: "nu.ac.bd",
+    pillars: { academicReputation: 35.2, citationsPerFaculty: 30.5, employerReputation: 38.8, facultyStudentRatio: 46.5, internationalResearchNetwork: 22.2, employmentOutcomes: 41.2, sustainability: 39.8, internationalDiversity: 8.5 },
+    trend: [34, 33, 33, 32, 32, 32], highlights: ["Serving southern coastal region", "Growing research in climate resilience", "Active student organizations"],
+  },
   // ─── Additional World Universities ─────────────────────────────────────────
   {
     id: "princeton", name: "Princeton University", country: "USA", city: "Princeton, NJ", founded: 1746, students: 8478, researchFocus: "Mathematics & Physics", logo: "🏛️", domain: "princeton.edu",
