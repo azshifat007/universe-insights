@@ -49,6 +49,8 @@ export function RawDataTab() {
   const [search, setSearch] = useState("");
   const [countryFilter, setCountryFilter] = useState("all");
 
+  const [page, setPage] = useState(1);
+
   const { data: universities, isLoading } = useQuery({
     queryKey: ["admin-raw-universities"],
     queryFn: async () => {
