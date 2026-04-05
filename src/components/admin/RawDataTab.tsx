@@ -8,7 +8,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Download, Search, Database, Globe, BookOpen, FileSpreadsheet, ExternalLink } from "lucide-react";
+import { Download, Search, Database, Globe, BookOpen, FileSpreadsheet, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+
+const ITEMS_PER_PAGE = 25;
 
 const DATA_SOURCES = [
   {
