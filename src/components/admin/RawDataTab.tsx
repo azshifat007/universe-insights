@@ -221,7 +221,7 @@ export function RawDataTab() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filtered.map((u) => (
+                {paginated.map((u) => (
                   <TableRow key={u.id}>
                     <TableCell className="sticky left-0 bg-background z-10 font-medium">{u.name}</TableCell>
                     <TableCell>
@@ -246,7 +246,7 @@ export function RawDataTab() {
                     </TableCell>
                   </TableRow>
                 ))}
-                {filtered.length === 0 && (
+                {paginated.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={15} className="text-center py-8 text-muted-foreground">
                       <FileSpreadsheet className="h-8 w-8 mx-auto mb-2 opacity-50" />
@@ -257,6 +257,23 @@ export function RawDataTab() {
               </TableBody>
             </Table>
           </div>
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between px-4 py-3 border-t">
+              <p className="text-sm text-muted-foreground">
+                Showing {(page - 1) * ITEMS_PER_PAGE + 1}–{Math.min(page * ITEMS_PER_PAGE, filtered.length)} of {filtered.length}
+              </p>
+              <div className="flex items-center gap-2">
+                <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1}>
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <span className="text-sm font-medium">Page {page} of {totalPages}</span>
+                <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages}>
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
