@@ -22,6 +22,8 @@ const items = [
   { title: "GNews Settings", value: "news", icon: Newspaper },
   { title: "Notice Manager", value: "notices", icon: Bell },
   { title: "Raw Data", value: "rawdata", icon: FileSpreadsheet },
+  { title: "System Logs", value: "logs", icon: Activity },
+  { title: "Data Audit", value: "audit", icon: Code2 },
 ];
 
 interface AdminSidebarProps {

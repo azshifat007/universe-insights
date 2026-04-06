@@ -61,6 +61,8 @@ const Admin = () => {
             {activeTab === "news" && <NewsManagerTab />}
             {activeTab === "notices" && <NoticeManagerTab />}
             {activeTab === "rawdata" && <RawDataTab />}
+            {activeTab === "logs" && <SystemLogsTab />}
+            {activeTab === "audit" && <DataAuditTab />}
           </main>
         </div>
       </div>
