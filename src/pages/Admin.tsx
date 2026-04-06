@@ -9,6 +9,8 @@ import { AlgorithmSettingsTab } from "@/components/admin/AlgorithmSettingsTab";
 import { NewsManagerTab } from "@/components/admin/NewsManagerTab";
 import { RawDataTab } from "@/components/admin/RawDataTab";
 import { NoticeManagerTab } from "@/components/admin/NoticeManagerTab";
+import { SystemLogsTab } from "@/components/admin/SystemLogsTab";
+import { DataAuditTab } from "@/components/admin/DataAuditTab";
 import { useToast } from "@/hooks/use-toast";
 import { Skeleton } from "@/components/ui/skeleton";
 
