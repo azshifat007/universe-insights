@@ -67,8 +67,7 @@ const Rankings = () => {
         setUniversities(baseUnis);
       }
     };
-    const id = requestIdleCallback?.(() => init()) ?? setTimeout(() => init(), 0);
-    return () => { typeof id === "number" && clearTimeout(id); };
+    init();
   }, []);
 
   const handleRefresh = useCallback(() => {
