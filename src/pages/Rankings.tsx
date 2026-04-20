@@ -49,13 +49,26 @@ const Rankings = () => {
   const [minScore, setMinScore] = useState(0);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
 
-  // Deferred initial load — fetch dynamic weights and apply them
+  // Deferred initial load — fetch dynamic weights and apply them, with a timeout fallback
   useEffect(() => {
+    let cancelled = false;
+    const baseUnis = generateUniversities();
+
+    // Safety net: if anything stalls, render with base scores after 5s
+    const fallbackTimer = setTimeout(() => {
+      if (!cancelled) {
+        setUniversities((prev) => prev ?? baseUnis);
+      }
+    }, 5000);
+
     const init = async () => {
-      const baseUnis = generateUniversities();
       try {
-        const weights = await fetchAlgorithmWeights();
-        // Recalculate scores with dynamic weights
+        const weightsPromise = fetchAlgorithmWeights();
+        const timeoutPromise = new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error("weights-timeout")), 4000)
+        );
+        const weights = await Promise.race([weightsPromise, timeoutPromise]);
+        if (cancelled) return;
         const reweighted = baseUnis.map((u) => ({
           ...u,
           overallScore: calculateWeightedScore(u.pillars, weights),
@@ -64,10 +77,15 @@ const Rankings = () => {
         reweighted.forEach((u, i) => (u.rank = i + 1));
         setUniversities(reweighted);
       } catch {
-        setUniversities(baseUnis);
+        if (!cancelled) setUniversities(baseUnis);
       }
     };
     init();
+
+    return () => {
+      cancelled = true;
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   const handleRefresh = useCallback(() => {
