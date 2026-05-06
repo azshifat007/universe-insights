@@ -222,7 +222,7 @@ const Rankings = () => {
                           </span>
                         </Link>
                       ))}
-                    {(universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(selectedSubject.toLowerCase().split(" ")[0])).length === 0 && (
+                    {(universities ?? []).filter((u) => matchesSubject(u.researchFocus, selectedSubject)).length === 0 && (
                       <p className="text-sm text-muted-foreground py-4 text-center">No universities found for this subject.</p>
                     )}
                   </div>
