@@ -82,7 +82,7 @@ const pipelineSteps = [
   {
     icon: Database,
     title: "1. Data Ingestion",
-    desc: "Raw indicators are pulled from Scopus, peer/employer surveys, institutional submissions and our verified partner APIs into the Lovable Cloud database.",
+    desc: "Raw indicators are pulled from Scopus, peer/employer surveys, institutional submissions and our verified partner APIs into the our Cloud database.",
   },
   {
     icon: ShieldCheck,
