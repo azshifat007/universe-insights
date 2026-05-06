@@ -201,7 +201,7 @@ const Rankings = () => {
                   <h4 className="font-display text-base font-bold mb-3">{selectedSubject}</h4>
                   <div className="space-y-2">
                     {(universities ?? [])
-                      .filter((u) => u.researchFocus.toLowerCase().includes(selectedSubject.toLowerCase().split(" ")[0]))
+                      .filter((u) => matchesSubject(u.researchFocus, selectedSubject))
                       .sort((a, b) => b.overallScore - a.overallScore)
                       .map((u, i) => (
                         <Link
