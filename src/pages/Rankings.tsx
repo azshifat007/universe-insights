@@ -17,6 +17,32 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+// Synonyms / keyword groups so subject filtering is broad and useful
+const SUBJECT_KEYWORDS: Record<string, string[]> = {
+  "Engineering": ["engineering", "technology", "architecture", "eee"],
+  "Computer Science": ["computer", "cs", "ai", "technology", "engineering & cs", "data"],
+  "Medicine": ["medicine", "medical", "health", "pharmacy", "life sciences", "veterinary"],
+  "Business": ["business", "economics", "management", "finance"],
+  "Arts & Humanities": ["arts", "humanities", "liberal", "philosophy", "media"],
+  "Natural Sciences": ["natural sciences", "sciences", "physics", "chemistry", "biology"],
+  "Technology": ["technology", "engineering", "computer", "ai"],
+  "Law": ["law", "governance", "legal"],
+  "Sciences": ["sciences", "science", "physics", "mathematics"],
+  "Humanities": ["humanities", "arts", "philosophy", "social sciences"],
+  "Mathematics": ["mathematics", "math", "physics"],
+  "Agriculture": ["agriculture", "veterinary", "agricultural"],
+  "Social Sciences": ["social sciences", "governance", "development", "humanities"],
+  "Economics": ["economics", "business", "finance"],
+  "Architecture": ["architecture", "engineering"],
+  "Environmental": ["environmental", "sustainability", "energy", "marine"],
+  "Pharmacy": ["pharmacy", "medicine", "health"],
+};
+
+const matchesSubject = (focus: string, subject: string) => {
+  const f = focus.toLowerCase();
+  return (SUBJECT_KEYWORDS[subject] ?? [subject.toLowerCase()]).some((kw) => f.includes(kw));
+};
+
 const SUBJECT_ICONS: Record<string, LucideIcon> = {
   "Engineering": Wrench,
   "Computer Science": Monitor,
@@ -145,7 +171,7 @@ const Rankings = () => {
               {!selectedSubject ? (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                   {SUBJECTS.map((subj) => {
-                    const count = (universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(subj.toLowerCase().split(" ")[0])).length;
+                    const count = (universities ?? []).filter((u) => matchesSubject(u.researchFocus, subj)).length;
                     const Icon = SUBJECT_ICONS[subj];
                     return (
                       <div
@@ -175,7 +201,7 @@ const Rankings = () => {
                   <h4 className="font-display text-base font-bold mb-3">{selectedSubject}</h4>
                   <div className="space-y-2">
                     {(universities ?? [])
-                      .filter((u) => u.researchFocus.toLowerCase().includes(selectedSubject.toLowerCase().split(" ")[0]))
+                      .filter((u) => matchesSubject(u.researchFocus, selectedSubject))
                       .sort((a, b) => b.overallScore - a.overallScore)
                       .map((u, i) => (
                         <Link
@@ -196,7 +222,7 @@ const Rankings = () => {
                           </span>
                         </Link>
                       ))}
-                    {(universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(selectedSubject.toLowerCase().split(" ")[0])).length === 0 && (
+                    {(universities ?? []).filter((u) => matchesSubject(u.researchFocus, selectedSubject)).length === 0 && (
                       <p className="text-sm text-muted-foreground py-4 text-center">No universities found for this subject.</p>
                     )}
                   </div>
