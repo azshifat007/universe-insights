@@ -171,7 +171,7 @@ const Rankings = () => {
               {!selectedSubject ? (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                   {SUBJECTS.map((subj) => {
-                    const count = (universities ?? []).filter((u) => u.researchFocus.toLowerCase().includes(subj.toLowerCase().split(" ")[0])).length;
+                    const count = (universities ?? []).filter((u) => matchesSubject(u.researchFocus, subj)).length;
                     const Icon = SUBJECT_ICONS[subj];
                     return (
                       <div
