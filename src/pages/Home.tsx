@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import TrendingNews from "@/components/TrendingNews";
 import WorldMap from "@/components/WorldMap";
+import WeightSimulator from "@/components/WeightSimulator";
 
 const universities = generateUniversities();
 const activityItems = generateActivityFeed();
