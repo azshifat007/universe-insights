@@ -2,8 +2,23 @@ import { useMemo, useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Sparkles, RotateCcw } from "lucide-react";
-import { PILLAR_WEIGHTS, PILLAR_LABELS, type PillarKey } from "@/data/universities";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { Sparkles, RotateCcw, GitCompare } from "lucide-react";
+import {
+  PILLAR_WEIGHTS,
+  PILLAR_LABELS,
+  generateUniversities,
+  type PillarKey,
+  type PillarScores,
+} from "@/data/universities";
 import {
   ResponsiveContainer,
   BarChart,
@@ -12,10 +27,10 @@ import {
   YAxis,
   Tooltip,
   Cell,
+  Legend,
 } from "recharts";
 
-// Sample worked-example pillar scores (same flavor as Methodology)
-const SAMPLE_SCORES: Record<PillarKey, number> = {
+const SAMPLE_SCORES: PillarScores = {
   academicReputation: 92,
   citationsPerFaculty: 88,
   employerReputation: 85,
@@ -41,13 +56,15 @@ const COLORS = [
   "hsl(var(--ring))",
 ];
 
+const ALL_UNIS = generateUniversities();
+
 const WeightSimulator = () => {
   const [weights, setWeights] = useState<Record<PillarKey, number>>(DEFAULT_PCT);
+  const [compareMode, setCompareMode] = useState(false);
+  const [uniA, setUniA] = useState<string>(ALL_UNIS[0]?.id ?? "");
+  const [uniB, setUniB] = useState<string>(ALL_UNIS[1]?.id ?? "");
 
-  const total = useMemo(
-    () => Object.values(weights).reduce((a, b) => a + b, 0),
-    [weights]
-  );
+  const total = useMemo(() => Object.values(weights).reduce((a, b) => a + b, 0), [weights]);
 
   const normalized = useMemo(() => {
     const out = {} as Record<PillarKey, number>;
@@ -57,28 +74,50 @@ const WeightSimulator = () => {
     return out;
   }, [weights, total]);
 
-  const overall = useMemo(() => {
-    let s = 0;
-    (Object.keys(SAMPLE_SCORES) as PillarKey[]).forEach((k) => {
-      s += SAMPLE_SCORES[k] * normalized[k];
+  const scoresA: PillarScores = useMemo(
+    () => (compareMode ? ALL_UNIS.find((u) => u.id === uniA)?.pillars ?? SAMPLE_SCORES : SAMPLE_SCORES),
+    [compareMode, uniA]
+  );
+  const scoresB: PillarScores | null = useMemo(
+    () => (compareMode ? ALL_UNIS.find((u) => u.id === uniB)?.pillars ?? null : null),
+    [compareMode, uniB]
+  );
+
+  const calcOverall = (s: PillarScores) => {
+    let total = 0;
+    (Object.keys(s) as PillarKey[]).forEach((k) => {
+      total += s[k] * normalized[k];
     });
-    return Math.round(s * 10) / 10;
-  }, [normalized]);
+    return Math.round(total * 10) / 10;
+  };
+
+  const overallA = useMemo(() => calcOverall(scoresA), [scoresA, normalized]);
+  const overallB = useMemo(() => (scoresB ? calcOverall(scoresB) : null), [scoresB, normalized]);
+
+  const nameA = compareMode
+    ? ALL_UNIS.find((u) => u.id === uniA)?.name ?? "A"
+    : "Sample University";
+  const nameB = compareMode ? ALL_UNIS.find((u) => u.id === uniB)?.name ?? "B" : null;
 
   const chartData = useMemo(
     () =>
-      (Object.keys(SAMPLE_SCORES) as PillarKey[]).map((k) => ({
-        name: PILLAR_LABELS[k].replace(" Reputation", " Rep.").replace("Intl ", "Int. "),
-        contribution: Math.round(SAMPLE_SCORES[k] * normalized[k] * 10) / 10,
-        score: SAMPLE_SCORES[k],
-        weight: Math.round(normalized[k] * 1000) / 10,
-      })),
-    [normalized]
+      (Object.keys(scoresA) as PillarKey[]).map((k) => {
+        const row: any = {
+          name: PILLAR_LABELS[k].replace(" Reputation", " Rep.").replace("Intl ", "Int. "),
+          A: Math.round(scoresA[k] * normalized[k] * 10) / 10,
+          weight: Math.round(normalized[k] * 1000) / 10,
+        };
+        if (scoresB) row.B = Math.round(scoresB[k] * normalized[k] * 10) / 10;
+        return row;
+      }),
+    [scoresA, scoresB, normalized]
   );
 
   const reset = () => setWeights(DEFAULT_PCT);
-
   const balanced = Math.abs(total - 100) < 0.5;
+
+  const winner =
+    overallB == null ? null : overallA > overallB ? "A" : overallB > overallA ? "B" : "tie";
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
@@ -91,10 +130,62 @@ const WeightSimulator = () => {
           Tune the Weights, Watch the Score Change
         </h2>
         <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">
-          Drag any slider to re-balance the 8 pillars. The Overall Score and contribution chart
-          recalculate instantly using a sample university.
+          Drag any slider to re-balance the 8 pillars. Toggle compare mode to score two real
+          universities side-by-side.
         </p>
       </div>
+
+      {/* Compare toggle + selectors */}
+      <Card className="glass-card p-4 mb-6">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 justify-between">
+          <div className="flex items-center gap-3">
+            <GitCompare className="h-4 w-4 text-secondary" />
+            <Label htmlFor="compare-mode" className="text-sm font-medium cursor-pointer">
+              Compare two universities
+            </Label>
+            <Switch
+              id="compare-mode"
+              checked={compareMode}
+              onCheckedChange={setCompareMode}
+            />
+          </div>
+
+          {compareMode && (
+            <div className="flex flex-col sm:flex-row gap-3 flex-1 md:max-w-2xl">
+              <div className="flex-1">
+                <Label className="text-xs text-muted-foreground mb-1 block">University A</Label>
+                <Select value={uniA} onValueChange={setUniA}>
+                  <SelectTrigger className="h-9">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="max-h-72">
+                    {ALL_UNIS.map((u) => (
+                      <SelectItem key={u.id} value={u.id}>
+                        {u.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex-1">
+                <Label className="text-xs text-muted-foreground mb-1 block">University B</Label>
+                <Select value={uniB} onValueChange={setUniB}>
+                  <SelectTrigger className="h-9">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="max-h-72">
+                    {ALL_UNIS.map((u) => (
+                      <SelectItem key={u.id} value={u.id}>
+                        {u.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          )}
+        </div>
+      </Card>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Sliders */}
@@ -148,21 +239,62 @@ const WeightSimulator = () => {
 
         {/* Live Output */}
         <div className="space-y-6">
-          <Card className="glass-card p-6 text-center bg-gradient-to-br from-primary/5 to-secondary/5">
-            <p className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
-              Live Overall Score
-            </p>
-            <div className="font-display text-6xl sm:text-7xl font-bold text-secondary my-3 tabular-nums transition-all">
-              {overall.toFixed(1)}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Sample university · 8 pillars × your weights
-            </p>
-          </Card>
+          {compareMode && overallB != null ? (
+            <Card className="glass-card p-6 bg-gradient-to-br from-primary/5 to-secondary/5">
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-medium text-center mb-4">
+                Live Overall Scores
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div
+                  className={`text-center p-3 rounded-lg ${
+                    winner === "A" ? "bg-secondary/10 ring-1 ring-secondary/40" : ""
+                  }`}
+                >
+                  <div className="text-[10px] text-muted-foreground line-clamp-2 min-h-[28px]">
+                    {nameA}
+                  </div>
+                  <div className="font-display text-4xl sm:text-5xl font-bold text-primary my-2 tabular-nums">
+                    {overallA.toFixed(1)}
+                  </div>
+                </div>
+                <div
+                  className={`text-center p-3 rounded-lg ${
+                    winner === "B" ? "bg-secondary/10 ring-1 ring-secondary/40" : ""
+                  }`}
+                >
+                  <div className="text-[10px] text-muted-foreground line-clamp-2 min-h-[28px]">
+                    {nameB}
+                  </div>
+                  <div className="font-display text-4xl sm:text-5xl font-bold text-secondary my-2 tabular-nums">
+                    {overallB.toFixed(1)}
+                  </div>
+                </div>
+              </div>
+              <p className="text-center text-xs text-muted-foreground mt-2">
+                {winner === "tie"
+                  ? "It's a tie under your weights"
+                  : `Δ ${Math.abs(overallA - overallB).toFixed(1)} pts in favor of ${
+                      winner === "A" ? nameA : nameB
+                    }`}
+              </p>
+            </Card>
+          ) : (
+            <Card className="glass-card p-6 text-center bg-gradient-to-br from-primary/5 to-secondary/5">
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
+                Live Overall Score
+              </p>
+              <div className="font-display text-6xl sm:text-7xl font-bold text-secondary my-3 tabular-nums transition-all">
+                {overallA.toFixed(1)}
+              </div>
+              <p className="text-xs text-muted-foreground">
+                {nameA} · 8 pillars × your weights
+              </p>
+            </Card>
+          )}
 
           <Card className="glass-card p-4">
             <h3 className="font-display font-bold text-sm mb-2 px-2">
-              Pillar Contributions to Overall Score
+              Pillar Contributions {compareMode && overallB != null ? "(A vs B)" : ""}
             </h3>
             <div className="h-64 w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -182,16 +314,19 @@ const WeightSimulator = () => {
                       borderRadius: 8,
                       fontSize: 12,
                     }}
-                    formatter={(value: number, _n, p: any) => [
-                      `${value} pts (score ${p.payload.score} × ${p.payload.weight}%)`,
-                      "Contribution",
-                    ]}
                   />
-                  <Bar dataKey="contribution" radius={[4, 4, 0, 0]}>
-                    {chartData.map((_, i) => (
-                      <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                    ))}
+                  {compareMode && overallB != null && (
+                    <Legend wrapperStyle={{ fontSize: 11 }} />
+                  )}
+                  <Bar dataKey="A" name={nameA} fill="hsl(var(--primary))" radius={[4, 4, 0, 0]}>
+                    {!compareMode &&
+                      chartData.map((_, i) => (
+                        <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                      ))}
                   </Bar>
+                  {compareMode && overallB != null && (
+                    <Bar dataKey="B" name={nameB ?? "B"} fill="hsl(var(--secondary))" radius={[4, 4, 0, 0]} />
+                  )}
                 </BarChart>
               </ResponsiveContainer>
             </div>
