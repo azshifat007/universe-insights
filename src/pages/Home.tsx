@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 import TrendingNews from "@/components/TrendingNews";
 import WorldMap from "@/components/WorldMap";
+import WeightSimulator from "@/components/WeightSimulator";
 
 const universities = generateUniversities();
 const activityItems = generateActivityFeed();
@@ -83,6 +84,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Weight Simulator */}
+      <WeightSimulator />
 
       {/* Top 3 Spotlight */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
