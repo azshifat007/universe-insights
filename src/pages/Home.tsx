@@ -85,6 +85,9 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Interactive Weight Simulator */}
+      <WeightSimulator />
+
       {/* Top 3 Spotlight */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
         <h2 className="font-display text-2xl font-bold text-center mb-8">🏆 Top 3 Universities Spotlight</h2>
