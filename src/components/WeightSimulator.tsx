@@ -11,7 +11,15 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Sparkles, RotateCcw, GitCompare } from "lucide-react";
+import { Sparkles, RotateCcw, GitCompare, ArrowLeftRight, ArrowUp, ArrowDown, Minus } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import {
   PILLAR_WEIGHTS,
   PILLAR_LABELS,
@@ -138,7 +146,7 @@ const WeightSimulator = () => {
       {/* Compare toggle + selectors */}
       <Card className="glass-card p-4 mb-6">
         <div className="flex flex-col md:flex-row md:items-center gap-4 justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <GitCompare className="h-4 w-4 text-secondary" />
             <Label htmlFor="compare-mode" className="text-sm font-medium cursor-pointer">
               Compare two universities
@@ -148,6 +156,20 @@ const WeightSimulator = () => {
               checked={compareMode}
               onCheckedChange={setCompareMode}
             />
+            {compareMode && (
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => {
+                  const tmp = uniA;
+                  setUniA(uniB);
+                  setUniB(tmp);
+                }}
+                className="ml-2 h-8"
+              >
+                <ArrowLeftRight className="h-3.5 w-3.5 mr-1" /> Swap
+              </Button>
+            )}
           </div>
 
           {compareMode && (
@@ -333,6 +355,104 @@ const WeightSimulator = () => {
           </Card>
         </div>
       </div>
+
+      {/* Pillar contribution table */}
+      <Card className="glass-card p-4 mt-6">
+        <h3 className="font-display font-bold text-sm mb-3 px-2">
+          Pillar-by-Pillar Contributions
+        </h3>
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Pillar</TableHead>
+                <TableHead className="text-right">Weight</TableHead>
+                <TableHead className="text-right">{nameA} score</TableHead>
+                <TableHead className="text-right">{nameA} contrib.</TableHead>
+                {compareMode && scoresB && (
+                  <>
+                    <TableHead className="text-right">{nameB} score</TableHead>
+                    <TableHead className="text-right">{nameB} contrib.</TableHead>
+                    <TableHead className="text-right">Δ (A − B)</TableHead>
+                  </>
+                )}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {(Object.keys(scoresA) as PillarKey[]).map((k) => {
+                const w = normalized[k];
+                const cA = scoresA[k] * w;
+                const cB = scoresB ? scoresB[k] * w : null;
+                const delta = cB != null ? cA - cB : null;
+                return (
+                  <TableRow key={k}>
+                    <TableCell className="font-medium text-xs">{PILLAR_LABELS[k]}</TableCell>
+                    <TableCell className="text-right tabular-nums text-xs">
+                      {(w * 100).toFixed(1)}%
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums text-xs">
+                      {scoresA[k].toFixed(1)}
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums text-xs font-semibold text-primary">
+                      {cA.toFixed(2)}
+                    </TableCell>
+                    {compareMode && scoresB && cB != null && delta != null && (
+                      <>
+                        <TableCell className="text-right tabular-nums text-xs">
+                          {scoresB[k].toFixed(1)}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums text-xs font-semibold text-secondary">
+                          {cB.toFixed(2)}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums text-xs">
+                          <span
+                            className={`inline-flex items-center gap-1 font-bold ${
+                              delta > 0.05
+                                ? "text-secondary"
+                                : delta < -0.05
+                                  ? "text-destructive"
+                                  : "text-muted-foreground"
+                            }`}
+                          >
+                            {delta > 0.05 ? (
+                              <ArrowUp className="h-3 w-3" />
+                            ) : delta < -0.05 ? (
+                              <ArrowDown className="h-3 w-3" />
+                            ) : (
+                              <Minus className="h-3 w-3" />
+                            )}
+                            {delta > 0 ? "+" : ""}
+                            {delta.toFixed(2)}
+                          </span>
+                        </TableCell>
+                      </>
+                    )}
+                  </TableRow>
+                );
+              })}
+              <TableRow className="bg-muted/30 font-bold">
+                <TableCell className="text-xs">Overall</TableCell>
+                <TableCell className="text-right tabular-nums text-xs">100%</TableCell>
+                <TableCell></TableCell>
+                <TableCell className="text-right tabular-nums text-xs text-primary">
+                  {overallA.toFixed(2)}
+                </TableCell>
+                {compareMode && overallB != null && (
+                  <>
+                    <TableCell></TableCell>
+                    <TableCell className="text-right tabular-nums text-xs text-secondary">
+                      {overallB.toFixed(2)}
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums text-xs">
+                      {(overallA - overallB > 0 ? "+" : "") + (overallA - overallB).toFixed(2)}
+                    </TableCell>
+                  </>
+                )}
+              </TableRow>
+            </TableBody>
+          </Table>
+        </div>
+      </Card>
     </section>
   );
 };
