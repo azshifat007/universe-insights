@@ -82,13 +82,17 @@ const WeightSimulator = () => {
     return out;
   }, [weights, total]);
 
+  const NONE = "__none__";
+  const uniObjA = compareMode && uniA !== NONE ? ALL_UNIS.find((u) => u.id === uniA) : null;
+  const uniObjB = compareMode && uniB !== NONE ? ALL_UNIS.find((u) => u.id === uniB) : null;
+
   const scoresA: PillarScores = useMemo(
-    () => (compareMode ? ALL_UNIS.find((u) => u.id === uniA)?.pillars ?? SAMPLE_SCORES : SAMPLE_SCORES),
-    [compareMode, uniA]
+    () => (uniObjA?.pillars ?? (compareMode && uniObjB ? uniObjB.pillars : SAMPLE_SCORES)),
+    [compareMode, uniA, uniB]
   );
   const scoresB: PillarScores | null = useMemo(
-    () => (compareMode ? ALL_UNIS.find((u) => u.id === uniB)?.pillars ?? null : null),
-    [compareMode, uniB]
+    () => (compareMode && uniObjA && uniObjB ? uniObjB.pillars : null),
+    [compareMode, uniA, uniB]
   );
 
   const calcOverall = (s: PillarScores) => {
@@ -103,9 +107,9 @@ const WeightSimulator = () => {
   const overallB = useMemo(() => (scoresB ? calcOverall(scoresB) : null), [scoresB, normalized]);
 
   const nameA = compareMode
-    ? ALL_UNIS.find((u) => u.id === uniA)?.name ?? "A"
+    ? (uniObjA?.name ?? uniObjB?.name ?? "Sample University")
     : "Sample University";
-  const nameB = compareMode ? ALL_UNIS.find((u) => u.id === uniB)?.name ?? "B" : null;
+  const nameB = compareMode && uniObjA && uniObjB ? uniObjB.name : null;
 
   const chartData = useMemo(
     () =>
