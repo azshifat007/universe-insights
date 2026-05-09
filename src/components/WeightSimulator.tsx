@@ -11,7 +11,15 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Sparkles, RotateCcw, GitCompare } from "lucide-react";
+import { Sparkles, RotateCcw, GitCompare, ArrowLeftRight, ArrowUp, ArrowDown, Minus } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import {
   PILLAR_WEIGHTS,
   PILLAR_LABELS,
