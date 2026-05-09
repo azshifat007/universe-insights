@@ -146,7 +146,7 @@ const WeightSimulator = () => {
       {/* Compare toggle + selectors */}
       <Card className="glass-card p-4 mb-6">
         <div className="flex flex-col md:flex-row md:items-center gap-4 justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <GitCompare className="h-4 w-4 text-secondary" />
             <Label htmlFor="compare-mode" className="text-sm font-medium cursor-pointer">
               Compare two universities
@@ -156,6 +156,20 @@ const WeightSimulator = () => {
               checked={compareMode}
               onCheckedChange={setCompareMode}
             />
+            {compareMode && (
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => {
+                  const tmp = uniA;
+                  setUniA(uniB);
+                  setUniB(tmp);
+                }}
+                className="ml-2 h-8"
+              >
+                <ArrowLeftRight className="h-3.5 w-3.5 mr-1" /> Swap
+              </Button>
+            )}
           </div>
 
           {compareMode && (
