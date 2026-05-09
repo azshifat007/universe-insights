@@ -227,8 +227,106 @@ const WeightSimulator = () => {
               <Button size="sm" variant="ghost" onClick={reset}>
                 <RotateCcw className="h-3.5 w-3.5 mr-1" /> Reset
               </Button>
-            </div>
-          </div>
+        </div>
+      </div>
+
+      {/* Pillar contribution table */}
+      <Card className="glass-card p-4 mt-6">
+        <h3 className="font-display font-bold text-sm mb-3 px-2">
+          Pillar-by-Pillar Contributions
+        </h3>
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Pillar</TableHead>
+                <TableHead className="text-right">Weight</TableHead>
+                <TableHead className="text-right">{nameA} score</TableHead>
+                <TableHead className="text-right">{nameA} contrib.</TableHead>
+                {compareMode && scoresB && (
+                  <>
+                    <TableHead className="text-right">{nameB} score</TableHead>
+                    <TableHead className="text-right">{nameB} contrib.</TableHead>
+                    <TableHead className="text-right">Δ (A − B)</TableHead>
+                  </>
+                )}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {(Object.keys(scoresA) as PillarKey[]).map((k) => {
+                const w = normalized[k];
+                const cA = scoresA[k] * w;
+                const cB = scoresB ? scoresB[k] * w : null;
+                const delta = cB != null ? cA - cB : null;
+                return (
+                  <TableRow key={k}>
+                    <TableCell className="font-medium text-xs">{PILLAR_LABELS[k]}</TableCell>
+                    <TableCell className="text-right tabular-nums text-xs">
+                      {(w * 100).toFixed(1)}%
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums text-xs">
+                      {scoresA[k].toFixed(1)}
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums text-xs font-semibold text-primary">
+                      {cA.toFixed(2)}
+                    </TableCell>
+                    {compareMode && scoresB && cB != null && delta != null && (
+                      <>
+                        <TableCell className="text-right tabular-nums text-xs">
+                          {scoresB[k].toFixed(1)}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums text-xs font-semibold text-secondary">
+                          {cB.toFixed(2)}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums text-xs">
+                          <span
+                            className={`inline-flex items-center gap-1 font-bold ${
+                              delta > 0.05
+                                ? "text-secondary"
+                                : delta < -0.05
+                                  ? "text-destructive"
+                                  : "text-muted-foreground"
+                            }`}
+                          >
+                            {delta > 0.05 ? (
+                              <ArrowUp className="h-3 w-3" />
+                            ) : delta < -0.05 ? (
+                              <ArrowDown className="h-3 w-3" />
+                            ) : (
+                              <Minus className="h-3 w-3" />
+                            )}
+                            {delta > 0 ? "+" : ""}
+                            {delta.toFixed(2)}
+                          </span>
+                        </TableCell>
+                      </>
+                    )}
+                  </TableRow>
+                );
+              })}
+              <TableRow className="bg-muted/30 font-bold">
+                <TableCell className="text-xs">Overall</TableCell>
+                <TableCell className="text-right tabular-nums text-xs">100%</TableCell>
+                <TableCell></TableCell>
+                <TableCell className="text-right tabular-nums text-xs text-primary">
+                  {overallA.toFixed(2)}
+                </TableCell>
+                {compareMode && overallB != null && (
+                  <>
+                    <TableCell></TableCell>
+                    <TableCell className="text-right tabular-nums text-xs text-secondary">
+                      {overallB.toFixed(2)}
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums text-xs">
+                      {(overallA - overallB > 0 ? "+" : "") + (overallA - overallB).toFixed(2)}
+                    </TableCell>
+                  </>
+                )}
+              </TableRow>
+            </TableBody>
+          </Table>
+        </div>
+      </Card>
 
           <div className="space-y-4">
             {(Object.keys(weights) as PillarKey[]).map((k) => (
