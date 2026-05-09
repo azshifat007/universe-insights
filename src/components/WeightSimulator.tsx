@@ -201,6 +201,7 @@ const WeightSimulator = () => {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="max-h-72">
+                    <SelectItem value={NONE}>— None —</SelectItem>
                     {ALL_UNIS.map((u) => (
                       <SelectItem key={u.id} value={u.id}>
                         {u.name}
