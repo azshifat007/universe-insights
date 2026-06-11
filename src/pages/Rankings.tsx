@@ -233,7 +233,7 @@ const Rankings = () => {
 
           <TabsContent value="sustainability">
             <div className="glass-card rounded-lg p-8">
-              <h3 className="font-display text-lg font-bold mb-4">🌱 Sustainability Rankings</h3>
+              <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2"><Leaf className="h-5 w-5 text-secondary" /> Sustainability Rankings</h3>
               <div className="space-y-3">
                 {[...(universities ?? [])].sort((a, b) => b.pillars.sustainability - a.pillars.sustainability).map((u, i) => (
                   <div key={u.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/50">
