@@ -13,7 +13,7 @@ import AnalyticsCharts from "@/components/AnalyticsCharts";
 import {
   Wrench, Monitor, Stethoscope, Briefcase, Palette, FlaskConical,
   Cpu, Scale, Atom, BookOpen, Calculator, Wheat, Users, TrendingUp,
-  Building2, Leaf, Pill,
+  Building2, Leaf, Pill, Globe, GraduationCap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
