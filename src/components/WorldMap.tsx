@@ -41,7 +41,7 @@ const WorldMap = ({ universities }: WorldMapProps) => {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
-      <h2 className="font-display text-2xl font-bold text-center mb-2">🌍 Global University Distribution</h2>
+      <h2 className="font-display text-2xl font-bold text-center mb-2 flex items-center justify-center gap-2"><Globe className="h-6 w-6 text-secondary" /> Global University Distribution</h2>
       <p className="text-sm text-muted-foreground text-center mb-1">
         Bubble size reflects university density; color intensity shows average score
       </p>
