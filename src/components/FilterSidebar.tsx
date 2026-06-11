@@ -41,7 +41,7 @@ const FilterSidebar = ({ country, researchFocus, minScore, region, onCountryChan
               className={`cursor-pointer text-[10px] px-2 py-0.5 transition-colors ${region === "all" ? "bg-sidebar-primary text-sidebar-primary-foreground" : "border-sidebar-border text-sidebar-foreground/70 hover:bg-sidebar-accent"}`}
               onClick={() => { onRegionChange("all"); onCountryChange("all"); }}
             >
-              🌍 All
+              All
             </Badge>
             {REGIONS.map((r) => (
               <Badge
