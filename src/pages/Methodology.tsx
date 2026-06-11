@@ -1,19 +1,20 @@
-import { Brain, Target, BarChart3, Scale, Workflow, Database, Sigma, ShieldCheck, RefreshCw, GitBranch, Sparkles } from "lucide-react";
+import { Brain, Target, BarChart3, Scale, Workflow, Database, Sigma, ShieldCheck, RefreshCw, GitBranch, Sparkles, GraduationCap, FileText, Briefcase, Users, Globe, TrendingUp, Leaf, Globe2 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { PILLAR_WEIGHTS, PILLAR_LABELS, PillarKey } from "@/data/universities";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 
 const pillarKeys = Object.keys(PILLAR_WEIGHTS) as PillarKey[];
 
-const pillarIcons: Record<string, string> = {
-  academicReputation: "🎓",
-  citationsPerFaculty: "📄",
-  employerReputation: "💼",
-  facultyStudentRatio: "👨‍🏫",
-  internationalResearchNetwork: "🌐",
-  employmentOutcomes: "📈",
-  sustainability: "🌱",
-  internationalDiversity: "🌍",
+const pillarIcons: Record<string, LucideIcon> = {
+  academicReputation: GraduationCap,
+  citationsPerFaculty: FileText,
+  employerReputation: Briefcase,
+  facultyStudentRatio: Users,
+  internationalResearchNetwork: Globe,
+  employmentOutcomes: TrendingUp,
+  sustainability: Leaf,
+  internationalDiversity: Globe2,
 };
 
 const pillarDescriptions: Record<string, string> = {
