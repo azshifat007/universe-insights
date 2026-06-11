@@ -144,7 +144,7 @@ const AIChatWidget = () => {
         }
       } catch (e) {
         const errMsg = e instanceof Error ? e.message : "Something went wrong.";
-        setMessages((prev) => [...prev, { role: "assistant", content: `⚠️ ${errMsg}` }]);
+        setMessages((prev) => [...prev, { role: "assistant", content: errMsg }]);
       } finally {
         setIsLoading(false);
       }
