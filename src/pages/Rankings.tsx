@@ -145,10 +145,10 @@ const Rankings = () => {
         </div>
 
         <Tabs defaultValue="global" className="space-y-6">
-          <TabsList className="bg-muted">
-            <TabsTrigger value="global">🌍 Global</TabsTrigger>
-            <TabsTrigger value="subject">📚 By Subject</TabsTrigger>
-            <TabsTrigger value="sustainability">🌱 Sustainability</TabsTrigger>
+          <TabsList className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl">
+            <TabsTrigger value="global" className="gap-2"><Globe className="h-4 w-4" /> Global</TabsTrigger>
+            <TabsTrigger value="subject" className="gap-2"><GraduationCap className="h-4 w-4" /> By Subject</TabsTrigger>
+            <TabsTrigger value="sustainability" className="gap-2"><Leaf className="h-4 w-4" /> Sustainability</TabsTrigger>
           </TabsList>
 
           <TabsContent value="global">
