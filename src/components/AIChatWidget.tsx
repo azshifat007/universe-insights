@@ -8,12 +8,12 @@ import { generateUniversities } from "@/data/universities";
 type Msg = { role: "user" | "assistant"; content: string };
 
 const WELCOME_MSG =
-  "Hi! I'm your Universe AI Counselor 🎓. I can help you find the best universities based on our real-time rankings. What are you looking for today?";
+  "Hi — I'm your Universe AI Counselor. I can help you find the best universities based on our real-time rankings. What are you looking for today?";
 
 const QUICK_ACTIONS = [
-  { label: "🏆 Top 10 Global", message: "Show me the current top 10 globally ranked universities." },
-  { label: "🔬 Best for Research", message: "Which universities are best for research?" },
-  { label: "📊 How is rank calculated?", message: "How is the overall ranking score calculated?" },
+  { label: "Top 10 Global", message: "Show me the current top 10 globally ranked universities." },
+  { label: "Best for Research", message: "Which universities are best for research?" },
+  { label: "How is rank calculated?", message: "How is the overall ranking score calculated?" },
 ];
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/universe-chat`;
