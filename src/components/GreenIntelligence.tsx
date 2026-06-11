@@ -177,7 +177,7 @@ const GreenIntelligence = ({ university }: GreenIntelligenceProps) => {
         <div className="flex flex-wrap gap-1.5">
           {data.initiatives.map((init, i) => (
             <Badge key={i} variant="outline" className="text-[11px] font-normal">
-              🌱 {init}
+              {init}
             </Badge>
           ))}
         </div>

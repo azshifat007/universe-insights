@@ -13,7 +13,7 @@ import AnalyticsCharts from "@/components/AnalyticsCharts";
 import {
   Wrench, Monitor, Stethoscope, Briefcase, Palette, FlaskConical,
   Cpu, Scale, Atom, BookOpen, Calculator, Wheat, Users, TrendingUp,
-  Building2, Leaf, Pill,
+  Building2, Leaf, Pill, Globe, GraduationCap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -145,10 +145,10 @@ const Rankings = () => {
         </div>
 
         <Tabs defaultValue="global" className="space-y-6">
-          <TabsList className="bg-muted">
-            <TabsTrigger value="global">🌍 Global</TabsTrigger>
-            <TabsTrigger value="subject">📚 By Subject</TabsTrigger>
-            <TabsTrigger value="sustainability">🌱 Sustainability</TabsTrigger>
+          <TabsList className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl">
+            <TabsTrigger value="global" className="gap-2"><Globe className="h-4 w-4" /> Global</TabsTrigger>
+            <TabsTrigger value="subject" className="gap-2"><GraduationCap className="h-4 w-4" /> By Subject</TabsTrigger>
+            <TabsTrigger value="sustainability" className="gap-2"><Leaf className="h-4 w-4" /> Sustainability</TabsTrigger>
           </TabsList>
 
           <TabsContent value="global">
@@ -233,7 +233,7 @@ const Rankings = () => {
 
           <TabsContent value="sustainability">
             <div className="glass-card rounded-lg p-8">
-              <h3 className="font-display text-lg font-bold mb-4">🌱 Sustainability Rankings</h3>
+              <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2"><Leaf className="h-5 w-5 text-secondary" /> Sustainability Rankings</h3>
               <div className="space-y-3">
                 {[...(universities ?? [])].sort((a, b) => b.pillars.sustainability - a.pillars.sustainability).map((u, i) => (
                   <div key={u.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/50">

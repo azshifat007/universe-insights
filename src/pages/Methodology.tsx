@@ -1,19 +1,20 @@
-import { Brain, Target, BarChart3, Scale, Workflow, Database, Sigma, ShieldCheck, RefreshCw, GitBranch, Sparkles } from "lucide-react";
+import { Brain, Target, BarChart3, Scale, Workflow, Database, Sigma, ShieldCheck, RefreshCw, GitBranch, Sparkles, GraduationCap, FileText, Briefcase, Users, Globe, TrendingUp, Leaf, Globe2 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { PILLAR_WEIGHTS, PILLAR_LABELS, PillarKey } from "@/data/universities";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
 
 const pillarKeys = Object.keys(PILLAR_WEIGHTS) as PillarKey[];
 
-const pillarIcons: Record<string, string> = {
-  academicReputation: "🎓",
-  citationsPerFaculty: "📄",
-  employerReputation: "💼",
-  facultyStudentRatio: "👨‍🏫",
-  internationalResearchNetwork: "🌐",
-  employmentOutcomes: "📈",
-  sustainability: "🌱",
-  internationalDiversity: "🌍",
+const pillarIcons: Record<string, LucideIcon> = {
+  academicReputation: GraduationCap,
+  citationsPerFaculty: FileText,
+  employerReputation: Briefcase,
+  facultyStudentRatio: Users,
+  internationalResearchNetwork: Globe,
+  employmentOutcomes: TrendingUp,
+  sustainability: Leaf,
+  internationalDiversity: Globe2,
 };
 
 const pillarDescriptions: Record<string, string> = {
@@ -300,10 +301,11 @@ const Methodology = () => (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {pillarKeys.map((key) => {
             const detail = pillarDetails[key];
+            const Icon = pillarIcons[key];
             return (
               <div key={key} className="glass-card-hover rounded-xl p-5">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl">{pillarIcons[key]}</span>
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-secondary"><Icon className="h-5 w-5" /></span>
                   <div>
                     <h3 className="font-display font-bold text-sm">{PILLAR_LABELS[key]}</h3>
                     <span className="text-xs font-semibold text-secondary">{(PILLAR_WEIGHTS[key] * 100).toFixed(0)}% weight</span>

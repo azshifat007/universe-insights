@@ -90,7 +90,7 @@ const Home = () => {
 
       {/* Top 3 Spotlight */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
-        <h2 className="font-display text-2xl font-bold text-center mb-8">🏆 Top 3 Universities Spotlight</h2>
+        <h2 className="font-display text-2xl font-bold text-center mb-8 flex items-center justify-center gap-2"><Award className="h-6 w-6 text-secondary" /> Top 3 Universities Spotlight</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {top3.map((u, i) => (
             <Link key={u.id} to={`/university/${u.id}`} className="glass-card-hover rounded-xl p-6 group">
