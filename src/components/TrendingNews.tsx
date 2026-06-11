@@ -109,7 +109,7 @@ const TrendingNews = () => {
   if (loading) {
     return (
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full">
-        <h2 className="font-display text-2xl font-bold text-center mb-2">🌍 Global Education Updates</h2>
+        <h2 className="font-display text-2xl font-bold text-center mb-2">Global Education Updates</h2>
         <p className="text-center text-sm text-muted-foreground mb-8">Trending university news from around the world</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {[1, 2, 3].map((i) => (
