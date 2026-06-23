@@ -6,8 +6,7 @@ const DashboardFooter = () => (
       <p className="font-medium">
         Thesis Project by{" "}
         <span className="text-foreground">Md. Azizul Hakim</span>,{" "}
-        <span className="text-foreground">Md. Ibrahim Hossain Sumon</span>,{" "}
-        <span className="text-foreground">Bijoy Basak</span>.
+        <span className="text-foreground">Md. Ibrahim Hossain Sumon</span>.
       </p>
       <p className="mt-1">
         Supervised by{" "}
