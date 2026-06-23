@@ -162,7 +162,17 @@ const Rankings = () => {
                 ) : (
                   <RankingTable universities={filtered} onRefresh={handleRefresh} isRefreshing={isRefreshing} />
                 )}
-                {!loading && <AnalyticsCharts universities={filtered} />}
+                {!loading && (
+                  isRefreshing ? (
+                    <div className="animate-fade-in">
+                      <AnalyticsChartsSkeleton />
+                    </div>
+                  ) : (
+                    <div key={`charts-${filtered.length}-${filtered[0]?.overallScore ?? 0}`} className="animate-fade-in">
+                      <AnalyticsCharts universities={filtered} />
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </TabsContent>
