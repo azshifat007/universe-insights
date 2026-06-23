@@ -1468,6 +1468,11 @@ export const SUBJECTS = [
 ];
 
 // ─── Activity feed simulation ───────────────────────────────────────────────
+export interface ActivitySource {
+  label: string;
+  url: string;
+}
+
 export interface ActivityItem {
   id: number;
   text: string;
@@ -1475,22 +1480,128 @@ export interface ActivityItem {
   type: "update" | "new" | "alert";
   universityName?: string;
   universityDomain?: string;
+  category: string;
+  summary: string;
+  details: string[];
+  impact: string;
+  sources: ActivitySource[];
 }
 
 export function generateActivityFeed(): ActivityItem[] {
-  const names = RAW.map((r) => r.name);
   const actions = [
-    { prefix: "Updated: Citations data for", type: "update" as const },
-    { prefix: "New: Employer survey results for", type: "new" as const },
-    { prefix: "Updated: Sustainability index for", type: "update" as const },
-    { prefix: "Alert: Rank change detected for", type: "alert" as const },
-    { prefix: "New: International partnership for", type: "new" as const },
-    { prefix: "Updated: Student satisfaction for", type: "update" as const },
+    {
+      prefix: "Updated: Citations data for",
+      type: "update" as const,
+      category: "Citations per Faculty",
+      summary: "Refreshed Scopus citation counts and recomputed the normalized citations-per-faculty score.",
+      details: [
+        "Pulled latest 5-year citation window from Scopus",
+        "Recalculated faculty-normalized index against the global mean",
+        "Pillar weight: 20% of the Overall Score",
+      ],
+      impact: "Minor (±0.4 pts) change to the Overall Score expected.",
+      sources: [
+        { label: "Scopus / Elsevier", url: "https://www.scopus.com" },
+        { label: "QS Methodology — Citations", url: "https://www.topuniversities.com/qs-world-university-rankings/methodology" },
+      ],
+    },
+    {
+      prefix: "New: Employer survey results for",
+      type: "new" as const,
+      category: "Employer Reputation",
+      summary: "Imported new global employer reputation survey responses into the analytics engine.",
+      details: [
+        "Aggregated 75,000+ employer responses worldwide",
+        "Updated Employer Reputation pillar (15% weight)",
+        "Alumni outcome derivations refreshed accordingly",
+      ],
+      impact: "May shift the Employer Reputation pillar by up to 2 points.",
+      sources: [
+        { label: "QS Global Employer Survey", url: "https://www.topuniversities.com/qs-world-university-rankings/methodology" },
+        { label: "LinkedIn Talent Insights", url: "https://business.linkedin.com/talent-solutions/talent-insights" },
+      ],
+    },
+    {
+      prefix: "Updated: Sustainability index for",
+      type: "update" as const,
+      category: "Sustainability",
+      summary: "Recalculated the sustainability pillar from the latest THE Impact and UI GreenMetric submissions.",
+      details: [
+        "Eco-rating (1–5 leaves) recomputed from the pillar score",
+        "Pillar weight: 5% of the Overall Score",
+        "Carbon, governance, and SDG indicators included",
+      ],
+      impact: "Eco-rating may shift by 0–1 leaf.",
+      sources: [
+        { label: "THE Impact Rankings", url: "https://www.timeshighereducation.com/impactrankings" },
+        { label: "UI GreenMetric", url: "https://greenmetric.ui.ac.id/" },
+      ],
+    },
+    {
+      prefix: "Alert: Rank change detected for",
+      type: "alert" as const,
+      category: "Overall Rank",
+      summary: "Significant rank movement detected during nightly recomputation of the 8-pillar Overall Score.",
+      details: [
+        "Composite Overall Score crossed the monitoring threshold",
+        "All 8 pillars re-weighted per the QS 2026 Model",
+        "Historical 5-year trend updated",
+      ],
+      impact: "Visible movement on the Rankings table and World Map.",
+      sources: [
+        { label: "Internal Smart Algorithm Engine", url: "/methodology" },
+        { label: "QS World University Rankings 2026", url: "https://www.topuniversities.com/world-university-rankings" },
+      ],
+    },
+    {
+      prefix: "New: International partnership for",
+      type: "new" as const,
+      category: "International Faculty / Students",
+      summary: "New cross-border academic partnership recorded; international pillars updated.",
+      details: [
+        "Affects International Faculty Ratio (5% weight)",
+        "Affects International Students Ratio (5% weight)",
+        "Partner-institution diversity index recomputed",
+      ],
+      impact: "Small uplift to the internationalization pillars.",
+      sources: [
+        { label: "University press release", url: "https://news.google.com" },
+        { label: "IIE Open Doors Report", url: "https://opendoorsdata.org/" },
+      ],
+    },
+    {
+      prefix: "Updated: Student satisfaction for",
+      type: "update" as const,
+      category: "Student-Faculty Ratio & Satisfaction",
+      summary: "National student survey results processed; satisfaction proxies updated.",
+      details: [
+        "Student-Faculty Ratio re-verified (10% weight)",
+        "Satisfaction proxy fed into the admission-chance heuristic",
+        "Find My Match wizard scores refreshed",
+      ],
+      impact: "Recommendation ordering in Find My Match may shift.",
+      sources: [
+        { label: "National Student Survey (NSS)", url: "https://www.officeforstudents.org.uk/advice-and-guidance/student-information-and-data/national-student-survey-nss/" },
+        { label: "IPEDS — NCES", url: "https://nces.ed.gov/ipeds/" },
+      ],
+    },
   ];
   const mins = [1, 3, 7, 12, 18, 25, 34, 45];
   return Array.from({ length: 8 }, (_, i) => {
     const action = actions[i % actions.length];
     const uni = RAW[Math.floor(Math.random() * RAW.length)];
-    return { id: i, text: `${action.prefix} ${uni.name}`, time: `${mins[i]}m ago`, type: action.type, universityName: uni.name, universityDomain: uni.domain };
+    return {
+      id: i,
+      text: `${action.prefix} ${uni.name}`,
+      time: `${mins[i]}m ago`,
+      type: action.type,
+      universityName: uni.name,
+      universityDomain: uni.domain,
+      category: action.category,
+      summary: action.summary,
+      details: action.details,
+      impact: action.impact,
+      sources: action.sources,
+    };
   });
 }
