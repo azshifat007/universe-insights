@@ -10,6 +10,7 @@ import FilterSidebar from "@/components/FilterSidebar";
 import RankingTable from "@/components/RankingTable";
 import RankingTableSkeleton from "@/components/RankingTableSkeleton";
 import AnalyticsCharts from "@/components/AnalyticsCharts";
+import AnalyticsChartsSkeleton from "@/components/AnalyticsChartsSkeleton";
 import {
   Wrench, Monitor, Stethoscope, Briefcase, Palette, FlaskConical,
   Cpu, Scale, Atom, BookOpen, Calculator, Wheat, Users, TrendingUp,
@@ -118,7 +119,8 @@ const Rankings = () => {
     setIsRefreshing(true);
     setTimeout(() => {
       setUniversities((prev) => prev ? refreshScores(prev) : prev);
-      setIsRefreshing(false);
+      // Keep skeleton visible briefly for a smooth transition before charts re-render
+      setTimeout(() => setIsRefreshing(false), 350);
     }, 600);
   }, []);
 
@@ -160,7 +162,17 @@ const Rankings = () => {
                 ) : (
                   <RankingTable universities={filtered} onRefresh={handleRefresh} isRefreshing={isRefreshing} />
                 )}
-                {!loading && <AnalyticsCharts universities={filtered} />}
+                {!loading && (
+                  isRefreshing ? (
+                    <div className="animate-fade-in">
+                      <AnalyticsChartsSkeleton />
+                    </div>
+                  ) : (
+                    <div key={`charts-${filtered.length}-${filtered[0]?.overallScore ?? 0}`} className="animate-fade-in">
+                      <AnalyticsCharts universities={filtered} />
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </TabsContent>
