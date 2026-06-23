@@ -119,7 +119,8 @@ const Rankings = () => {
     setIsRefreshing(true);
     setTimeout(() => {
       setUniversities((prev) => prev ? refreshScores(prev) : prev);
-      setIsRefreshing(false);
+      // Keep skeleton visible briefly for a smooth transition before charts re-render
+      setTimeout(() => setIsRefreshing(false), 350);
     }, 600);
   }, []);
 
