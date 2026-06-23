@@ -10,6 +10,7 @@ import FilterSidebar from "@/components/FilterSidebar";
 import RankingTable from "@/components/RankingTable";
 import RankingTableSkeleton from "@/components/RankingTableSkeleton";
 import AnalyticsCharts from "@/components/AnalyticsCharts";
+import AnalyticsChartsSkeleton from "@/components/AnalyticsChartsSkeleton";
 import {
   Wrench, Monitor, Stethoscope, Briefcase, Palette, FlaskConical,
   Cpu, Scale, Atom, BookOpen, Calculator, Wheat, Users, TrendingUp,
