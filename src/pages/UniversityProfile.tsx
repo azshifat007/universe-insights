@@ -61,12 +61,13 @@ const UniversityProfile = () => {
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* At a Glance sidebar */}
-          <aside className="w-full lg:w-72 shrink-0 glass-card hover-glow rounded-xl p-6 space-y-5 h-fit">
+          <aside className="w-full lg:w-72 shrink-0 glass-card hover-glow rounded-2xl p-6 space-y-5 h-fit lg:sticky lg:top-20 animate-rise">
             <div className="text-center">
               <UniversityLogo domain={uni.domain} name={uni.name} className="h-16 w-16 mb-3" />
-              <h1 className="font-display text-xl font-bold">{uni.name}</h1>
+              <h1 className="font-display text-xl font-bold tracking-tight">{uni.name}</h1>
               <p className="text-sm text-muted-foreground mt-1">{uni.researchFocus}</p>
             </div>
+
 
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2 text-muted-foreground">
