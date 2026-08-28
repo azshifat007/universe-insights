@@ -174,11 +174,12 @@ const Home = () => {
       <TrendingNews />
 
       {/* Activity Feed */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 w-full">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 w-full">
         <div className="max-w-md mx-auto">
           <ActivityFeed items={activityItems} />
         </div>
       </section>
+
 
       <div className="mt-auto">
         <DashboardFooter />
