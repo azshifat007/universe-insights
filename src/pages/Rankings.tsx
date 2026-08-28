@@ -185,39 +185,42 @@ const Rankings = () => {
           </TabsContent>
 
           <TabsContent value="subject">
-            <div className="glass-card rounded-lg p-8">
-              <h3 className="font-display text-lg font-bold mb-4">Rankings by Subject</h3>
+            <div className="glass-card rounded-2xl p-8 animate-fade-in">
+              <p className="eyebrow">Explore</p>
+              <h3 className="section-title mt-2 mb-1">Rankings by Subject</h3>
+              <p className="section-sub mb-6">Pick a discipline to see the institutions leading it.</p>
               {!selectedSubject ? (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                   {SUBJECTS.map((subj) => {
                     const count = (universities ?? []).filter((u) => matchesSubject(u.researchFocus, subj)).length;
                     const Icon = SUBJECT_ICONS[subj];
                     return (
-                      <div
+                      <button
                         key={subj}
+                        type="button"
                         onClick={() => setSelectedSubject(subj)}
-                        className="p-4 rounded-lg bg-muted/50 border border-border hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-200 cursor-pointer group hover:scale-105 hover:shadow-lg hover:-translate-y-0.5"
+                        className="text-left p-4 rounded-2xl bg-muted/40 border border-border/70 hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-200 cursor-pointer group hover:-translate-y-1 hover:shadow-lg"
                       >
                         <div className="flex items-center gap-2 mb-1">
                           {Icon && <Icon className="h-4 w-4 text-muted-foreground group-hover:text-secondary transition-colors" />}
                           <p className="font-medium text-sm group-hover:text-secondary transition-colors">{subj}</p>
                         </div>
-                        <p className="text-xs text-muted-foreground mt-1">
+                        <p className="text-xs text-muted-foreground mt-1 tnum">
                           {count || "—"} universities
                         </p>
-                      </div>
+                      </button>
                     );
                   })}
                 </div>
               ) : (
-                <div>
+                <div className="animate-fade-in">
                   <button
                     onClick={() => setSelectedSubject(null)}
                     className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-4 transition-colors"
                   >
                     ← Back to all subjects
                   </button>
-                  <h4 className="font-display text-base font-bold mb-3">{selectedSubject}</h4>
+                  <h4 className="font-display text-base font-bold mb-4">{selectedSubject}</h4>
                   <div className="space-y-2">
                     {(universities ?? [])
                       .filter((u) => matchesSubject(u.researchFocus, selectedSubject))
@@ -226,17 +229,17 @@ const Rankings = () => {
                         <Link
                           key={u.id}
                           to={`/university/${u.id}`}
-                          className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/50 hover:border-secondary/50 hover:bg-secondary/5 transition-colors"
+                          className="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-muted/25 border border-border/50 hover:border-secondary/50 hover:bg-secondary/5 hover:-translate-y-0.5 transition-all duration-200"
                         >
-                          <div className="flex items-center gap-3">
-                            <span className="font-display font-bold text-primary w-8">{i + 1}</span>
+                          <div className="flex items-center gap-3 min-w-0">
+                            <span className="font-display font-bold text-muted-foreground w-8 tnum shrink-0">{i + 1}</span>
                             <UniversityLogo domain={u.domain} name={u.name} />
-                            <div>
-                              <p className="text-sm font-medium">{u.name}</p>
-                              <p className="text-xs text-muted-foreground">{u.city}, {u.country}</p>
+                            <div className="min-w-0">
+                              <p className="text-sm font-medium truncate">{u.name}</p>
+                              <p className="text-xs text-muted-foreground truncate">{u.city}, {u.country}</p>
                             </div>
                           </div>
-                          <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-secondary/15 text-secondary">
+                          <span className="chip font-bold tnum shrink-0">
                             {u.overallScore.toFixed(1)}
                           </span>
                         </Link>
@@ -251,20 +254,22 @@ const Rankings = () => {
           </TabsContent>
 
           <TabsContent value="sustainability">
-            <div className="glass-card rounded-lg p-8">
-              <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2"><Leaf className="h-5 w-5 text-secondary" /> Sustainability Rankings</h3>
-              <div className="space-y-3">
+            <div className="glass-card rounded-2xl p-8 animate-fade-in">
+              <p className="eyebrow">Green Intelligence</p>
+              <h3 className="section-title mt-2 mb-1 flex items-center gap-2"><Leaf className="h-5 w-5 text-secondary" /> Sustainability Rankings</h3>
+              <p className="section-sub mb-6">Institutions ordered by their sustainability pillar score.</p>
+              <div className="space-y-2">
                 {[...(universities ?? [])].sort((a, b) => b.pillars.sustainability - a.pillars.sustainability).map((u, i) => (
-                  <div key={u.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/50">
-                    <div className="flex items-center gap-3">
-                      <span className="font-display font-bold text-primary w-8">{i + 1}</span>
+                  <div key={u.id} className="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-muted/25 border border-border/50 hover:border-secondary/40 transition-colors">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="font-display font-bold text-muted-foreground w-8 tnum shrink-0">{i + 1}</span>
                       <UniversityLogo domain={u.domain} name={u.name} />
-                      <div>
-                        <p className="text-sm font-medium">{u.name}</p>
-                        <p className="text-xs text-muted-foreground">{u.country}</p>
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium truncate">{u.name}</p>
+                        <p className="text-xs text-muted-foreground truncate">{u.country}</p>
                       </div>
                     </div>
-                    <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-secondary/15 text-secondary">
+                    <span className="chip font-bold tnum shrink-0">
                       {u.pillars.sustainability.toFixed(1)}
                     </span>
                   </div>
@@ -272,6 +277,7 @@ const Rankings = () => {
               </div>
             </div>
           </TabsContent>
+
         </Tabs>
       </div>
       <DashboardFooter />
