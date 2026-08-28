@@ -61,12 +61,13 @@ const UniversityProfile = () => {
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* At a Glance sidebar */}
-          <aside className="w-full lg:w-72 shrink-0 glass-card hover-glow rounded-xl p-6 space-y-5 h-fit">
+          <aside className="w-full lg:w-72 shrink-0 glass-card hover-glow rounded-2xl p-6 space-y-5 h-fit lg:sticky lg:top-20 animate-rise">
             <div className="text-center">
               <UniversityLogo domain={uni.domain} name={uni.name} className="h-16 w-16 mb-3" />
-              <h1 className="font-display text-xl font-bold">{uni.name}</h1>
+              <h1 className="font-display text-xl font-bold tracking-tight">{uni.name}</h1>
               <p className="text-sm text-muted-foreground mt-1">{uni.researchFocus}</p>
             </div>
+
 
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2 text-muted-foreground">
@@ -83,20 +84,22 @@ const UniversityProfile = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-border">
+            <div className="pt-4 divider-soft" />
+            <div>
               <div className="flex justify-between text-xs text-muted-foreground mb-1">
                 <span>Global Rank</span>
                 <span>Overall Score</span>
               </div>
               <div className="flex justify-between items-end">
-                <span className="font-display text-3xl font-bold text-primary">#{uni.rank}</span>
-                <span className="px-3 py-1.5 rounded-full text-sm font-bold bg-secondary/15 text-secondary">{uni.overallScore.toFixed(1)}</span>
+                <span className="font-display text-3xl font-bold tnum text-gradient">#{uni.rank}</span>
+                <span className="chip text-sm font-bold tnum">{uni.overallScore.toFixed(1)}</span>
               </div>
             </div>
 
             {/* Pillar breakdown */}
-            <div className="pt-3 border-t border-border space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Pillar Scores</p>
+            <div className="pt-4 space-y-2 border-t border-border/60">
+              <p className="eyebrow">Pillar Scores</p>
+
               {pillarKeys.map((key) => (
                 <div key={key}>
                   <div className="flex justify-between text-xs mb-0.5">

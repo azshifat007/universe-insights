@@ -243,13 +243,81 @@
   }
 
   .eyebrow {
-    color: hsl(var(--muted-foreground));
-    font-size: 0.75rem;
+    color: hsl(var(--secondary));
+    font-size: 0.6875rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 500;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+  }
+
+  /* Gradient brand text */
+  .text-gradient {
+    background: linear-gradient(100deg, hsl(var(--emerald-light)), hsl(var(--emerald)) 55%, hsl(var(--orb-3)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Pill / chip surfaces */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+    background: hsl(var(--secondary) / 0.12);
+    color: hsl(var(--secondary));
+    border: 1px solid hsl(var(--secondary) / 0.18);
+  }
+
+  .chip-muted {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+    background: hsl(var(--muted-foreground) / 0.10);
+    color: hsl(var(--muted-foreground));
+    border: 1px solid hsl(var(--muted-foreground) / 0.14);
+  }
+
+  /* Section heading block */
+  .section-title {
+    @apply font-display font-bold tracking-tight;
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  }
+  .section-sub {
+    @apply text-sm text-muted-foreground mt-1.5 max-w-2xl;
+  }
+
+  .divider-soft {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.12), transparent);
+  }
+
+  /* Entrance motion */
+  .animate-rise {
+    animation: rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-fade-in {
+    animation: soft-fade 0.4s ease-out both;
+  }
+  .stagger-1 { animation-delay: 0.06s; }
+  .stagger-2 { animation-delay: 0.12s; }
+  .stagger-3 { animation-delay: 0.18s; }
+
+  /* Numeric alignment for scores/tables */
+  .tnum { font-variant-numeric: tabular-nums; }
+}
+
+@layer base {
+  /* Calm, consistent focus treatment */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--secondary) / 0.6);
+    border-radius: 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
+
 
 @layer components {
   /* Frosted sticky navbar (uses navy primary in original palette) */
@@ -269,4 +337,14 @@
 @keyframes row-fade-in {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes soft-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
