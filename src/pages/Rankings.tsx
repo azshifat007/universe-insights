@@ -140,18 +140,25 @@ const Rankings = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full flex-1">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="font-display text-2xl font-bold">Rankings</h1>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 w-full flex-1">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 animate-rise">
+          <div>
+            <p className="eyebrow">QS 2026 Smart Algorithm</p>
+            <h1 className="section-title mt-2">Rankings</h1>
+            <p className="section-sub">
+              Compare institutions globally, by subject, or by sustainability performance.
+            </p>
+          </div>
           {!loading && <ComparisonModal universities={universities} />}
         </div>
 
-        <Tabs defaultValue="global" className="space-y-6">
-          <TabsList className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl">
-            <TabsTrigger value="global" className="gap-2"><Globe className="h-4 w-4" /> Global</TabsTrigger>
-            <TabsTrigger value="subject" className="gap-2"><GraduationCap className="h-4 w-4" /> By Subject</TabsTrigger>
-            <TabsTrigger value="sustainability" className="gap-2"><Leaf className="h-4 w-4" /> Sustainability</TabsTrigger>
+        <Tabs defaultValue="global" className="space-y-8">
+          <TabsList className="glass-card rounded-2xl p-1.5 h-auto gap-1">
+            <TabsTrigger value="global" className="gap-2 rounded-xl px-4 py-2 text-sm data-[state=active]:bg-secondary/15 data-[state=active]:text-secondary"><Globe className="h-4 w-4" /> Global</TabsTrigger>
+            <TabsTrigger value="subject" className="gap-2 rounded-xl px-4 py-2 text-sm data-[state=active]:bg-secondary/15 data-[state=active]:text-secondary"><GraduationCap className="h-4 w-4" /> By Subject</TabsTrigger>
+            <TabsTrigger value="sustainability" className="gap-2 rounded-xl px-4 py-2 text-sm data-[state=active]:bg-secondary/15 data-[state=active]:text-secondary"><Leaf className="h-4 w-4" /> Sustainability</TabsTrigger>
           </TabsList>
+
 
           <TabsContent value="global">
             <div className="flex flex-col lg:flex-row gap-6">
