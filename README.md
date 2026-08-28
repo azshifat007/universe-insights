@@ -285,14 +285,6 @@ Developed by **Md Azizul Hakim**
 
 ---
 
-# ⭐ Support
-
-If you like this project:
-
-- Give it a ⭐ on GitHub
-- Share it with others
-- Contribute to development
-
 ---
 
 ## 🌍 Vision
