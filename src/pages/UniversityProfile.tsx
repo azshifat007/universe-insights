@@ -84,20 +84,22 @@ const UniversityProfile = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-border">
+            <div className="pt-4 divider-soft" />
+            <div>
               <div className="flex justify-between text-xs text-muted-foreground mb-1">
                 <span>Global Rank</span>
                 <span>Overall Score</span>
               </div>
               <div className="flex justify-between items-end">
-                <span className="font-display text-3xl font-bold text-primary">#{uni.rank}</span>
-                <span className="px-3 py-1.5 rounded-full text-sm font-bold bg-secondary/15 text-secondary">{uni.overallScore.toFixed(1)}</span>
+                <span className="font-display text-3xl font-bold tnum text-gradient">#{uni.rank}</span>
+                <span className="chip text-sm font-bold tnum">{uni.overallScore.toFixed(1)}</span>
               </div>
             </div>
 
             {/* Pillar breakdown */}
-            <div className="pt-3 border-t border-border space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Pillar Scores</p>
+            <div className="pt-4 space-y-2 border-t border-border/60">
+              <p className="eyebrow">Pillar Scores</p>
+
               {pillarKeys.map((key) => (
                 <div key={key}>
                   <div className="flex justify-between text-xs mb-0.5">
