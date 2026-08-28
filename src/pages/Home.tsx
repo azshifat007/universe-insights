@@ -14,9 +14,17 @@ import WeightSimulator from "@/components/WeightSimulator";
 const universities = generateUniversities();
 const activityItems = generateActivityFeed();
 
+const heroStats = [
+  { label: "Universities", value: `${universities.length}` },
+  { label: "Countries", value: `${new Set(universities.map((u) => u.country)).size}` },
+  { label: "Pillars", value: "8" },
+  { label: "Model", value: "QS 2026" },
+];
+
 const Home = () => {
   const [search, setSearch] = useState("");
   const top3 = universities.slice(0, 3);
+
 
   const results = useMemo(
     () => (search.length > 1 ? universities.filter((u) => u.name.toLowerCase().includes(search.toLowerCase())).slice(0, 5) : []),
