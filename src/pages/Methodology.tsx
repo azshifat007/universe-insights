@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import { PILLAR_WEIGHTS, PILLAR_LABELS, PillarKey } from "@/data/universities";
 import Navbar from "@/components/Navbar";
 import DashboardFooter from "@/components/DashboardFooter";
+import ValidationPanel from "@/components/ValidationPanel";
 
 const pillarKeys = Object.keys(PILLAR_WEIGHTS) as PillarKey[];
 
@@ -322,6 +323,8 @@ const Methodology = () => (
           })}
         </div>
       </div>
+
+      <ValidationPanel />
 
       {/* Limitations */}
       <div className="glass-card-hover rounded-xl p-6">
