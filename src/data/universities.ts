@@ -50,12 +50,15 @@ export type PillarScores = Record<PillarKey, number>;
  * Clamps each pillar to [0, 100] before weighting.
  */
 export function calculateOverallScore(pillars: PillarScores): number {
-  let total = 0;
+  // Missing/invalid pillars are excluded and remaining weights re-normalised.
+  let total = 0, used = 0;
   for (const key of Object.keys(PILLAR_WEIGHTS) as PillarKey[]) {
-    const clamped = Math.max(0, Math.min(100, pillars[key]));
-    total += clamped * PILLAR_WEIGHTS[key];
+    const v = pillars[key];
+    if (typeof v !== "number" || !Number.isFinite(v)) continue;
+    total += Math.max(0, Math.min(100, v)) * PILLAR_WEIGHTS[key];
+    used += PILLAR_WEIGHTS[key];
   }
-  return Math.round(total * 10) / 10;
+  return used > 0 ? Math.round((total / used) * 10) / 10 : 0;
 }
 
 /**
